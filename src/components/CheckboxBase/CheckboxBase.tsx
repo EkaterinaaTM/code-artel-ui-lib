@@ -12,10 +12,11 @@ export interface ICheckbox {
   disabled?: boolean;
   name?: string;
   defaultChecked?: boolean;
+  [propName: string]: any;
 }
 
 export const CheckboxBase = (props: ICheckbox) => {
-  const { id, name, disabled, checked, defaultChecked } = props;
+  const { id, name, disabled, checked, defaultChecked, ...rest } = props;
 
   return (
     <Input
@@ -26,6 +27,7 @@ export const CheckboxBase = (props: ICheckbox) => {
       name={name}
       type={"checkbox"}
       as={"input"}
+      {...rest}
     />
   );
 };
