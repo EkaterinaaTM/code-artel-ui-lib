@@ -1,13 +1,21 @@
-import React, { Component } from "react";
+import {
+  Box,
+  ButtonBase,
+  Flex,
+  Input,
+  CheckboxBase,
+  TextArea,
+  SelectBase,
+  RadioCheckboxBase
+} from "code-artel-ui-lib";
 
-import ExampleComponent from "code-artel-ui-lib";
-
-export default class App extends Component {
-  render() {
-    return (
-      <div>
-        <ExampleComponent />
-      </div>
-    );
-  }
-}
+export default {
+  Box,
+  ButtonBase,
+  Flex,
+  Input,
+  CheckboxBase,
+  TextArea,
+  SelectBase,
+  RadioCheckboxBase
+};

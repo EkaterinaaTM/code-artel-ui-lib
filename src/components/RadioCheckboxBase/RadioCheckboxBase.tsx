@@ -1,8 +1,8 @@
-import * as React from 'react';
-import styled from 'styled-components';
+import * as React from "react";
+import styled from "styled-components";
 
 /** View */
-import { Box } from '../Box/Box';
+import { Box } from "../Box/Box";
 
 const Input = styled(Box)``;
 
@@ -19,12 +19,12 @@ export const RadioCheckboxBase = (props: IRadioCheckbox) => {
       id={`radiocheckbox-${id}`}
       checked={checked}
       name={name}
-      type={'radio'}
-      as={'input'}
+      type={"radio"}
+      as={"input"}
     />
   );
 };
 
-RadioCheckboxBase.defaultProps = {};
+// RadioCheckboxBase.defaultProps = {};
 
 export default RadioCheckboxBase;
