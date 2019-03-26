@@ -1,23 +1,20 @@
-/**
- * @class ExampleComponent
- */
+import * as React from "react";
+import Button from "./Button";
+import Input from "./Input";
 
-import * as React from 'react'
+export type Props = { name: string; placeholder: string };
 
-import styles from './styles.css'
-
-export type Props = { text: string }
-
-export default class ExampleComponent extends React.Component<Props> {
+export class ExampleComponent extends React.Component<Props> {
   render() {
-    const {
-      text
-    } = this.props
+    const { name, placeholder } = this.props;
 
     return (
-      <div className={styles.test}>
-        Example Component: {text}
+      <div>
+        <Button name={name} />
+        <Input placeholder={placeholder} />
       </div>
-    )
+    );
   }
 }
+
+export default ExampleComponent;

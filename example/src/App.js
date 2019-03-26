@@ -1,13 +1,15 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import ExampleComponent from 'code-artel-ui-lib'
+import Button from "code-artel-ui-lib";
+import Input from "code-artel-ui-lib";
 
 export default class App extends Component {
-  render () {
+  render() {
     return (
       <div>
-        <ExampleComponent text='Modern React component module' />
+        <Input placeholder={"MICHA"} />
+        <Button name={"MICHA"} />
       </div>
-    )
+    );
   }
 }
