@@ -1,11 +1,11 @@
-import styled from 'styled-components';
-import { variant } from 'styled-system';
+import styled from "styled-components";
+import { variant } from "styled-system";
 
-import { Box } from '../Box/Box';
+import { Box } from "../Box/Box";
 
 const inputVariant = variant({
-  key: 'variant.inputVariant',
-  prop: 'variant'
+  key: "variant.nputVariant",
+  prop: "variant"
 });
 
 export interface IInput {
@@ -19,8 +19,8 @@ export const Input = styled(Box)<IInput>`
 `;
 
 Input.defaultProps = {
-  variant: 'default',
-  as: 'input'
+  variant: "default",
+  as: "input"
 };
 
 export default Input;
