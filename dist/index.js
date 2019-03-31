@@ -12149,6 +12149,7 @@ var RadioCheckboxBase = /** @class */ (function (_super) {
     return RadioCheckboxBase;
 }(React.Component));
 var templateObject_1$6;
+//# sourceMappingURL=RadioCheckboxBase.js.map
 
 var RadioCheckbox = /** @class */ (function (_super) {
     __extends(RadioCheckbox, _super);
@@ -12163,6 +12164,98 @@ var RadioCheckbox = /** @class */ (function (_super) {
 }(React.Component));
 //# sourceMappingURL=RadioCheckbox.js.map
 
+var TabBarNav = function (_a) {
+    var navLabel = _a.navLabel, onChangeActiveTab = _a.onChangeActiveTab;
+    return (React.createElement("button", { type: "button", onClick: function () {
+            onChangeActiveTab(navLabel);
+        } }, navLabel));
+};
+//# sourceMappingURL=TabBarNav.js.map
+
+var TabBar = /** @class */ (function (_super) {
+    __extends(TabBar, _super);
+    function TabBar() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.state = {
+            activeTab: null
+        };
+        _this.getChildrenLabels = function (children) {
+            return children.map(function (_a) {
+                var props = _a.props;
+                return props.label;
+            });
+        };
+        _this.setActiveTab = function (activeTab) {
+            var currentTab = _this.state.activeTab;
+            if (currentTab !== activeTab) {
+                _this.setState({
+                    activeTab: activeTab
+                });
+            }
+        };
+        _this.renderTabs = function () {
+            var children = _this.props.children;
+            return _this.getChildrenLabels(children).map(function (navLabel) { return (React.createElement(TabBarNav, { key: navLabel, navLabel: navLabel, onChangeActiveTab: _this.setActiveTab })); });
+        };
+        return _this;
+    }
+    TabBar.prototype.componentDidMount = function () {
+        var children = this.props.children;
+        var activeTab = this.getChildrenLabels(children)[0];
+        this.setActiveTab(activeTab);
+    };
+    TabBar.prototype.render = function () {
+        var activeTab = this.state.activeTab;
+        var _a = this.props, children = _a.children, attrs = __rest(_a, ["children"]);
+        return (React.createElement("div", __assign({}, attrs),
+            React.createElement("div", null, this.renderTabs()),
+            React.createElement("div", null, React.Children.map(children, function (child) {
+                return React.cloneElement(child, { activeTab: activeTab });
+            }))));
+    };
+    return TabBar;
+}(React.Component));
+//# sourceMappingURL=TabBar.js.map
+
+var TabBarItem = function (_a) {
+    var children = _a.children, label = _a.label, activeTab = _a.activeTab, attrs = __rest(_a, ["children", "label", "activeTab"]);
+    return React.createElement("div", __assign({}, attrs), children);
+};
+//# sourceMappingURL=TabBarItem.js.map
+
+var Tooltip = /** @class */ (function (_super) {
+    __extends(Tooltip, _super);
+    function Tooltip() {
+        // static defaultProps = {
+        //   content: "Tooltip content",
+        //   style: {},
+        //   position: "top"
+        // };
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.state = {
+            visible: false
+        };
+        _this.show = function () {
+            _this.setVisibility(true);
+        };
+        _this.hide = function () {
+            _this.setVisibility(false);
+        };
+        _this.setVisibility = function (visible) {
+            _this.setState({ visible: visible });
+        };
+        return _this;
+    }
+    Tooltip.prototype.render = function () {
+        var visible = this.state.visible;
+        var _a = this.props, children = _a.children, content = _a.content, style = _a.style;
+        return (React.createElement("span", null,
+            visible && React.createElement("span", { style: style }, content),
+            React.createElement("span", { onMouseEnter: this.show, onMouseLeave: this.hide }, children)));
+    };
+    return Tooltip;
+}(React.Component));
+
 var index$4 = {
     Box: Box,
     Flex: Flex,
@@ -12172,9 +12265,12 @@ var index$4 = {
     SelectBase: SelectBase,
     CheckboxBase: CheckboxBase,
     RadioCheckboxBase: RadioCheckboxBase,
-    RadioCheckbox: RadioCheckbox
+    RadioCheckbox: RadioCheckbox,
+    TabBar: TabBar,
+    TabBarItem: TabBarItem,
+    TabBarNav: TabBarNav,
+    Tooltip: Tooltip
 };
-//# sourceMappingURL=index.js.map
 
 exports.default = index$4;
 //# sourceMappingURL=index.js.map

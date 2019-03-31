@@ -9,7 +9,10 @@ export const App = () => {
     Input,
     CheckboxBase,
     RadioCheckboxBase,
-    RadioCheckbox
+    RadioCheckbox,
+    TabBar,
+    TabBarItem,
+    Tooltip
   } = index$4;
 
   return (
@@ -46,6 +49,30 @@ export const App = () => {
       <div>
         <RadioCheckbox />
       </div>
+
+      <TabBar>
+        <TabBarItem label="Simple text">
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.
+          </p>
+        </TabBarItem>
+        <TabBarItem label="Image">
+          <img
+            src="https://pp.userapi.com/a9QrnDt7kgIb8VkcrCWpCoqd7JRwq5wX_YDr7Q/pOMxeuWzvxg.jpg?ava=1"
+            width={50}
+            height={50}
+          />
+        </TabBarItem>
+      </TabBar>
+
+      <Tooltip
+        position="left"
+        content="Simple small text"
+        style={{ width: "120px" }}
+      >
+        Test
+      </Tooltip>
     </div>
   );
 };

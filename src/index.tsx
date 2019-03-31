@@ -7,6 +7,10 @@ import ButtonBase from "./components/ButtonBase/ButtonBase";
 import CheckboxBase from "./components/CheckboxBase/CheckboxBase";
 import RadioCheckboxBase from "./components/RadioCheckboxBase/RadioCheckboxBase";
 import RadioCheckbox from "./components/RadioCheckbox/RadioCheckbox";
+import TabBar from "./components/TabBar/TabBar";
+import TabBarItem from "./components/TabBar/TabBarItem";
+import TabBarNav from "./components/TabBar/TabBarNav";
+import Tooltip from "./components/Tooltip/Tooltip";
 
 export default {
   Box,
@@ -17,5 +21,9 @@ export default {
   SelectBase,
   CheckboxBase,
   RadioCheckboxBase,
-  RadioCheckbox
+  RadioCheckbox,
+  TabBar,
+  TabBarItem,
+  TabBarNav,
+  Tooltip
 };
