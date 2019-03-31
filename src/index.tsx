@@ -6,6 +6,7 @@ import SelectBase from "./components/SelectBase/SelectBase";
 import ButtonBase from "./components/ButtonBase/ButtonBase";
 import CheckboxBase from "./components/CheckboxBase/CheckboxBase";
 import RadioCheckboxBase from "./components/RadioCheckboxBase/RadioCheckboxBase";
+import RadioCheckbox from "./components/RadioCheckbox/RadioCheckbox";
 
 export default {
   Box,
@@ -15,5 +16,6 @@ export default {
   ButtonBase,
   SelectBase,
   CheckboxBase,
-  RadioCheckboxBase
+  RadioCheckboxBase,
+  RadioCheckbox
 };

@@ -1,12 +1,16 @@
 import * as React from "react";
 import index$4 from "code-artel-ui-lib";
-import AutosizeInput from "code-artel-ui-lib";
 
 export const App = () => {
-  const { Box, ButtonBase, Flex, Input, CheckboxBase } = index$4;
-
-  console.log(1, AutosizeInput);
-  console.log(2, index$4);
+  const {
+    Box,
+    ButtonBase,
+    Flex,
+    Input,
+    CheckboxBase,
+    RadioCheckboxBase,
+    RadioCheckbox
+  } = index$4;
 
   return (
     <div>
@@ -32,7 +36,16 @@ export const App = () => {
         Flex
       </Flex>
       <Input placeholder={"MICHA"} variant={"default"} />
-      <CheckboxBase />
+      <div>
+        <CheckboxBase />
+      </div>
+      <div>
+        <RadioCheckboxBase id={"hi"} name={"hi"} />
+        <RadioCheckboxBase id={"hi"} name={"hi"} />
+      </div>
+      <div>
+        <RadioCheckbox />
+      </div>
     </div>
   );
 };

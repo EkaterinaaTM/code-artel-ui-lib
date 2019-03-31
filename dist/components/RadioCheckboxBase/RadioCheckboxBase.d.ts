@@ -1,8 +1,11 @@
-/// <reference types="react" />
+import * as React from "react";
 export interface IRadioCheckbox {
     id?: string;
     checked?: boolean;
     name?: string;
+    input?: any;
 }
-export declare const RadioCheckboxBase: (props: IRadioCheckbox) => JSX.Element;
+export declare class RadioCheckboxBase extends React.Component<IRadioCheckbox> {
+    render(): JSX.Element;
+}
 export default RadioCheckboxBase;
