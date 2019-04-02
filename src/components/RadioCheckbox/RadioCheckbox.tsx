@@ -2,11 +2,19 @@ import * as React from "react";
 
 import RadioCheckboxBase from "../RadioCheckboxBase/RadioCheckboxBase";
 
-export class RadioCheckbox extends React.Component {
+export interface IRadioCheckbox {
+  checked?: boolean;
+  label?: string;
+  [propName: string]: any;
+}
+
+export class RadioCheckbox extends React.Component<IRadioCheckbox> {
   render() {
+    const { label, onChange } = this.props;
     return (
       <>
-        <RadioCheckboxBase />
+        {label && <div>{label}</div>}
+        <RadioCheckboxBase onChange={onChange} />
       </>
     );
   }

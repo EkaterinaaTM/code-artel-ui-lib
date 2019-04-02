@@ -11,6 +11,8 @@ import TabBar from "./components/TabBar/TabBar";
 import TabBarItem from "./components/TabBar/TabBarItem";
 import TabBarNav from "./components/TabBar/TabBarNav";
 import Tooltip from "./components/Tooltip/Tooltip";
+import CheckboxGroup from "./components/CheckboxGroup/CheckboxGroup";
+import RadioCheckboxGroup from "./components/RadioCheckboxGroup/RadioCheckboxGroup";
 
 export default {
   Box,
@@ -25,5 +27,7 @@ export default {
   TabBar,
   TabBarItem,
   TabBarNav,
-  Tooltip
+  Tooltip,
+  CheckboxGroup,
+  RadioCheckboxGroup
 };

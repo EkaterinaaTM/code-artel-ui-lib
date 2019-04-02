@@ -1,28 +1,29 @@
-import * as React from 'react';
+import * as React from "react";
 
 /** View  */
-import RadioCheckboxBase from '../RadioCheckboxBase/RadioCheckboxBase';
-import Flex from '../Flex/Flex';
+import RadioCheckbox from "../RadioCheckbox/RadioCheckbox";
+import Flex from "../Flex/Flex";
 
-export interface RadioCheckboxGroupProps {
-  label?: string;
-  name?: string;
-  labelProp?: string;
+export interface IRadioCheckboxGroup {
   checked?: boolean;
+  label?: string;
+  onChange?: any;
   [propName: string]: any;
 }
 
-export class RadioCheckboxGroup extends React.Component<
-  RadioCheckboxGroupProps
-> {
+export class RadioCheckboxGroup extends React.Component<IRadioCheckboxGroup> {
   render() {
-    const { label, labelProp, checked } = this.props;
+    const { checked, onChange, label } = this.props;
 
     return (
       <>
-        {label && <label>{label || labelProp}</label>}
-        <Flex flexDirection={'column'}>
-          <RadioCheckboxBase checked={checked} name={`RadioCheckboxBase`} />
+        <Flex flexDirection={"column"}>
+          <RadioCheckbox
+            checked={checked}
+            name={`RadioCheckbox`}
+            onChange={onChange}
+            label={label}
+          />
         </Flex>
       </>
     );

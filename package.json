@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@types/react-select": "^2.0.15",
+    "@types/rollup": "^0.54.0",
     "@types/styled-components": "^4.1.12",
     "@types/styled-system": "^4.0.0",
     "react-final-form": "^4.1.0",

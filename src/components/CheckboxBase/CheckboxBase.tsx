@@ -6,16 +6,19 @@ import { Box } from "../Box/Box";
 
 const Input = styled(Box)``;
 
-export interface ICheckbox {
-  id?: string;
-  checked?: boolean;
-  disabled?: boolean;
-  name?: string;
-  defaultChecked?: boolean;
-  [propName: string]: any;
-}
+// export interface ICheckboxs {
+//   defaultProps?: any;
+//   [propName: string]: any;
+// }
 
-export const CheckboxBase = (props: ICheckbox) => {
+export const CheckboxBase = (props: {
+  [propName: string]: any;
+  id?: string;
+  name?: string;
+  disabled?: boolean;
+  checked?: boolean;
+  defaultChecked?: boolean;
+}) => {
   const { id, name, disabled, checked, defaultChecked, ...rest } = props;
 
   return (
@@ -33,9 +36,9 @@ export const CheckboxBase = (props: ICheckbox) => {
 };
 
 // CheckboxBase.defaultProps = {
-//   id: 'checkbox',
+//   id: "checkbox",
 //   disabled: false,
-//   name: 'checkbox'
+//   name: "checkbox"
 // };
 
 export default CheckboxBase;

@@ -1,11 +1,10 @@
 /// <reference types="react" />
-export interface ICheckbox {
-    id?: string;
-    checked?: boolean;
-    disabled?: boolean;
-    name?: string;
-    defaultChecked?: boolean;
+export declare const CheckboxBase: (props: {
     [propName: string]: any;
-}
-export declare const CheckboxBase: (props: ICheckbox) => JSX.Element;
+    id?: string | undefined;
+    name?: string | undefined;
+    disabled?: boolean | undefined;
+    checked?: boolean | undefined;
+    defaultChecked?: boolean | undefined;
+}) => JSX.Element;
 export default CheckboxBase;

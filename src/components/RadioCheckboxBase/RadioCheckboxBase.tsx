@@ -11,12 +11,12 @@ export interface IRadioCheckbox {
   checked?: boolean;
   name?: string;
   input?: any;
+  onChange?: any;
 }
 
 export class RadioCheckboxBase extends React.Component<IRadioCheckbox> {
   render() {
-    const { id, checked, name, input } = this.props;
-    console.log(this.props);
+    const { id, checked, name, input, onChange } = this.props;
     return (
       <Input
         id={`radiocheckbox-${id}`}
@@ -25,10 +25,7 @@ export class RadioCheckboxBase extends React.Component<IRadioCheckbox> {
         {...input}
         type={"radio"}
         as={"input"}
-        handleChange={(event: { target: { value: any } }) => {
-          console.log(1);
-          return input.onChange(event.target.value);
-        }}
+        onClick={onChange}
       />
     );
   }
