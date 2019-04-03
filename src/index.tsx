@@ -5,14 +5,15 @@ import TextArea from "./components/TextArea/TextArea";
 import SelectBase from "./components/SelectBase/SelectBase";
 import ButtonBase from "./components/ButtonBase/ButtonBase";
 import CheckboxBase from "./components/CheckboxBase/CheckboxBase";
-import RadioCheckboxBase from "./components/RadioCheckboxBase/RadioCheckboxBase";
-import RadioCheckbox from "./components/RadioCheckbox/RadioCheckbox";
+import Checkbox from "./components/Checkbox/Checkbox";
+import CheckboxGroup from "./components/CheckboxGroup/CheckboxGroup";
+import RadioButtonBase from "./components/RadioButtonBase/RadioButtonBase";
+import RadioButton from "./components/RadioButton/RadioButton";
+import RadioButtonGroup from "./components/RadioButtonGroup/RadioButtonGroup";
 import TabBar from "./components/TabBar/TabBar";
 import TabBarItem from "./components/TabBar/TabBarItem";
 import TabBarNav from "./components/TabBar/TabBarNav";
 import Tooltip from "./components/Tooltip/Tooltip";
-import CheckboxGroup from "./components/CheckboxGroup/CheckboxGroup";
-import RadioCheckboxGroup from "./components/RadioCheckboxGroup/RadioCheckboxGroup";
 
 export default {
   Box,
@@ -22,12 +23,13 @@ export default {
   ButtonBase,
   SelectBase,
   CheckboxBase,
-  RadioCheckboxBase,
-  RadioCheckbox,
+  Checkbox,
+  CheckboxGroup,
+  RadioButtonBase,
+  RadioButton,
   TabBar,
   TabBarItem,
   TabBarNav,
   Tooltip,
-  CheckboxGroup,
-  RadioCheckboxGroup
+  RadioButtonGroup
 };

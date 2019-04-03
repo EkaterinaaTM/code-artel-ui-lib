@@ -5,6 +5,8 @@ export interface IRadioCheckbox {
     name?: string;
     input?: any;
     onChange?: any;
+    value: string;
+    defaultChecked?: boolean;
 }
 export declare class RadioCheckboxBase extends React.Component<IRadioCheckbox> {
     render(): JSX.Element;

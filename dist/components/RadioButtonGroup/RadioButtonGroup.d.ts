@@ -1,24 +1,25 @@
 import * as React from "react";
-export interface ICheckboxGroup {
+export interface IRadioButtonGroup {
+    checked?: boolean;
+    label?: string;
     labelProp: string;
     valueProp: string;
-    disabled?: boolean;
-    checked?: boolean;
-    defaultChecked?: boolean;
-    options: IOptions[];
     input: any;
+    options: IOptions[];
+    defaultChecked?: any;
+    name: string;
+    id: string;
     [propName: string]: any;
 }
 export interface IOptions {
     disabled?: boolean;
     [propName: string]: any;
 }
-export declare class CheckboxGroup extends React.Component<ICheckboxGroup> {
+export declare class RadioButtonGroup extends React.Component<IRadioButtonGroup> {
     static defaultProps: {
         labelProp: "foo";
     };
     onChange: (value: any) => void;
-    checkStatusCheckbox: (value: any) => boolean;
     render(): JSX.Element;
 }
-export default CheckboxGroup;
+export default RadioButtonGroup;

@@ -6,44 +6,43 @@ import { Box } from "../Box/Box";
 
 const Input = styled(Box)``;
 
-export interface ICheckboxs {
-  value?: any;
+export interface IRadioButtonBase {
   id?: string;
-  name?: string;
-  disabled?: boolean;
   checked?: boolean;
-  [propName: string]: any;
+  name?: string;
+  input?: any;
+  onChange?: any;
+  value: string;
+  defaultChecked?: boolean;
 }
 
-export const CheckboxBase = (props: ICheckboxs) => {
+export const RadioButtonBase = (props: IRadioButtonBase) => {
   const {
     id,
     name,
-    disabled = false,
     checked,
-    defaultChecked = false,
     value,
     onChange,
+    // defaultChecked,
     ...rest
   } = props;
-
-  // console.log("CheckboxBase", props);
+  // console.log("RadioButtonBase", props);
 
   return (
     <Input
-      id={`checkbox-${id}`}
-      disabled={disabled}
+      id={`radiocheckbox-${id}`}
       checked={checked}
       name={name}
-      type={"checkbox"}
-      as={"input"}
-      value={value}
+      // defaultChecked={defaultChecked}
       onChange={(event: any) => {
         onChange(event.target.value);
       }}
+      value={value}
+      type={"radio"}
+      as={"input"}
       {...rest}
     />
   );
 };
 
-export default CheckboxBase;
+export default RadioButtonBase;

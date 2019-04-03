@@ -1,4 +1,4 @@
-import React__default, { cloneElement, createContext, Component, createElement, PureComponent, Children, Fragment } from 'react';
+import React__default, { cloneElement, createContext, Component, createElement, PureComponent, Fragment, Children } from 'react';
 import stream from 'stream';
 import PropTypes from 'prop-types';
 import ReactDOM, { createPortal, findDOMNode } from 'react-dom';
@@ -12117,45 +12117,117 @@ var templateObject_1$4;
 //# sourceMappingURL=ButtonBase.js.map
 
 var Input$2 = styled(Box)(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject([""], [""])));
-// export interface ICheckboxs {
-//   defaultProps?: any;
-//   [propName: string]: any;
-// }
 var CheckboxBase = function (props) {
-    var id = props.id, name = props.name, disabled = props.disabled, checked = props.checked, defaultChecked = props.defaultChecked, rest = __rest(props, ["id", "name", "disabled", "checked", "defaultChecked"]);
-    return (createElement(Input$2, __assign({ id: "checkbox-" + id, disabled: disabled, checked: checked, defaultChecked: defaultChecked, name: name, type: "checkbox", as: "input" }, rest)));
+    var id = props.id, name = props.name, _a = props.disabled, disabled = _a === void 0 ? false : _a, checked = props.checked, _b = props.defaultChecked, value = props.value, onChange = props.onChange, rest = __rest(props, ["id", "name", "disabled", "checked", "defaultChecked", "value", "onChange"]);
+    // console.log("CheckboxBase", props);
+    return (createElement(Input$2, __assign({ id: "checkbox-" + id, disabled: disabled, checked: checked, name: name, type: "checkbox", as: "input", value: value, onChange: function (event) {
+            onChange(event.target.value);
+        } }, rest)));
 };
 var templateObject_1$5;
 //# sourceMappingURL=CheckboxBase.js.map
 
-var Input$3 = styled(Box)(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject([""], [""])));
-var RadioCheckboxBase = /** @class */ (function (_super) {
-    __extends(RadioCheckboxBase, _super);
-    function RadioCheckboxBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    RadioCheckboxBase.prototype.render = function () {
-        var _a = this.props, id = _a.id, checked = _a.checked, name = _a.name, input = _a.input, onChange = _a.onChange;
-        return (createElement(Input$3, __assign({ id: "radiocheckbox-" + id, checked: checked, name: name }, input, { type: "radio", as: "input", onClick: onChange })));
-    };
-    return RadioCheckboxBase;
-}(Component));
-var templateObject_1$6;
-//# sourceMappingURL=RadioCheckboxBase.js.map
+var Checkbox = function (props) {
+    var id = props.id, name = props.name, disabled = props.disabled, checked = props.checked, label = props.label, onChange = props.onChange, rest = __rest(props, ["id", "name", "disabled", "checked", "label", "onChange"]);
+    // console.log("Checkbox", props);
+    return (createElement(Fragment, null,
+        label && createElement("p", null, label),
+        createElement(CheckboxBase, __assign({ id: "checkbox-" + id, disabled: disabled, checked: checked, name: name, type: "checkbox", as: "input", onChange: onChange }, rest))));
+};
+//# sourceMappingURL=Checkbox.js.map
 
-var RadioCheckbox = /** @class */ (function (_super) {
-    __extends(RadioCheckbox, _super);
-    function RadioCheckbox() {
-        return _super !== null && _super.apply(this, arguments) || this;
+var CheckboxGroup = /** @class */ (function (_super) {
+    __extends(CheckboxGroup, _super);
+    function CheckboxGroup() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.onChange = function (value) {
+            var propsValue = _this.props.value;
+            var valueIndex = propsValue.findIndex(function (item) { return item === value; });
+            // console.log("RadioButtonGroup onChange", value, this.props.value);
+            if (valueIndex > -1) {
+                propsValue.splice(valueIndex, 1);
+            }
+            else {
+                propsValue.push(value);
+            }
+            _this.props.onChange(propsValue);
+        };
+        _this.checkStatusCheckbox = function (value) {
+            if (Array.isArray(_this.props.value) &&
+                _this.props.value.findIndex(function (item) { return item === value; }) > -1) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        };
+        return _this;
     }
-    RadioCheckbox.prototype.render = function () {
-        var _a = this.props, label = _a.label, onChange = _a.onChange;
-        return (createElement(Fragment, null,
-            label && createElement("div", null, label),
-            createElement(RadioCheckboxBase, { onChange: onChange })));
+    CheckboxGroup.prototype.render = function () {
+        var _this = this;
+        var _a = this.props, options = _a.options, labelProp = _a.labelProp, valueProp = _a.valueProp, disabled = _a.disabled, checked = _a.checked, input = _a.input, value = _a.value, onChange = _a.onChange, rest = __rest(_a, ["options", "labelProp", "valueProp", "disabled", "checked", "input", "value", "onChange"]);
+        // console.log("CheckboxGroup this.props", this.props);
+        return (createElement(Fragment, null, Array.isArray(options) &&
+            options.map(function (item, index) {
+                return (createElement(Checkbox, __assign({ name: "CheckboxGroup-" + index, value: item[valueProp], label: item[labelProp], disabled: disabled, checked: _this.checkStatusCheckbox(item[valueProp]), onChange: _this.onChange, key: "CheckboxGroup-" + index }, input, rest)));
+            })));
     };
-    return RadioCheckbox;
+    return CheckboxGroup;
 }(Component));
+//# sourceMappingURL=CheckboxGroup.js.map
+
+var Input$3 = styled(Box)(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject([""], [""])));
+var RadioButtonBase = function (props) {
+    var id = props.id, name = props.name, checked = props.checked, value = props.value, onChange = props.onChange, 
+    // defaultChecked,
+    rest = __rest(props, ["id", "name", "checked", "value", "onChange"]);
+    // console.log("RadioButtonBase", props);
+    return (createElement(Input$3, __assign({ id: "radiocheckbox-" + id, checked: checked, name: name, 
+        // defaultChecked={defaultChecked}
+        onChange: function (event) {
+            onChange(event.target.value);
+        }, value: value, type: "radio", as: "input" }, rest)));
+};
+var templateObject_1$6;
+
+var RadioButton = function (props) {
+    var label = props.label, onChange = props.onChange, checked = props.checked, name = props.name, id = props.id, 
+    // disabled,
+    value = props.value, rest = __rest(props, ["label", "onChange", "checked", "name", "id", "value"]);
+    // console.log("RadioButton", props);
+    return (createElement(Fragment, null,
+        label && createElement("p", null, label),
+        createElement(RadioButtonBase, __assign({ id: id, 
+            // disabled={disabled}
+            checked: checked, name: name, onChange: onChange, value: value }, rest))));
+};
+//# sourceMappingURL=RadioButton.js.map
+
+var RadioButtonGroup = /** @class */ (function (_super) {
+    __extends(RadioButtonGroup, _super);
+    function RadioButtonGroup() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.onChange = function (value) {
+            _this.props.onChange(value);
+        };
+        return _this;
+    }
+    RadioButtonGroup.prototype.render = function () {
+        var _this = this;
+        var _a = this.props, options = _a.options, labelProp = _a.labelProp, valueProp = _a.valueProp, disabled = _a.disabled, checked = _a.checked, input = _a.input, value = _a.value, name = _a.name, id = _a.id, 
+        // defaultChecked,
+        onChange = _a.onChange, rest = __rest(_a, ["options", "labelProp", "valueProp", "disabled", "checked", "input", "value", "name", "id", "onChange"]);
+        // console.log("RadioButtonGroup this.props", this.props);
+        return (createElement(Fragment, null, Array.isArray(options) &&
+            options.map(function (item, index) {
+                return (createElement(RadioButton, __assign({ name: name, id: id, value: item[valueProp], label: item[labelProp], disabled: disabled, checked: checked, 
+                    // defaultChecked={defaultChecked}
+                    onChange: _this.onChange, key: "RadioButtonGroup-" + index }, input, rest)));
+            })));
+    };
+    return RadioButtonGroup;
+}(Component));
+//# sourceMappingURL=RadioButtonGroup.js.map
 
 var TabBarNav = function (_a) {
     var navLabel = _a.navLabel, onChangeActiveTab = _a.onChangeActiveTab;
@@ -12250,70 +12322,6 @@ var Tooltip = /** @class */ (function (_super) {
 }(Component));
 //# sourceMappingURL=Tooltip.js.map
 
-var CheckboxGroup = /** @class */ (function (_super) {
-    __extends(CheckboxGroup, _super);
-    function CheckboxGroup() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    CheckboxGroup.prototype.render = function () {
-        var _a = this.props, options = _a.options, input = _a.input, labelProp = _a.labelProp, valueProp = _a.valueProp, disabled = _a.disabled, checked = _a.checked, defaultChecked = _a.defaultChecked, rest = __rest(_a, ["options", "input", "labelProp", "valueProp", "disabled", "checked", "defaultChecked"]);
-        var setLabelForObject = function (props) {
-            return options.map(function (item) {
-                // console.log(item);
-                var foo = Object.keys(item).map(function (items) {
-                    var _a;
-                    // console.log(items);
-                    var obj = {};
-                    var newKeys = props || items;
-                    obj = __assign((_a = {}, _a[newKeys] = item[items], _a), obj);
-                    // if (items === "value") {
-                    //   const newKeys = props || items;
-                    //   obj = { [newKeys]: item[items] };
-                    // }
-                    // console.log(obj);
-                    return obj;
-                    //     const newKeys = props || items;
-                    //     const obj = { [newKeys]: options[items] };
-                    //     return Object.assign({}, obj);
-                });
-                var newTab = foo.reduce(function (a, b) {
-                    // console.log(a, b);
-                    return Object.assign({}, a, b);
-                });
-                // console.log(foo);
-                // console.log(newTab);
-                return newTab;
-            });
-        };
-        return (createElement(Flex, null, Array.isArray(options) &&
-            options.map(function (item, index) {
-                // console.log(111, setLabelForObject(item.labelProp));
-                return (createElement(Flex, { flexDirection: "column", key: "CheckboxGroup-" + index },
-                    createElement("label", null, item.label),
-                    createElement(CheckboxBase, __assign({ name: "CheckboxBase-" + index, value: item.value, input: input, getOptionLabel: setLabelForObject(item.labelProp), 
-                        // getOptionValue={setLabelForObject(item.valueProp)}
-                        disabled: disabled, checked: checked, defaultChecked: defaultChecked, onChange: item.onChange }, rest))));
-            })));
-    };
-    return CheckboxGroup;
-}(Component));
-//# sourceMappingURL=CheckboxGroup.js.map
-
-var RadioCheckboxGroup = /** @class */ (function (_super) {
-    __extends(RadioCheckboxGroup, _super);
-    function RadioCheckboxGroup() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    RadioCheckboxGroup.prototype.render = function () {
-        var _a = this.props, checked = _a.checked, onChange = _a.onChange, label = _a.label;
-        return (createElement(Fragment, null,
-            createElement(Flex, { flexDirection: "column" },
-                createElement(RadioCheckbox, { checked: checked, name: "RadioCheckbox", onChange: onChange, label: label }))));
-    };
-    return RadioCheckboxGroup;
-}(Component));
-//# sourceMappingURL=RadioCheckboxGroup.js.map
-
 var index$4 = {
     Box: Box,
     Flex: Flex,
@@ -12322,14 +12330,15 @@ var index$4 = {
     ButtonBase: ButtonBase,
     SelectBase: SelectBase,
     CheckboxBase: CheckboxBase,
-    RadioCheckboxBase: RadioCheckboxBase,
-    RadioCheckbox: RadioCheckbox,
+    Checkbox: Checkbox,
+    CheckboxGroup: CheckboxGroup,
+    RadioButtonBase: RadioButtonBase,
+    RadioButton: RadioButton,
     TabBar: TabBar,
     TabBarItem: TabBarItem,
     TabBarNav: TabBarNav,
     Tooltip: Tooltip,
-    CheckboxGroup: CheckboxGroup,
-    RadioCheckboxGroup: RadioCheckboxGroup
+    RadioButtonGroup: RadioButtonGroup
 };
 //# sourceMappingURL=index.js.map
 
