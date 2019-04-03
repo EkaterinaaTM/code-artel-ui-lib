@@ -51,7 +51,7 @@ export class App extends React.Component {
           </Box>
         </Box>
 
-        <Box p={2}>
+        <Box p={2} border={"1px solid black"} borderRadius={"2px"}>
           <ButtonBase
             variant={"default"}
             size={"medium"}
@@ -76,7 +76,7 @@ export class App extends React.Component {
           </Flex>
         </Box>
 
-        <Box p={2}>
+        <Box p={2} border={"1px solid black"} borderRadius={"2px"}>
           <Input placeholder={"MICHA"} variant={"default"} />
         </Box>
 
@@ -85,7 +85,7 @@ export class App extends React.Component {
           <CheckboxBase />
         </Box>
 
-        <Box p={2}>
+        <Box p={2} border={"1px solid black"} borderRadius={"2px"}>
           <h4>Checkbox</h4>
           <Checkbox label={"check label N1"} />
         </Box>
@@ -111,7 +111,7 @@ export class App extends React.Component {
           />
         </Box>
 
-        <Box p={2}>
+        <Box p={2} border={"1px solid black"} borderRadius={"2px"}>
           <h4>RadioButtonBase</h4>
 
           <RadioButtonBase id={"hi"} name={"hi"} />
@@ -124,7 +124,7 @@ export class App extends React.Component {
           <RadioButton id={"his"} name={"his"} label={"radio label"} />
         </Box>
 
-        <Box p={2}>
+        <Box p={2} border={"1px solid black"} borderRadius={"2px"}>
           <h4>RadioButtonGroup</h4>
 
           <RadioButtonGroup
@@ -171,8 +171,8 @@ export class App extends React.Component {
           </TabController>
         </Box>
 
-        <Flex py={2}>
-          <Box pr={7}>
+        <Flex py={2} border={"1px solid black"} borderRadius={"2px"}>
+          <Box pl={2} pr={7}>
             <TooltipBase
               position="bottom"
               isActive={true}

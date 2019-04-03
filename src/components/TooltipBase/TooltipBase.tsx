@@ -1,4 +1,5 @@
 import * as React from "react";
+import styled from "styled-components";
 import {
   Wrapper,
   OutsideTriangle,
@@ -6,9 +7,9 @@ import {
   Warning
 } from "./TooltipBaseStyled";
 
-// const RelativeStyled = styled(Relative)`
-//   width: 100%;
-// `;
+const Relative = styled.div`
+  position: relative;
+`;
 
 export interface ITooltipBase {
   isActive?: any;
@@ -37,9 +38,8 @@ export class TooltipBase extends React.Component<ITooltipBase> {
 
   render() {
     const { warning, position, isActive, children } = this.props;
-    console.log(warning, position, isActive, children);
     return (
-      <div style={{ position: "relative" }}>
+      <Relative>
         {isActive && (
           <Wrapper position={position}>
             <OutsideTriangle position={position} />
@@ -48,7 +48,7 @@ export class TooltipBase extends React.Component<ITooltipBase> {
           </Wrapper>
         )}
         {children}
-      </div>
+      </Relative>
     );
   }
 }

@@ -12452,6 +12452,7 @@ var Warning = styled.div(templateObject_4 || (templateObject_4 = __makeTemplateO
 var templateObject_1$9, templateObject_2, templateObject_3, templateObject_4;
 //# sourceMappingURL=TooltipBaseStyled.js.map
 
+var Relative = styled.div(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["\n  position: relative;\n"], ["\n  position: relative;\n"])));
 /**
  * Компонент тултипа (Tooltip)
  * @example ./TooltipBase.example.md
@@ -12469,8 +12470,7 @@ var TooltipBase = /** @class */ (function (_super) {
     };
     TooltipBase.prototype.render = function () {
         var _a = this.props, warning = _a.warning, position = _a.position, isActive = _a.isActive, children = _a.children;
-        console.log(warning, position, isActive, children);
-        return (React.createElement("div", { style: { position: "relative" } },
+        return (React.createElement(Relative, null,
             isActive && (React.createElement(Wrapper, { position: position },
                 React.createElement(OutsideTriangle, { position: position }),
                 React.createElement(InsideTriangle, { position: position }),
@@ -12484,7 +12484,7 @@ var TooltipBase = /** @class */ (function (_super) {
     };
     return TooltipBase;
 }(React.Component));
-//# sourceMappingURL=TooltipBase.js.map
+var templateObject_1$a;
 
 var index$4 = {
     Box: Box,
