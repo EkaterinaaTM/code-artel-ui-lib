@@ -36,7 +36,7 @@ export class App extends React.Component {
       Tabs,
       TabController,
       TabContent,
-      Tooltip
+      TooltipBase
     } = index$4;
     return (
       <div>
@@ -171,23 +171,28 @@ export class App extends React.Component {
           </TabController>
         </Box>
 
-        <Tooltip
-          position="left"
-          content="Simple small text"
-          style={{ width: "120px" }}
-        >
-          Test
-        </Tooltip>
+        <Flex py={2}>
+          <Box pr={7}>
+            <TooltipBase
+              position="bottom"
+              isActive={true}
+              warning={"Надпись тултипа"}
+            >
+              Test
+            </TooltipBase>
+          </Box>
+
+          <TooltipBase
+            position="top"
+            isActive={true}
+            warning={"Надпись тултипа"}
+          >
+            Test
+          </TooltipBase>
+        </Flex>
       </div>
     );
   }
 }
-
-// export const App = () => {
-
-//   return (
-
-//   );
-// };
 
 export default App;

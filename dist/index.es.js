@@ -12377,40 +12377,106 @@ var TabController = /** @class */ (function (_super) {
     return TabController;
 }(Component));
 var templateObject_1$8;
+//# sourceMappingURL=TabController.js.map
 
-var Tooltip = /** @class */ (function (_super) {
-    __extends(Tooltip, _super);
-    function Tooltip() {
-        // static defaultProps = {
-        //   content: "Tooltip content",
-        //   style: {},
-        //   position: "top"
-        // };
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.state = {
-            visible: false
-        };
-        _this.show = function () {
-            _this.setVisibility(true);
-        };
-        _this.hide = function () {
-            _this.setVisibility(false);
-        };
-        _this.setVisibility = function (visible) {
-            _this.setState({ visible: visible });
-        };
-        return _this;
+// import BorderColorProperty from "../../styles/styleProperty/BorderColorProperty";
+// import BackgroundColorProperty from "../../styles/styleProperty/BackgroundColorProperty";
+var Wrapper = styled.div(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  max-width: 300px;\n  min-width: 140px;\n  padding: 6px;\n  position: absolute;\n  right: 0;\n\n  ", "\n\n  z-index: 1;\n  text-align: left;\n  border: 1px solid;\n  border-radius: 3px;\n\n  ", "\n"], ["\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  max-width: 300px;\n  min-width: 140px;\n  padding: 6px;\n  position: absolute;\n  right: 0;\n\n  ",
+    "\n\n  z-index: 1;\n  text-align: left;\n  border: 1px solid;\n  border-radius: 3px;\n\n  ",
+    "\n"])), function (_a) {
+    var position$$1 = _a.position;
+    switch (position$$1) {
+        case "bottom": {
+            return "\n          left: 14px;\n          top: calc(100% + 10px);\n        ";
+        }
+        case "top": {
+            return "\n          left: 14px;\n          bottom: calc(100% + 10px);\n        ";
+        }
+        default: {
+            return "\n          left: 14px;\n          top: calc(100% + 10px);\n        ";
+        }
     }
-    Tooltip.prototype.render = function () {
-        var visible = this.state.visible;
-        var _a = this.props, children = _a.children, content = _a.content, style = _a.style;
-        return (createElement("span", null,
-            visible && createElement("span", { style: style }, content),
-            createElement("span", { onMouseEnter: this.show, onMouseLeave: this.hide }, children)));
+}, function (props) {
+    return borderColor(__assign({}, props, { borderColor: "#B71C1C" }));
+});
+/* ${props => BorderColorProperty({ ...props, borderColor: "color12" })}
+  ${props =>
+    BackgroundColorProperty({
+      ...props,
+      backgroundColor: "color0"
+    })} */
+var OutsideTriangle = styled.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  width: 0;\n  height: 0;\n  position: absolute;\n  z-index: 1;\n  border-style: solid;\n  border-width: 6.5px 14px 6.5px 0;\n  border-color: transparent #b71c1c transparent transparent;\n\n  ", "\n"], ["\n  width: 0;\n  height: 0;\n  position: absolute;\n  z-index: 1;\n  border-style: solid;\n  border-width: 6.5px 14px 6.5px 0;\n  border-color: transparent #b71c1c transparent transparent;\n\n  ",
+    "\n"])), function (_a) {
+    var position$$1 = _a.position;
+    switch (position$$1) {
+        case "bottom": {
+            return "\n            transform: rotate(90deg);\n            top: -14px;\n            left: 15%;\n          ";
+        }
+        case "top": {
+            return "\n          transform: rotate(-90deg);\n          bottom: -14px;\n          left: 15%;\n        ";
+        }
+        default: {
+            return "\n          -webkit-transform: rotate(90deg);\n          -ms-transform: rotate(90deg);\n          transform: rotate(90deg);\n          top: -14px;\n          left: 15%;\n        ";
+        }
+    }
+});
+/* ${props => BorderColorProperty({ ...props, borderTopColor: "color12" })} */
+var InsideTriangle = styled.div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  width: 0;\n  height: 0;\n  position: absolute;\n  z-index: 2;\n  border-style: solid;\n  border-width: 6.5px 14px 6.5px 0;\n  border-color: transparent #fff transparent transparent;\n\n  ", "\n"], ["\n  width: 0;\n  height: 0;\n  position: absolute;\n  z-index: 2;\n  border-style: solid;\n  border-width: 6.5px 14px 6.5px 0;\n  border-color: transparent #fff transparent transparent;\n\n  ",
+    "\n"])), function (_a) {
+    var position$$1 = _a.position;
+    switch (position$$1) {
+        case "bottom": {
+            return "\n          transform: rotate(90deg);\n          top: -12px;\n          left: 15%;\n        ";
+        }
+        case "top": {
+            return "\n          transform: rotate(-90deg);\n          bottom: -12px;\n          left: 15%;\n        ";
+        }
+        default: {
+            return "\n          transform: rotate(90deg);\n          top: -12px;\n          left: 15%;\n        ";
+        }
+    }
+});
+/* ${props => BorderColorProperty({ ...props, borderTopColor: "color12" })} */
+var Warning = styled.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  ", "\n  font-size:14px;\n  line-height: 22px;\n"], ["\n  ",
+    "\n  font-size:14px;\n  line-height: 22px;\n"])), function (props) {
+    return color(__assign({}, props, { color: "#B71C1C" }));
+});
+var templateObject_1$9, templateObject_2, templateObject_3, templateObject_4;
+//# sourceMappingURL=TooltipBaseStyled.js.map
+
+/**
+ * Компонент тултипа (Tooltip)
+ * @example ./TooltipBase.example.md
+ */
+var TooltipBase = /** @class */ (function (_super) {
+    __extends(TooltipBase, _super);
+    function TooltipBase() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    TooltipBase.prototype.shouldComponentUpdate = function (nextProps) {
+        if (nextProps.isActive !== this.props.isActive) {
+            return true;
+        }
+        return false;
     };
-    return Tooltip;
+    TooltipBase.prototype.render = function () {
+        var _a = this.props, warning = _a.warning, position = _a.position, isActive = _a.isActive, children = _a.children;
+        console.log(warning, position, isActive, children);
+        return (createElement("div", { style: { position: "relative" } },
+            isActive && (createElement(Wrapper, { position: position },
+                createElement(OutsideTriangle, { position: position }),
+                createElement(InsideTriangle, { position: position }),
+                createElement(Warning, null, warning))),
+            children));
+    };
+    TooltipBase.defaultProps = {
+        warning: "Информация не доступна",
+        position: "bottom",
+        isActive: false
+    };
+    return TooltipBase;
 }(Component));
-//# sourceMappingURL=Tooltip.js.map
+//# sourceMappingURL=TooltipBase.js.map
 
 var index$4 = {
     Box: Box,
@@ -12427,9 +12493,10 @@ var index$4 = {
     Tabs: Tabs,
     TabController: TabController,
     TabContent: TabContent,
-    Tooltip: Tooltip,
+    TooltipBase: TooltipBase,
     RadioButtonGroup: RadioButtonGroup
 };
+//# sourceMappingURL=index.js.map
 
 export default index$4;
 //# sourceMappingURL=index.es.js.map

@@ -14,7 +14,7 @@ import Tabs from "./components/TabBar/Tabs";
 // import Tab from './components/TabBar/Tab'
 import TabContent from "./components/TabBar/TabContent";
 import TabController from "./components/TabBar/TabController";
-import Tooltip from "./components/Tooltip/Tooltip";
+import TooltipBase from "./components/TooltipBase/TooltipBase";
 
 export default {
   Box,
@@ -31,6 +31,6 @@ export default {
   Tabs,
   TabController,
   TabContent,
-  Tooltip,
+  TooltipBase,
   RadioButtonGroup
 };
