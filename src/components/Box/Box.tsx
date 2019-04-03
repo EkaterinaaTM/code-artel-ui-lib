@@ -25,7 +25,12 @@ import {
   HeightProps,
   MinHeightProps,
   OverflowProps,
-  OpacityProps
+  OpacityProps,
+  zIndex,
+  backgroundImage,
+  backgroundSize,
+  backgroundPosition,
+  backgroundRepeat
 } from "styled-system";
 
 export interface IBox
@@ -59,7 +64,12 @@ export const Box = styled.div<IBox>`
   ${opacity};
   ${textAlign};
   ${lineHeight};
-  ${letterSpacing}
+  ${letterSpacing};
+  ${zIndex};
+  ${backgroundImage};
+  ${backgroundSize};
+  ${backgroundPosition};
+  ${backgroundRepeat}
 `;
 
 export default Box;

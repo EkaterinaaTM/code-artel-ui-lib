@@ -16,6 +16,13 @@ import TabController from "./components/TabBar/TabController";
 import TooltipBase from "./components/TooltipBase/TooltipBase";
 import Text from "./components/Text/Text";
 import SmallPreloader from "./components/SmallPreloader/SmallPreloader";
+import Card from "./components/Card/Card";
+import Container from "./components/Container/Container";
+import Image from "./components/Image/Image";
+import Link from "./components/Link/Link";
+
+// import PaginationPage from "./components/Pagination/Pagination";
+// import PaginationHOC from "./components/Pagination/PaginationHOC";
 
 export default {
   Box,
@@ -35,5 +42,11 @@ export default {
   TooltipBase,
   RadioButtonGroup,
   Text,
-  SmallPreloader
+  SmallPreloader,
+  Card,
+  Container,
+  Image,
+  Link
+  // PaginationPage,
+  // PaginationHOC
 };

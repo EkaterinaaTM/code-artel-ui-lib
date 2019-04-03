@@ -1,6 +1,10 @@
 import * as React from "react";
 import index$4 from "code-artel-ui-lib";
 
+export const Example = () => {
+  return <div />;
+};
+
 export class App extends React.Component {
   state = {
     value: [],
@@ -38,7 +42,13 @@ export class App extends React.Component {
       TabContent,
       TooltipBase,
       Text,
-      SmallPreloader
+      SmallPreloader,
+      Card,
+      Container,
+      Image,
+      Link
+      // PaginationPage,
+      // PaginationPageHOC
     } = index$4;
     return (
       <div>
@@ -199,6 +209,52 @@ export class App extends React.Component {
 
         <Box p={2}>
           <SmallPreloader>Пример текста</SmallPreloader>
+        </Box>
+        {/*
+        <Box p={2}>
+          <PaginationPageHOC
+            // queryName={"projectList"}
+            pageSize={5}
+            pageNumber={1}
+            // queryVariables={{
+            //   id: user && user.id
+            // }}
+            // query={ProjectListQuery}
+          >
+            {props => (
+              <PaginationPage
+                {...props}
+                // data={props.data && props.data.projectList}
+                Consumer={Example}
+              />
+            )}
+          </PaginationPageHOC>
+            </Box>*/}
+
+        <Box p={2}>
+          <Card textAlign={"center"}>Card Component!</Card>
+        </Box>
+
+        <Box p={2}>
+          <Container border={"1px solid black"}>
+            <Text>Container Component!</Text>
+          </Container>
+        </Box>
+
+        <Box p={2}>
+          <Image
+            src="https://pp.userapi.com/a9QrnDt7kgIb8VkcrCWpCoqd7JRwq5wX_YDr7Q/pOMxeuWzvxg.jpg?ava=1"
+            width={100}
+            height={100}
+            alt={"foo"}
+            title={"Компонент - картинка"}
+          />
+        </Box>
+
+        <Box p={2}>
+          <Link href="/" fontSize={"14px"} lineHeight={"22px"}>
+            Ссылка на главную
+          </Link>
         </Box>
       </div>
     );

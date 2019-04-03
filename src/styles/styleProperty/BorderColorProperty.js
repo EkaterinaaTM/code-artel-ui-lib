@@ -1,19 +1,16 @@
-import React, { Component } from 'react';
-
-import styled from 'styled-components';
-import { style, fontSize } from 'styled-system';
+import { style } from "styled-system";
 
 export const BorderColorProperty = style({
   // React prop name
-  prop: 'borderColor',
+  prop: "borderColor",
   // The corresponding CSS property (defaults to prop argument)
-  cssProperty: 'border-color',
+  cssProperty: "border-color",
   // key for theme values
-  key: 'colors',
+  key: "colors",
   // convert number values to pixels
   numberToPx: false,
   // shorthand alias React prop name
-  alias: 'bc',
+  alias: "bc"
 });
 
 export default BorderColorProperty;

@@ -25,5 +25,9 @@ declare const _default: {
     RadioButtonGroup: typeof RadioButtonGroup;
     Text: import("styled-components").StyledComponent<"div", any, import("../../../../MICHA/\u0411\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0430/code-artel-ui-lib/src/components/Box/Box").IBox, never>;
     SmallPreloader: () => JSX.Element;
+    Card: import("styled-components").StyledComponent<"div", any, import("../../../../MICHA/\u0411\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0430/code-artel-ui-lib/src/components/Box/Box").IBox, never>;
+    Container: import("styled-components").StyledComponent<"div", any, import("../../../../MICHA/\u0411\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0430/code-artel-ui-lib/src/components/Box/Box").IBox, never>;
+    Image: any;
+    Link: any;
 };
 export default _default;

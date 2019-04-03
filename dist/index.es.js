@@ -3378,7 +3378,7 @@ var colorStyle = variant({
   prop: 'colors'
 });
 
-var Box = styled.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  box-sizing: border-box;\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", "\n"], ["\n  box-sizing: border-box;\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", "\n"])), display, space, width, overflow, borderRadius, borderColor, borders, border, fontSize, color, maxWidth, minWidth, height, minHeight, opacity, textAlign, lineHeight, letterSpacing);
+var Box = styled.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  box-sizing: border-box;\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", "\n"], ["\n  box-sizing: border-box;\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", "\n"])), display, space, width, overflow, borderRadius, borderColor, borders, border, fontSize, color, maxWidth, minWidth, height, minHeight, opacity, textAlign, lineHeight, letterSpacing, zIndex, backgroundImage, backgroundSize, backgroundPosition, backgroundRepeat);
 var templateObject_1;
 //# sourceMappingURL=Box.js.map
 
@@ -12500,7 +12500,45 @@ var SpeedingWheel = styled.div(templateObject_2$1 || (templateObject_2$1 = __mak
 var SmallPreloader = function () { return (createElement(Fragment, null,
     createElement(SpeedingWheel, null))); };
 var templateObject_1$c, templateObject_2$1;
+//# sourceMappingURL=SmallPreloader.js.map
 
+/**
+ * Компонент карточки
+ * @example ./Card.example.md
+ */
+var Card = styled(Box)(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n  margin: 0 auto;\n  cursor: pointer;\n"], ["\n  margin: 0 auto;\n  cursor: pointer;\n"])));
+Card.defaultProps = {
+    borderRadius: 2,
+    border: "1px solid #AEAEAE",
+    minHeight: "150px"
+};
+var templateObject_1$d;
+//# sourceMappingURL=Card.js.map
+
+var Container = styled(Box)(templateObject_1$e || (templateObject_1$e = __makeTemplateObject([""], [""])));
+Container.defaultProps = {
+    mt: 0,
+    mb: 0,
+    ml: "auto",
+    mr: "auto",
+    maxWidth: "992px"
+};
+var templateObject_1$e;
+//# sourceMappingURL=Container.js.map
+
+var Image = styled.img(templateObject_1$f || (templateObject_1$f = __makeTemplateObject(["\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n"], ["\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n"])), width, height, borderRadius, display);
+Image.defaultProps = {
+    display: "block"
+};
+var templateObject_1$f;
+//# sourceMappingURL=Image.js.map
+
+var Link = styled.a(templateObject_1$g || (templateObject_1$g = __makeTemplateObject(["\n  color: #333;\n  cursor: pointer;\n  text-decoration: none;\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  /* &:hover {\n    ", ";\n  } */\n"], ["\n  color: #333;\n  cursor: pointer;\n  text-decoration: none;\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  /* &:hover {\n    ", ";\n  } */\n"])), space, width, display, color, fontSize, fontFamily, fontWeight, lineHeight, function (props) { return color(__assign({}, props, { color: "color3" })); });
+Link.defaultProps = {};
+var templateObject_1$g;
+
+// import PaginationPage from "./components/Pagination/Pagination";
+// import PaginationHOC from "./components/Pagination/PaginationHOC";
 var index$4 = {
     Box: Box,
     Flex: Flex,
@@ -12519,7 +12557,13 @@ var index$4 = {
     TooltipBase: TooltipBase,
     RadioButtonGroup: RadioButtonGroup,
     Text: Text,
-    SmallPreloader: SmallPreloader
+    SmallPreloader: SmallPreloader,
+    Card: Card,
+    Container: Container,
+    Image: Image,
+    Link: Link
+    // PaginationPage,
+    // PaginationHOC
 };
 //# sourceMappingURL=index.js.map
 

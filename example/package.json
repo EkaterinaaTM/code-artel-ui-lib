@@ -5,11 +5,17 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "apollo-cache-inmemory": "^1.5.1",
+    "apollo-client": "^2.5.1",
+    "apollo-link-http": "^1.5.14",
+    "code-artel-ui-lib": "link:..",
+    "graphql": "^14.2.1",
+    "graphql-tag": "^2.10.1",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
+    "react-apollo": "^2.5.3",
     "react-dom": "^16.4.1",
-    "react-scripts": "^1.1.4",
-    "code-artel-ui-lib": "link:.."
+    "react-scripts": "^1.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
