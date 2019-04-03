@@ -1,4 +1,4 @@
-import { SpaceProps, DisplayProps, MaxWidthProps, MinWidthProps, HeightProps, MinHeightProps, OverflowProps, OpacityProps } from 'styled-system';
+import { SpaceProps, DisplayProps, MaxWidthProps, MinWidthProps, HeightProps, MinHeightProps, OverflowProps, OpacityProps } from "styled-system";
 export interface IBox extends SpaceProps, DisplayProps, MaxWidthProps, MinWidthProps, HeightProps, MinHeightProps, OverflowProps, OpacityProps {
     [propName: string]: any;
 }

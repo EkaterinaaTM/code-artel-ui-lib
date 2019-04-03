@@ -26,6 +26,7 @@
     "@types/rollup": "^0.54.0",
     "@types/styled-components": "^4.1.12",
     "@types/styled-system": "^4.0.0",
+    "react-apollo": "^2.5.3",
     "react-final-form": "^4.1.0",
     "react-select": "^2.4.2",
     "styled-components": "^4.2.0",

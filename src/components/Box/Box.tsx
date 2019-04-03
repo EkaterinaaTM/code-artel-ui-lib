@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import {
   space,
   width,
@@ -13,8 +13,11 @@ import {
   maxWidth,
   minWidth,
   height,
+  textAlign,
+  lineHeight,
   minHeight,
   opacity,
+  letterSpacing,
   SpaceProps,
   DisplayProps,
   MaxWidthProps,
@@ -23,7 +26,7 @@ import {
   MinHeightProps,
   OverflowProps,
   OpacityProps
-} from 'styled-system';
+} from "styled-system";
 
 export interface IBox
   extends SpaceProps,
@@ -54,6 +57,9 @@ export const Box = styled.div<IBox>`
   ${height};
   ${minHeight};
   ${opacity};
+  ${textAlign};
+  ${lineHeight};
+  ${letterSpacing}
 `;
 
 export default Box;

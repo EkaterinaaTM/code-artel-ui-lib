@@ -36,7 +36,9 @@ export class App extends React.Component {
       Tabs,
       TabController,
       TabContent,
-      TooltipBase
+      TooltipBase,
+      Text,
+      SmallPreloader
     } = index$4;
     return (
       <div>
@@ -171,7 +173,7 @@ export class App extends React.Component {
           </TabController>
         </Box>
 
-        <Flex py={2} border={"1px solid black"} borderRadius={"2px"}>
+        <Flex py={3} border={"1px solid black"} borderRadius={"2px"}>
           <Box pl={2} pr={7}>
             <TooltipBase
               position="bottom"
@@ -190,6 +192,14 @@ export class App extends React.Component {
             Test
           </TooltipBase>
         </Flex>
+
+        <Box px={2} py={4}>
+          <Text>Пример текста</Text>
+        </Box>
+
+        <Box p={2}>
+          <SmallPreloader>Пример текста</SmallPreloader>
+        </Box>
       </div>
     );
   }

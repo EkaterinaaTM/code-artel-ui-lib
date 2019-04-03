@@ -3386,7 +3386,7 @@ var colorStyle = variant({
   prop: 'colors'
 });
 
-var Box = styled.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  box-sizing: border-box;\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n"], ["\n  box-sizing: border-box;\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n"])), display, space, width, overflow, borderRadius, borderColor, borders, border, fontSize, color, maxWidth, minWidth, height, minHeight, opacity);
+var Box = styled.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  box-sizing: border-box;\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", "\n"], ["\n  box-sizing: border-box;\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", ";\n  ", "\n"])), display, space, width, overflow, borderRadius, borderColor, borders, border, fontSize, color, maxWidth, minWidth, height, minHeight, opacity, textAlign, lineHeight, letterSpacing);
 var templateObject_1;
 //# sourceMappingURL=Box.js.map
 
@@ -12485,6 +12485,29 @@ var TooltipBase = /** @class */ (function (_super) {
     return TooltipBase;
 }(React.Component));
 var templateObject_1$a;
+//# sourceMappingURL=TooltipBase.js.map
+
+// /** Style property */
+// import { BackgroundColorProperty } from "../../styles/styleProperty/BackgroundColorProperty";
+// import { FillSvgProperty } from "../../styles/styleProperty/FillSvgProperty";
+// import { FontFamilyProperty } from "../../styles/FontFamilyProperty";
+// import { LineHeightProperty } from "../../styles/styleProperty/LineHeightProperty";
+/**
+ * Компонент текста
+ * @example ./Text.example.md
+ */
+var Text = styled(Box)(templateObject_1$b || (templateObject_1$b = __makeTemplateObject(["\n  cursor: pointer;\n"], ["\n  cursor: pointer;\n"])));
+Text.defaultProps = {
+    color: "#333333"
+};
+var templateObject_1$b;
+//# sourceMappingURL=Text.js.map
+
+var PreloaderWrapper = styled(Box)(templateObject_1$c || (templateObject_1$c = __makeTemplateObject(["\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n  z-index: 3;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(255, 255, 255, 0.6);\n  -webkit-transition: 0.225s all;\n  -o-transition: 0.225s all;\n  transition: 0.225s all;\n"], ["\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n  z-index: 3;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(255, 255, 255, 0.6);\n  -webkit-transition: 0.225s all;\n  -o-transition: 0.225s all;\n  transition: 0.225s all;\n"])));
+var SpeedingWheel = styled.div(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  width: 1em;\n  height: 1em;\n  margin: 0 auto;\n  border: 2px solid #00649c;\n  border-radius: 50%;\n  border-left-color: transparent;\n  border-right-color: transparent;\n  animation: cssload-spin 500ms infinite linear;\n  -o-animation: cssload-spin 500ms infinite linear;\n  -ms-animation: cssload-spin 500ms infinite linear;\n  -webkit-animation: cssload-spin 500ms infinite linear;\n  -moz-animation: cssload-spin 500ms infinite linear;\n\n  @keyframes cssload-spin {\n    100% {\n      -webkit-transform: rotate(360deg);\n      -ms-transform: rotate(360deg);\n      transform: rotate(360deg);\n    }\n  }\n\n  @-o-keyframes cssload-spin {\n    100% {\n      -o-transform: rotate(360deg);\n      -webkit-transform: rotate(360deg);\n      -ms-transform: rotate(360deg);\n      transform: rotate(360deg);\n    }\n  }\n\n  @-ms-keyframes cssload-spin {\n    100% {\n      -ms-transform: rotate(360deg);\n      -webkit-transform: rotate(360deg);\n      transform: rotate(360deg);\n    }\n  }\n\n  @-webkit-keyframes cssload-spin {\n    100% {\n      -webkit-transform: rotate(360deg);\n      -ms-transform: rotate(360deg);\n      transform: rotate(360deg);\n    }\n  }\n\n  @-moz-keyframes cssload-spin {\n    100% {\n      -webkit-transform: rotate(360deg);\n      -ms-transform: rotate(360deg);\n      transform: rotate(360deg);\n    }\n  }\n"], ["\n  width: 1em;\n  height: 1em;\n  margin: 0 auto;\n  border: 2px solid #00649c;\n  border-radius: 50%;\n  border-left-color: transparent;\n  border-right-color: transparent;\n  animation: cssload-spin 500ms infinite linear;\n  -o-animation: cssload-spin 500ms infinite linear;\n  -ms-animation: cssload-spin 500ms infinite linear;\n  -webkit-animation: cssload-spin 500ms infinite linear;\n  -moz-animation: cssload-spin 500ms infinite linear;\n\n  @keyframes cssload-spin {\n    100% {\n      -webkit-transform: rotate(360deg);\n      -ms-transform: rotate(360deg);\n      transform: rotate(360deg);\n    }\n  }\n\n  @-o-keyframes cssload-spin {\n    100% {\n      -o-transform: rotate(360deg);\n      -webkit-transform: rotate(360deg);\n      -ms-transform: rotate(360deg);\n      transform: rotate(360deg);\n    }\n  }\n\n  @-ms-keyframes cssload-spin {\n    100% {\n      -ms-transform: rotate(360deg);\n      -webkit-transform: rotate(360deg);\n      transform: rotate(360deg);\n    }\n  }\n\n  @-webkit-keyframes cssload-spin {\n    100% {\n      -webkit-transform: rotate(360deg);\n      -ms-transform: rotate(360deg);\n      transform: rotate(360deg);\n    }\n  }\n\n  @-moz-keyframes cssload-spin {\n    100% {\n      -webkit-transform: rotate(360deg);\n      -ms-transform: rotate(360deg);\n      transform: rotate(360deg);\n    }\n  }\n"])));
+var SmallPreloader = function () { return (React.createElement(React.Fragment, null,
+    React.createElement(SpeedingWheel, null))); };
+var templateObject_1$c, templateObject_2$1;
 
 var index$4 = {
     Box: Box,
@@ -12502,7 +12525,9 @@ var index$4 = {
     TabController: TabController,
     TabContent: TabContent,
     TooltipBase: TooltipBase,
-    RadioButtonGroup: RadioButtonGroup
+    RadioButtonGroup: RadioButtonGroup,
+    Text: Text,
+    SmallPreloader: SmallPreloader
 };
 //# sourceMappingURL=index.js.map
 

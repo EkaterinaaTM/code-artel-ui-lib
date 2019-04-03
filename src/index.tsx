@@ -11,10 +11,11 @@ import RadioButtonBase from "./components/RadioButtonBase/RadioButtonBase";
 import RadioButton from "./components/RadioButton/RadioButton";
 import RadioButtonGroup from "./components/RadioButtonGroup/RadioButtonGroup";
 import Tabs from "./components/TabBar/Tabs";
-// import Tab from './components/TabBar/Tab'
 import TabContent from "./components/TabBar/TabContent";
 import TabController from "./components/TabBar/TabController";
 import TooltipBase from "./components/TooltipBase/TooltipBase";
+import Text from "./components/Text/Text";
+import SmallPreloader from "./components/SmallPreloader/SmallPreloader";
 
 export default {
   Box,
@@ -32,5 +33,7 @@ export default {
   TabController,
   TabContent,
   TooltipBase,
-  RadioButtonGroup
+  RadioButtonGroup,
+  Text,
+  SmallPreloader
 };
