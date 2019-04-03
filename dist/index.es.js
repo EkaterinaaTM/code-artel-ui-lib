@@ -12189,6 +12189,7 @@ var RadioButtonBase = function (props) {
         }, value: value, type: "radio", as: "input" }, rest)));
 };
 var templateObject_1$6;
+//# sourceMappingURL=RadioButtonBase.js.map
 
 var RadioButton = function (props) {
     var label = props.label, onChange = props.onChange, checked = props.checked, name = props.name, id = props.id, 
@@ -12229,64 +12230,153 @@ var RadioButtonGroup = /** @class */ (function (_super) {
 }(Component));
 //# sourceMappingURL=RadioButtonGroup.js.map
 
-var TabBarNav = function (_a) {
-    var navLabel = _a.navLabel, onChangeActiveTab = _a.onChangeActiveTab;
-    return (createElement("button", { type: "button", onClick: function () {
-            onChangeActiveTab(navLabel);
-        } }, navLabel));
-};
-//# sourceMappingURL=TabBarNav.js.map
-
-var TabBar = /** @class */ (function (_super) {
-    __extends(TabBar, _super);
-    function TabBar() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.state = {
-            activeTab: null
-        };
-        _this.getChildrenLabels = function (children) {
-            return children.map(function (_a) {
-                var props = _a.props;
-                return props.label;
+var TabsStyled = styled.div(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["\n  border: 0;\n  width: 100%;\n  display: flex;\n\n  flex-wrap: wrap;\n\n  @media (min-width: 576px) {\n    flex-wrap: nowrap;\n  }\n  @media (min-width: 768px) {\n    flex-wrap: nowrap;\n  }\n  @media (min-width: 992px) {\n    flex-wrap: nowrap;\n  }\n  @media (min-width: 1200px) {\n    flex-wrap: nowrap;\n  }\n"], ["\n  border: 0;\n  width: 100%;\n  display: flex;\n\n  flex-wrap: wrap;\n\n  @media (min-width: 576px) {\n    flex-wrap: nowrap;\n  }\n  @media (min-width: 768px) {\n    flex-wrap: nowrap;\n  }\n  @media (min-width: 992px) {\n    flex-wrap: nowrap;\n  }\n  @media (min-width: 1200px) {\n    flex-wrap: nowrap;\n  }\n"])));
+var Tabs = /** @class */ (function (_super) {
+    __extends(Tabs, _super);
+    function Tabs() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    /**
+     * @returns
+     * @memberof Tabs
+     */
+    Tabs.prototype.render = function () {
+        var _a = this.props, children = _a.children, activeTab = _a.activeTab, toggleTab = _a.toggleTab;
+        if (!children) {
+            return null;
+        }
+        var childrenWithProps = Children.map(children, function (child, index) {
+            return cloneElement(child, {
+                onClick: function (event) {
+                    event.stopPropagation();
+                    toggleTab(index);
+                },
+                active: activeTab !== index
             });
-        };
-        _this.setActiveTab = function (activeTab) {
-            var currentTab = _this.state.activeTab;
-            if (currentTab !== activeTab) {
-                _this.setState({
-                    activeTab: activeTab
-                });
+        });
+        return createElement(TabsStyled, null, childrenWithProps);
+    };
+    Tabs.defaultProps = {};
+    return Tabs;
+}(Component));
+var templateObject_1$7;
+//# sourceMappingURL=Tabs.js.map
+
+var TabContent = /** @class */ (function (_super) {
+    __extends(TabContent, _super);
+    function TabContent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    /**
+     * @returns
+     * @memberof Tabs
+     */
+    TabContent.prototype.render = function () {
+        var _a = this.props, children = _a.children, activeTab = _a.activeTab, toggleTab = _a.toggleTab, ClickContentCloseTab = _a.ClickContentCloseTab;
+        if (!children) {
+            return null;
+        }
+        if (activeTab >= 0 && activeTab !== null) {
+            if (Array.isArray(children)) {
+                return (createElement("div", { onClick: function () {
+                        if (ClickContentCloseTab) {
+                            toggleTab(activeTab);
+                        }
+                    } }, children[activeTab]));
             }
-        };
-        _this.renderTabs = function () {
-            var children = _this.props.children;
-            return _this.getChildrenLabels(children).map(function (navLabel) { return (createElement(TabBarNav, { key: navLabel, navLabel: navLabel, onChangeActiveTab: _this.setActiveTab })); });
+            return (createElement("div", { onClick: function () {
+                    if (ClickContentCloseTab) {
+                        toggleTab(activeTab);
+                    }
+                } }, children));
+        }
+        return null;
+    };
+    TabContent.defaultProps = {};
+    return TabContent;
+}(Component));
+//# sourceMappingURL=TabContent.js.map
+
+var Backdrop = styled.div(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  z-index: 1;\n  ", " background-color: transparent;\n"], ["\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  z-index: 1;\n  ",
+    " background-color: transparent;\n"])), function (props) {
+    return props.backdrop && props.isActive !== null
+        ? "display:block;"
+        : "display:none;";
+});
+/**
+ * The component tab controller
+ * @example ./TabController.example.md
+ */
+var TabController = /** @class */ (function (_super) {
+    __extends(TabController, _super);
+    function TabController() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.state = _this.initialState;
+        /**
+         * @desc change tab by index
+         * @param {number} index
+         * @memberof Controller
+         */
+        _this.toggleTab = function (index) {
+            _this.setState(function (prevState) {
+                if (prevState.activeTab !== index) {
+                    return {
+                        activeTab: index
+                    };
+                }
+                else if (_this.props.hideWhenReClicking &&
+                    prevState.activeTab === index) {
+                    /**
+                     * @desc need for correct work
+                     */
+                    return {
+                        activeTab: null
+                    };
+                }
+                /**
+                 * @desc need for correct work
+                 */
+                return prevState.activeTab;
+            });
         };
         return _this;
     }
-    TabBar.prototype.componentDidMount = function () {
-        var children = this.props.children;
-        var activeTab = this.getChildrenLabels(children)[0];
-        this.setActiveTab(activeTab);
-    };
-    TabBar.prototype.render = function () {
+    Object.defineProperty(TabController.prototype, "initialState", {
+        get: function () {
+            return {
+                activeTab: this.props.defaultActiveTab
+            };
+        },
+        enumerable: true,
+        configurable: true
+    });
+    TabController.prototype.render = function () {
+        var _this = this;
+        var _a = this.props, children = _a.children, backdrop = _a.backdrop, ClickContentCloseTab = _a.ClickContentCloseTab;
         var activeTab = this.state.activeTab;
-        var _a = this.props, children = _a.children, attrs = __rest(_a, ["children"]);
-        return (createElement("div", __assign({}, attrs),
-            createElement("div", null, this.renderTabs()),
-            createElement("div", null, Children.map(children, function (child) {
-                return cloneElement(child, { activeTab: activeTab });
-            }))));
+        if (!children) {
+            return null;
+        }
+        var childrenWithProps = Children.map(children, function (child) {
+            return cloneElement(child, {
+                activeTab: activeTab,
+                toggleTab: _this.toggleTab,
+                ClickContentCloseTab: ClickContentCloseTab
+            });
+        });
+        return (createElement(Fragment, null,
+            createElement(Backdrop, { backdrop: backdrop, isActive: activeTab, onClick: function () { return _this.toggleTab(null); } }),
+            childrenWithProps));
     };
-    return TabBar;
+    TabController.defaultProps = {
+        defaultActiveTab: 0,
+        hideWhenReClicking: false,
+        backdrop: false,
+        ClickContentCloseTab: false
+    };
+    return TabController;
 }(Component));
-//# sourceMappingURL=TabBar.js.map
-
-var TabBarItem = function (_a) {
-    var children = _a.children, label = _a.label, activeTab = _a.activeTab, attrs = __rest(_a, ["children", "label", "activeTab"]);
-    return createElement("div", __assign({}, attrs), children);
-};
-//# sourceMappingURL=TabBarItem.js.map
+var templateObject_1$8;
 
 var Tooltip = /** @class */ (function (_super) {
     __extends(Tooltip, _super);
@@ -12334,13 +12424,12 @@ var index$4 = {
     CheckboxGroup: CheckboxGroup,
     RadioButtonBase: RadioButtonBase,
     RadioButton: RadioButton,
-    TabBar: TabBar,
-    TabBarItem: TabBarItem,
-    TabBarNav: TabBarNav,
+    Tabs: Tabs,
+    TabController: TabController,
+    TabContent: TabContent,
     Tooltip: Tooltip,
     RadioButtonGroup: RadioButtonGroup
 };
-//# sourceMappingURL=index.js.map
 
 export default index$4;
 //# sourceMappingURL=index.es.js.map

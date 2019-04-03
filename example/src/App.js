@@ -33,8 +33,9 @@ export class App extends React.Component {
       RadioButtonBase,
       RadioButton,
       RadioButtonGroup,
-      TabBar,
-      TabBarItem,
+      Tabs,
+      TabController,
+      TabContent,
       Tooltip
     } = index$4;
     return (
@@ -147,22 +148,27 @@ export class App extends React.Component {
         </Box>
 
         <Box p={2}>
-          <TabBar>
-            <TabBarItem label="Simple text">
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </TabBarItem>
-            <TabBarItem label="Image">
+          <TabController>
+            <Tabs label="Simple text">
+              <Box border={"1px solid black"} borderRadius={"2px"} p={3}>
+                Lorem
+              </Box>
+              <Box border={"1px solid black"} borderRadius={"2px"} p={3}>
+                Ipsum
+              </Box>
+            </Tabs>
+            <TabContent label="Image">
               <img
                 src="https://pp.userapi.com/a9QrnDt7kgIb8VkcrCWpCoqd7JRwq5wX_YDr7Q/pOMxeuWzvxg.jpg?ava=1"
                 width={50}
                 height={50}
                 alt={"foo"}
               />
-            </TabBarItem>
-          </TabBar>
+              <Box border={"1px solid black"} borderRadius={"2px"} p={3}>
+                Text
+              </Box>
+            </TabContent>
+          </TabController>
         </Box>
 
         <Tooltip

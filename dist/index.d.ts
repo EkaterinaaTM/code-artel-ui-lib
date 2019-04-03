@@ -2,7 +2,9 @@
 import SelectBase from "./components/SelectBase/SelectBase";
 import CheckboxGroup from "./components/CheckboxGroup/CheckboxGroup";
 import RadioButtonGroup from "./components/RadioButtonGroup/RadioButtonGroup";
-import TabBar from "./components/TabBar/TabBar";
+import Tabs from "./components/TabBar/Tabs";
+import TabContent from "./components/TabBar/TabContent";
+import TabController from "./components/TabBar/TabController";
 import Tooltip from "./components/Tooltip/Tooltip";
 declare const _default: {
     Box: import("styled-components").StyledComponent<"div", any, import("../../../../MICHA/\u0411\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0430/code-artel-ui-lib/src/components/Box/Box").IBox, never>;
@@ -16,9 +18,9 @@ declare const _default: {
     CheckboxGroup: typeof CheckboxGroup;
     RadioButtonBase: (props: import("../../../../MICHA/\u0411\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0430/code-artel-ui-lib/src/components/RadioButtonBase/RadioButtonBase").IRadioButtonBase) => JSX.Element;
     RadioButton: (props: import("../../../../MICHA/\u0411\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0430/code-artel-ui-lib/src/components/RadioButton/RadioButton").IRadioButton) => JSX.Element;
-    TabBar: typeof TabBar;
-    TabBarItem: ({ children, label, activeTab, ...attrs }: import("../../../../MICHA/\u0411\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0430/code-artel-ui-lib/src/components/TabBar/TabBarItem").ITabBarItem) => JSX.Element;
-    TabBarNav: ({ navLabel, onChangeActiveTab }: import("../../../../MICHA/\u0411\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0430/code-artel-ui-lib/src/components/TabBar/TabBarNav").ITabBarNav) => JSX.Element;
+    Tabs: typeof Tabs;
+    TabController: typeof TabController;
+    TabContent: typeof TabContent;
     Tooltip: typeof Tooltip;
     RadioButtonGroup: typeof RadioButtonGroup;
 };

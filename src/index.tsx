@@ -10,9 +10,10 @@ import CheckboxGroup from "./components/CheckboxGroup/CheckboxGroup";
 import RadioButtonBase from "./components/RadioButtonBase/RadioButtonBase";
 import RadioButton from "./components/RadioButton/RadioButton";
 import RadioButtonGroup from "./components/RadioButtonGroup/RadioButtonGroup";
-import TabBar from "./components/TabBar/TabBar";
-import TabBarItem from "./components/TabBar/TabBarItem";
-import TabBarNav from "./components/TabBar/TabBarNav";
+import Tabs from "./components/TabBar/Tabs";
+// import Tab from './components/TabBar/Tab'
+import TabContent from "./components/TabBar/TabContent";
+import TabController from "./components/TabBar/TabController";
 import Tooltip from "./components/Tooltip/Tooltip";
 
 export default {
@@ -27,9 +28,9 @@ export default {
   CheckboxGroup,
   RadioButtonBase,
   RadioButton,
-  TabBar,
-  TabBarItem,
-  TabBarNav,
+  Tabs,
+  TabController,
+  TabContent,
   Tooltip,
   RadioButtonGroup
 };
