@@ -33,7 +33,7 @@ import {
   backgroundRepeat
 } from "styled-system";
 
-interface IBox
+export interface IBox
   extends SpaceProps,
     DisplayProps,
 

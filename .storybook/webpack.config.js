@@ -4,6 +4,8 @@
 //     'code-artel-ui-lib': path.resolve('src/'),
 //   },
 // },
+const { CheckerPlugin, TsConfigPathsPlugin  } =  require ('awesome-typescript-loader')
+const path =  require ('path');
 
 module.exports = ({config}) => {
 
@@ -58,6 +60,8 @@ module.exports = ({config}) => {
       ],
     },
   },);
+
+  config.plugins.push(new CheckerPlugin());
 
   config.resolve.extensions.push('.ts', '.tsx', '.jsx', '.js');
   return config;
