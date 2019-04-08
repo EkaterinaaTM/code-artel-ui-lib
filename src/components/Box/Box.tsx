@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import {
   space,
   width,
@@ -33,9 +33,10 @@ import {
   backgroundRepeat
 } from "styled-system";
 
-export interface IBox
+interface IBox
   extends SpaceProps,
     DisplayProps,
+
     MaxWidthProps,
     MinWidthProps,
     HeightProps,

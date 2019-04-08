@@ -5,6 +5,31 @@ export const Example = () => {
   return <div />;
 };
 
+const {
+  Box,
+  ButtonBase,
+  Flex,
+  Input,
+  CheckboxBase,
+  Checkbox,
+  CheckboxGroup,
+  RadioButtonBase,
+  RadioButton,
+  RadioButtonGroup,
+  Tabs,
+  TabController,
+  TabContent,
+  TooltipBase,
+  Text,
+  SmallPreloader,
+  Card,
+  Container,
+  Image,
+  Link
+  // PaginationPage,
+  // PaginationPageHOC
+} = index$4;
+
 export class App extends React.Component {
   state = {
     value: [],
@@ -26,30 +51,6 @@ export class App extends React.Component {
   };
 
   render() {
-    const {
-      Box,
-      ButtonBase,
-      Flex,
-      Input,
-      CheckboxBase,
-      Checkbox,
-      CheckboxGroup,
-      RadioButtonBase,
-      RadioButton,
-      RadioButtonGroup,
-      Tabs,
-      TabController,
-      TabContent,
-      TooltipBase,
-      Text,
-      SmallPreloader,
-      Card,
-      Container,
-      Image,
-      Link
-      // PaginationPage,
-      // PaginationPageHOC
-    } = index$4;
     return (
       <div>
         <Box p={2}>
