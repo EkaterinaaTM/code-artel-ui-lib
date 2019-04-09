@@ -21,7 +21,7 @@ import Container from "./components/Container/Container";
 import Image from "./components/Image/Image";
 import Link from "./components/Link/Link";
 /** Style */
-import StyledThemeProvider, { Colors, Space, BoxShadow, Border, BaseTheme } from "./styles/StyleThemeProvider";
+import StyledThemeProvider, { Colors, Space, BoxShadow, Border, ThemeCreate } from "./styles/StyleThemeProvider";
 import GlobalStyle from "./styles/GlobalStyle";
 import { ButtonSize } from "./styles/variants/buttons/ButtonSize";
 import { ButtonVariant } from "./styles/variants/buttons/ButtonVariant";
@@ -30,4 +30,4 @@ import { InputSize } from "./styles/variants/inputs/InputSize";
 import { IVariantSize, IVariantItem, IVariantList, IVariant, IColors, ITheme } from "./styles/interfaces";
 export { Flex, Box, Input, TextArea, ButtonBase, SelectBase, CheckboxBase, Checkbox, CheckboxGroup, RadioButtonBase, RadioButton, Tabs, TabController, TabContent, TooltipBase, RadioButtonGroup, Text, SmallPreloader, Card, Container, Image, Link, 
 /** STYLE */
-StyledThemeProvider, Colors, Space, BoxShadow, Border, BaseTheme, GlobalStyle, ButtonSize, ButtonVariant, InputVariant, InputSize, IVariantSize, IVariantItem, IVariantList, IVariant, IColors, ITheme, };
+StyledThemeProvider, Colors, Space, BoxShadow, Border, ThemeCreate, GlobalStyle, ButtonSize, ButtonVariant, InputVariant, InputSize, IVariantSize, IVariantItem, IVariantList, IVariant, IColors, ITheme, };
