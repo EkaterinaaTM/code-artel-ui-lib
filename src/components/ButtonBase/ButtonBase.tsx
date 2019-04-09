@@ -1,26 +1,22 @@
 import styled from "styled-components";
 import { variant } from "styled-system";
 
-/** Enum constants */
-import { ButtonEnum } from "../../styles/variants/ButtonVariant";
-
 /**View */
 import Box from "../Box/Box";
 
 const buttonsVariant = variant({
-  key: "variant.buttons",
+  key: "variant.buttonVariant",
   prop: "variant"
 });
+
 const buttonsSize = variant({
   key: "variant.buttonSize",
   prop: "size"
 });
 
 export interface IButtonBase {
-  // // variant?: ButtonEnum;
-  variant?: ButtonEnum;
-  // // size button - property ?
-  size?: string;
+  variant: string;
+  size: string;
   [propName: string]: any;
 }
 

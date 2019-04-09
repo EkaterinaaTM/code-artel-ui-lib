@@ -1,6 +1,6 @@
 {
   "name": "code-artel-ui-lib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "author": "MICHAspb",
   "license": "MIT",
@@ -15,15 +15,16 @@
   "scripts": {
     "test": "cross-env CI=1 react-scripts-ts test --env=jsdom",
     "test:watch": "react-scripts-ts test --env=jsdom",
-    "build": "rollup -c",
-    "start": "rollup -c -w",
+    "build": "webpack",
+    "start": "webpack -w",
     "prepare": "yarn run build",
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "master -d example/build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook  -w"
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.4.3",
     "@emotion/core": "^10.0.10",
     "@types/graphql": "^14.2.0",
     "@types/react-router-dom": "^4.3.1",
@@ -40,8 +41,8 @@
     "react-final-form": "^4.1.0",
     "react-router-dom": "^5.0.0",
     "react-select": "^2.4.2",
-    "styled-system": "^4.0.8",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "styled-system": "^4.0.8"
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",
@@ -83,7 +84,9 @@
     "rollup-plugin-typescript2": "^0.17.0",
     "rollup-plugin-url": "^1.4.0",
     "storybook-addon-jsx": "^7.1.0",
-    "typescript": "^3.4.2"
+    "typescript": "^3.4.2",
+    "webpack-cli": "^3.3.0",
+    "webpack-node-externals": "^1.7.2"
   },
   "files": [
     "dist"

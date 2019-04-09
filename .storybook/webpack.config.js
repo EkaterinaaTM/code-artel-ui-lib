@@ -4,62 +4,17 @@
 //     'code-artel-ui-lib': path.resolve('src/'),
 //   },
 // },
-const { CheckerPlugin, TsConfigPathsPlugin  } =  require ('awesome-typescript-loader')
-const path =  require ('path');
+const {CheckerPlugin} = require('awesome-typescript-loader');
+const path = require('path');
+const tsxLoader = require('../configs/tsxLoader');
+const graphqlLoader = require('../configs/graphqlLoader');
 
 module.exports = ({config}) => {
 
-  config.module.rules.push({
-    test: /\.(ts|tsx)$/,
-    exclude: /node_modules/,
-    use: [
-      {
-        loader: require.resolve('awesome-typescript-loader'),
-      },
-      // Optional
-      {
-        loader: require.resolve('react-docgen-typescript-loader'),
-      },
-    ],
-  });
+  tsxLoader.use[0].options.configFileName = path.resolve(__dirname, "../tsconfig.sb.json");
+  config.module.rules.push(tsxLoader);
 
-  config.module.rules.push({
-    test: /\.(graphql|graphqls|gql)$/,
-    exclude: /node_modules/,
-    loader: 'graphql-tag/loader',
-  });
-
-  config.module.rules.push( {
-    enforce: "pre",
-    test: /\.(js|jsx)$/,
-    exclude: /node_modules/,
-    loader: require.resolve('babel-loader'),
-    options: {
-      cacheDirectory: true,
-      babelrc: false,
-      presets: ['@babel/preset-env', '@babel/preset-react'],
-      exclude: /node_modules/,
-      plugins: [
-        [
-          'babel-plugin-styled-components',
-          {
-            /** @desc https://www.styled-components.com/docs/tooling#control-the-components-displayname */
-            fileName: false,
-            /** @desc https://www.styled-components.com/docs/tooling#control-the-components-displayname */
-            displayName: false,
-            /** @desc https://www.styled-components.com/docs/tooling#serverside-rendering */
-            ssr: true,
-            /** @desc https://www.styled-components.com/docs/tooling#dead-code-elimination */
-            pure: true,
-            /** @desc https://www.styled-components.com/docs/tooling#minification */
-            minify: true,
-          },
-        ],
-        '@babel/plugin-proposal-class-properties',
-        ["@babel/plugin-proposal-decorators", {"legacy": true}],
-      ],
-    },
-  },);
+  config.module.rules.push(graphqlLoader);
 
   config.plugins.push(new CheckerPlugin());
 

@@ -1,55 +1,88 @@
 import * as React from 'react';
-import { ThemeProvider } from 'styled-components';
+import {ThemeProvider} from 'styled-components';
+
+import {IColors, ITheme, IVariant} from "./interfaces";
 
 /** Variants */
-import { ButtonSize } from './variants/ButtonSize';
-import { InputVariant } from './variants/InputVariant';
-import ButtonVariant from './variants/ButtonVariant';
+import {ButtonSize} from './variants/buttons/ButtonSize';
+import {InputVariant} from './variants/inputs/InputVariant';
+import {ButtonVariant} from './variants/buttons/ButtonVariant';
+import {InputSize} from "./variants/inputs/InputSize";
 
-export const colors = {
-  color0: '#ffffff',
-  color1: '#e0e0e0',
-  color2: '#AEAEAE',
-  color3: '#FDF396',
-  color4: '#4F4F4F',
-  color5: '#E5E5E5',
-  color6: '#BDBDBD',
-  color7: '#000',
-  color8: '#FFB74D',
-  color9: '#FB8C00',
-  color10: '#E65100',
-  color11: '#E57373',
-  color12: '#E53935',
-  color13: '#B71C1C',
-  color14: '#333333'
+
+export const Colors: IColors = {
+  white: '#ffffff',
+  blue: '#2196f3',
+  red: '#e10050',
+  orange: '#f44336',
+  black: '#000',
+  dark: '#1f1f1f',
+  gray: '#6d6d6d',
+  lightGray: '#939393',
 };
 
-const Space = [0, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96];
+export const Space: number[] = [0, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96];
 
-const boxShadow = [
-  '2px 4px 8px 0px rgba(138,138,138,0.5)',
-  '2px 2px 4px 0px rgba(0,127,175,1)'
+export const BoxShadow: string[] = [
+  'none',
+  'rgba(0, 0, 0, 0.2) 0px 1px 3px 0px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 2px 1px -1px',
+  'rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 3px 1px -2px',
+  'rgba(0, 0, 0, 0.2) 0px 1px 8px 0px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 3px 3px -2px',
 ];
 
-const BaseTheme = {
+export const Border: string[] = [
+  'none',
+  '1px solid rgba(0, 0, 0, 0.42)',
+  '2px solid #1976d2',
+];
+
+const defaultThemeProps = {
   space: Space,
-  fontSizes: Space,
-  lineHeight: Space,
-  boxShadow,
-  borderRadius: Space,
-  borderColor: colors,
-  colors: colors,
-  variant: {
-    buttons: {},
-    buttonSize: ButtonSize,
-    inputVariant: InputVariant
-  }
-};
+  boxShadow:BoxShadow,
+  colors: Colors,
+  border: Border
+}
 
-BaseTheme.variant.buttons = ButtonVariant(BaseTheme);
+export const ThemeCreate = (props: ITheme = defaultThemeProps): ITheme => {
+  console.log('props: ', props);
+  const {
+    space,
+    boxShadow,
+    colors,
+    border
+  } = props;
+  console.log('props: ',  space,
+    boxShadow,
+    colors,
+    border);
 
-export const StyledThemeProvider: any = ({ children }: any) => (
-  <ThemeProvider theme={BaseTheme}>{children}</ThemeProvider>
+  const Theme = {
+    space: space || Space,
+    fontSizes: space || Space ,
+    lineHeight: space || Space,
+    borderRadius: space || Space,
+    boxShadow: boxShadow || BoxShadow,
+    border: border,
+    borderColor: colors,
+    colors: colors,
+    variant: {
+      buttonVariant: {},
+      buttonSize: {},
+      inputVariant: {},
+      inputSize: {},
+    }
+  };
+
+  Theme.variant.button = ButtonVariant(Theme);
+  Theme.variant.buttonSize = ButtonSize();
+  Theme.variant.inputVariant = InputVariant(Theme);
+  Theme.variant.inputSize = InputSize(Theme);
+  return Theme
+}
+
+
+export const StyledThemeProvider: any = ({children, theme}: any) => (
+  <ThemeProvider theme={theme}>{children}</ThemeProvider>
 );
 
 export default StyledThemeProvider;
