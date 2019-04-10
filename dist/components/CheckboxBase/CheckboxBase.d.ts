@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export interface ICheckboxs {
     value?: any;
     id?: string;

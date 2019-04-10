@@ -26,6 +26,19 @@ class Example extends React.Component {
 }
 ```
 
+## Команды
+
+* build - сборка билда библиотеки
+* prepare
+* predeploy
+* deploy
+* storybook - запуск сторибук для разработки
+* build-storybook - собрать статику сторибука
+
 ## License
 
 MIT © [MICHAspb](https://github.com/MICHAspb)
+
+
+
+https://github.com/storybooks/storybook/issues/3968

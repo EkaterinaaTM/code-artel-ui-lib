@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export interface ICheckbox {
     label?: string;
     id?: string;

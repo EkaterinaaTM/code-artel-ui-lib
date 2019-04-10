@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export interface IRadioButtonBase {
     id?: string;
     checked?: boolean;
