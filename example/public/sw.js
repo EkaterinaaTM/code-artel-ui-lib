@@ -1,4 +1,4 @@
-var CACHE = "cache-and-update";
+var CACHE = "cache-and-update-v1";
 
 // При установке воркера мы должны закешировать часть данных (статику).
 self.addEventListener("install", event => {
@@ -6,9 +6,10 @@ self.addEventListener("install", event => {
   event.waitUntil(precache());
 });
 
-// self.addEventListener("activate", event => {
-//   console.log(2, "Активирован");
-// });
+self.addEventListener("activate", event => {
+  console.log(2, "Активирован");
+  event.waitUntil(self.skipWaiting());
+});
 
 // При событии fetch, мы используем кэш, и только потом обновляем его данным с сервера
 self.addEventListener("fetch", function(event) {
@@ -20,18 +21,14 @@ self.addEventListener("fetch", function(event) {
 });
 
 function fromCache(request) {
-  // console.log("fromCache", request);
-  return caches
-    .open(CACHE)
-    .then(cache =>
-      cache
-        .match(request)
-        .then(matching => matching || Promise.reject("no-match"))
-    );
+  return caches.open(CACHE).then(cache => {
+    return cache
+      .match(request)
+      .then(matching => matching || Promise.reject("no-match"));
+  });
 }
 
 function update(request) {
-  // console.log("update", request);
   return caches
     .open(CACHE)
     .then(cache =>

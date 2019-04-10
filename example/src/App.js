@@ -208,7 +208,7 @@ export class App extends React.Component {
         </Box>
 
         <Box p={2}>
-          <SmallPreloader>Пример текста</SmallPreloader>
+          <SmallPreloader />
         </Box>
         {/*
         <Box p={2}>
