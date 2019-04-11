@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import { IVariantList } from "../../interfaces";
 import { ITheme } from "../../interfaces";
+=======
+import {IVariantList, ITheme} from "../../interfaces";
+>>>>>>> f42254b108f4ce47f225dc3eff69927fad5dfc68
 
 const baseStyle = {
   display: "inline-block",

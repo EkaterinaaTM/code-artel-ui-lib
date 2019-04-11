@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { ITheme } from "../../interfaces";
 import { IVariantList } from "../../interfaces";
+=======
+import {IVariantList, ITheme} from "../../interfaces";
+
+>>>>>>> f42254b108f4ce47f225dc3eff69927fad5dfc68
 
 const baseStyle = {
   font: "inherit",
@@ -34,11 +39,22 @@ export const InputVariant = (theme: ITheme): IVariantList => {
         outline: "none",
         borderColor: theme.colors.blue
       },
+<<<<<<< HEAD
 
       ":disabled": {
         cursor: "default",
         outline: "none",
         borderColor: theme.colors.gray
+=======
+      ':disabled': {
+        cursor: 'default',
+        outline: 'none',
+        borderColor: theme.colors.gray,
+      },
+      ':visited': {},
+      '::placeholder': {
+        color: theme.colors.gray,
+>>>>>>> f42254b108f4ce47f225dc3eff69927fad5dfc68
       },
       ":visited": {},
       "::placeholder": {

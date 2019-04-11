@@ -4,7 +4,7 @@ const baseStyle = {
   padding: 0
 };
 
-export const InputSize = (theme: ITheme = {}): IVariantSize => {
+export const InputSize = (theme: ITheme): IVariantSize => {
   return {
     xSmall: {
       ...baseStyle,
@@ -23,16 +23,16 @@ export const InputSize = (theme: ITheme = {}): IVariantSize => {
     },
     medium: {
       ...baseStyle,
-      fontSize: theme.space[5],
+      fontSize: theme.space ? theme.space[5] : "",
       "::placeholder": {
-        fontSize: theme.space[5]
+        fontSize: theme.space ? theme.space[5] : ""
       }
     },
     large: {
       ...baseStyle,
-      fontSize: theme.space[6],
+      fontSize: theme.space ? theme.space[6] : "",
       "::placeholder": {
-        fontSize: theme.space[5]
+        fontSize: theme.space ? theme.space[6] : ""
       }
     }
   };

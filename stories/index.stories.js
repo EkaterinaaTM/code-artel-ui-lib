@@ -3,16 +3,7 @@ import { jsxDecorator } from "storybook-addon-jsx";
 import { addDecorator, storiesOf } from "@storybook/react";
 import StyledThemeProvider from "../src/styles/StyleThemeProvider";
 
-import {
-  ThemeCreate,
-  Box,
-  ButtonSize,
-  ButtonVariant,
-  Flex,
-  Input,
-  InputSize,
-  InputVariant
-} from "../src";
+import { ThemeCreate, Box, Flex, Input } from "../src";
 
 addDecorator(jsxDecorator);
 

@@ -63,7 +63,7 @@ export const ThemeCreate = (props: ITheme = defaultThemeProps): ITheme => {
   const { space, boxShadow, colors, border } = props;
   console.log("props: ", space, boxShadow, colors, border);
 
-  const Theme = {
+  const Theme: ITheme = {
     space: space || Space,
     fontSizes: space || Space,
     lineHeight: space || Space,
@@ -79,11 +79,13 @@ export const ThemeCreate = (props: ITheme = defaultThemeProps): ITheme => {
       inputSize: {}
     }
   };
+  if (Theme.variant) {
+    Theme.variant.buttonVariant = ButtonVariant(Theme);
+    Theme.variant.buttonSize = ButtonSize();
+    Theme.variant.inputVariant = InputVariant(Theme);
+    Theme.variant.inputSize = InputSize(Theme);
+  }
 
-  Theme.variant.buttonVariant = ButtonVariant(Theme);
-  Theme.variant.buttonSize = ButtonSize();
-  Theme.variant.inputVariant = InputVariant(Theme);
-  Theme.variant.inputSize = InputSize();
   return Theme;
 };
 
