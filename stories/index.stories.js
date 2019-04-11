@@ -36,35 +36,39 @@ const StyleTheme = ThemeCreate();
 
 storiesOf("Сomponents", module)
   .addDecorator(story => {
+    // console.log(1, StyleTheme);
     return (
       <StyledThemeProvider theme={StyleTheme}>{story()}</StyledThemeProvider>
     );
   })
-  .add("Box", () => (
-    <Box>
-      <h3> Box</h3>
+  .add("Box", props => {
+    console.log(1, StyleTheme);
+    return (
       <Box>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
-        exercitationem inventore porro rerum, sapiente suscipit? Accusamus
-        asperiores atque eius eveniet illo iste itaque, laudantium nihil odit
-        praesentium sed vero voluptas?
-      </Box>
+        <h3> Box</h3>
+        <Box>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
+          exercitationem inventore porro rerum, sapiente suscipit? Accusamus
+          asperiores atque eius eveniet illo iste itaque, laudantium nihil odit
+          praesentium sed vero voluptas?
+        </Box>
 
-      <h3> Box with css value</h3>
-      <Box
-        width={"50%"}
-        border={"1px solid red"}
-        borderRadius={"3px"}
-        boxShadow={props => props.boxShadow[1]}
-        padding={3}
-      >
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
-        exercitationem inventore porro rerum, sapiente suscipit? Accusamus
-        asperiores atque eius eveniet illo iste itaque, laudantium nihil odit
-        praesentium sed vero voluptas?
+        <h3> Box with css value</h3>
+        <Box
+          width={"50%"}
+          border={"1px solid red"}
+          borderRadius={"3px"}
+          boxShadow={StyleTheme.boxShadow[1]}
+          padding={3}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
+          exercitationem inventore porro rerum, sapiente suscipit? Accusamus
+          asperiores atque eius eveniet illo iste itaque, laudantium nihil odit
+          praesentium sed vero voluptas?
+        </Box>
       </Box>
-    </Box>
-  ))
+    );
+  })
 
   .add("Flex", () => {
     return (
