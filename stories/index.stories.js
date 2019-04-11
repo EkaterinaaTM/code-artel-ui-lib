@@ -6,9 +6,9 @@ import StyledThemeProvider from "../src/styles/StyleThemeProvider";
 
 import {
   ThemeCreate,
-  Box, ButtonSize, ButtonVariant,
+  Box,
   Flex,
-  Input, InputSize, InputVariant,
+  Input,
 } from "../src";
 
 addDecorator(jsxDecorator);

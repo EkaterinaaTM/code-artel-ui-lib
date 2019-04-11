@@ -1,5 +1,4 @@
-import {ITheme} from "../../StyleThemeProvider";
-import {IVariantList} from "../../interfaces";
+import {IVariantList, ITheme} from "../../interfaces";
 
 
 const baseStyle = {
@@ -36,7 +35,6 @@ export const InputVariant = (theme: ITheme): IVariantList => {
         outline: 'none',
         borderColor: theme.colors.blue,
       },
-
       ':disabled': {
         cursor: 'default',
         outline: 'none',

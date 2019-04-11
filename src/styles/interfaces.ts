@@ -1,7 +1,6 @@
 
 
 export interface IVariantSize {
-  xSmall?: any,
   small: any,
   medium: any,
   large: any,
@@ -19,14 +18,18 @@ export interface IVariantItem {
 }
 
 export interface IVariantList {
+  default: IVariantItem,
+  primary: IVariantItem,
+  secondary: IVariantItem,
+  error: IVariantItem,
   [propName: string]: IVariantItem,
 }
 
 export interface IVariant {
-  buttonVariant: IVariantList,
-  buttonSize: IVariantSize,
-  inputVariant: IVariantList,
-  inputSize: IVariantSize,
+  // buttonVariant: IVariantList,
+  // buttonSize: IVariantSize,
+  // inputVariant: IVariantList,
+  // inputSize: IVariantSize,
 
   [propName: string]: any,
 }
@@ -51,7 +54,7 @@ export interface ITheme {
   borderRadius?: number[],
   boxShadow?: string[],
   border?: string[],
-  colors?: IColors,
+  colors: IColors,
   borderColor?: IColors,
   variant?: IVariant,
 

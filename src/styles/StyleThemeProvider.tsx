@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {ThemeProvider} from 'styled-components';
 
-import {IColors, ITheme, IVariant} from "./interfaces";
+import {IColors, ITheme} from "./interfaces";
 
 /** Variants */
 import {ButtonSize} from './variants/buttons/ButtonSize';
@@ -38,7 +38,7 @@ export const Border: string[] = [
 
 const defaultThemeProps = {
   space: Space,
-  boxShadow:BoxShadow,
+  boxShadow: BoxShadow,
   colors: Colors,
   border: Border
 }
@@ -51,14 +51,14 @@ export const ThemeCreate = (props: ITheme = defaultThemeProps): ITheme => {
     colors,
     border
   } = props;
-  console.log('props: ',  space,
+  console.log('props: ', space,
     boxShadow,
     colors,
     border);
 
-  const Theme = {
+  const Theme: ITheme = {
     space: space || Space,
-    fontSizes: space || Space ,
+    fontSizes: space || Space,
     lineHeight: space || Space,
     borderRadius: space || Space,
     boxShadow: boxShadow || BoxShadow,
@@ -72,11 +72,13 @@ export const ThemeCreate = (props: ITheme = defaultThemeProps): ITheme => {
       inputSize: {},
     }
   };
+  if (Theme.variant) {
+    Theme.variant.buttonVariant = ButtonVariant(Theme);
+    Theme.variant.buttonSize = ButtonSize();
+    Theme.variant.inputVariant = InputVariant(Theme);
+    Theme.variant.inputSize = InputSize(Theme);
+  }
 
-  Theme.variant.button = ButtonVariant(Theme);
-  Theme.variant.buttonSize = ButtonSize();
-  Theme.variant.inputVariant = InputVariant(Theme);
-  Theme.variant.inputSize = InputSize(Theme);
   return Theme
 }
 

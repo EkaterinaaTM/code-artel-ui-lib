@@ -1,5 +1,4 @@
-import {IVariantList} from "../../interfaces";
-import {ITheme} from "../../StyleThemeProvider";
+import {IVariantList, ITheme} from "../../interfaces";
 
 const baseStyle = {
   display: 'inline-block',
