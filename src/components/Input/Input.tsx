@@ -14,12 +14,13 @@ const inputSize = variant({
 
 export interface IInput {
   variant?: string;
-  [propName: string]: any,
+  [propName: string]: any;
 }
 
 export const Input = styled(Box)<IInput>`
   ${inputVariant};
   ${inputSize};
+
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 `;

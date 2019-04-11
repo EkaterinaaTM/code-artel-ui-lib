@@ -51,11 +51,19 @@ export class SelectBase extends React.Component<ISelectBase, ISelectBaseState> {
   render() {
     const { selectedOption } = this.state;
 
-    const { placeholder, options, isLoading, disabled, input } = this.props;
+    const {
+      placeholder,
+      options,
+      isLoading,
+      disabled,
+      input,
+      name
+    } = this.props;
+
     return (
       <Select
         value={selectedOption}
-        name={input.name}
+        name={name || input.name}
         options={options}
         placeholder={placeholder}
         blurInputOnSelect={true}

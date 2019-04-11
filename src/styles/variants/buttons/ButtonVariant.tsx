@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-import { IVariantList } from "../../interfaces";
-import { ITheme } from "../../interfaces";
-=======
-import {IVariantList, ITheme} from "../../interfaces";
->>>>>>> f42254b108f4ce47f225dc3eff69927fad5dfc68
+import { IVariantList, ITheme } from "../../interfaces";
 
 const baseStyle = {
   display: "inline-block",
@@ -13,8 +8,6 @@ const baseStyle = {
 };
 
 export const ButtonVariant = (theme: ITheme): IVariantList => {
-  console.log(theme.border);
-
   return {
     default: {
       ...baseStyle,

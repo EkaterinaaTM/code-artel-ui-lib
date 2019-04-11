@@ -56,8 +56,8 @@ export class RadioButtonGroup extends React.Component<IRadioButtonGroup> {
                 <RadioButton
                   name={name}
                   id={id}
-                  value={item[valueProp]}
-                  label={item[labelProp]}
+                  value={item.value || item[valueProp]}
+                  label={item.label || item[labelProp]}
                   disabled={disabled}
                   checked={checked}
                   // defaultChecked={defaultChecked}

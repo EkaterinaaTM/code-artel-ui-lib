@@ -13,7 +13,6 @@ export interface ICheckbox {
 
 export const Checkbox = (props: ICheckbox) => {
   const { id, name, disabled, checked, label, onChange, ...rest } = props;
-  // console.log("Checkbox", props);
 
   return (
     <>

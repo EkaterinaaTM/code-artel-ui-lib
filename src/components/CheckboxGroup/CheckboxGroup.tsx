@@ -25,6 +25,7 @@ export class CheckboxGroup extends React.Component<ICheckboxGroup> {
   };
 
   onChange = (value: any) => {
+    console.log(1, value);
     let propsValue = this.props.value;
     const valueIndex = propsValue.findIndex((item: any) => item === value);
     // console.log("RadioButtonGroup onChange", value, this.props.value);
@@ -71,8 +72,8 @@ export class CheckboxGroup extends React.Component<ICheckboxGroup> {
               return (
                 <Checkbox
                   name={`CheckboxGroup-${index}`}
-                  value={item[valueProp]}
-                  label={item[labelProp]}
+                  value={item.value || item[valueProp]}
+                  label={item.label || item[labelProp]}
                   disabled={disabled}
                   checked={this.checkStatusCheckbox(item[valueProp])}
                   onChange={this.onChange}

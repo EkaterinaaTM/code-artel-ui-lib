@@ -54,23 +54,21 @@ export const Border: string[] = [
 const defaultThemeProps = {
   space: Space,
   boxShadow: BoxShadow,
-  colors: Colors,
-  border: Border
+  colors: Colors
+  // border: Border
 };
 
 export const ThemeCreate = (props: ITheme = defaultThemeProps): ITheme => {
-  console.log("props: ", props);
-  const { space, boxShadow, colors, border } = props;
-  console.log("props: ", space, boxShadow, colors, border);
+  const { space, boxShadow, colors } = props;
 
   const Theme: ITheme = {
     space: space || Space,
     fontSizes: space || Space,
     lineHeight: space || Space,
-    borderRadius: space || Space,
+    // borderRadius: space || Space,
     boxShadow: boxShadow || BoxShadow,
-    border: border,
-    borderColor: colors,
+    // border: border,
+    // borderColor: colors,
     colors: colors,
     variant: {
       buttonVariant: {},
