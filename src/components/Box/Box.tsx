@@ -19,6 +19,7 @@ import {
   opacity,
   letterSpacing,
   SpaceProps,
+  boxShadow,
   DisplayProps,
   MaxWidthProps,
   MinWidthProps,
@@ -69,7 +70,8 @@ export const Box = styled.div<IBox>`
   ${backgroundImage};
   ${backgroundSize};
   ${backgroundPosition};
-  ${backgroundRepeat}
+  ${backgroundRepeat};
+  ${boxShadow}
 `;
 
 export default Box;
