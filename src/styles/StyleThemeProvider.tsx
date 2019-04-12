@@ -74,7 +74,7 @@ export const ThemeCreate = (props: ITheme = defaultThemeProps): ITheme => {
       buttonVariant: {},
       buttonSize: {},
       inputVariant: {},
-      inputSize: {}
+      inputSize: {},
     }
   };
   if (Theme.variant) {
