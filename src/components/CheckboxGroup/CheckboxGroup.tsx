@@ -1,7 +1,7 @@
 import * as React from "react";
 
 /** View  */
-import Checkbox from "../Checkbox/Checkbox";
+import {Checkbox as _Checkbox} from "../Checkbox/Checkbox";
 
 export interface ICheckboxGroup {
   labelProp: string;
@@ -21,14 +21,14 @@ export interface IOptions {
 
 export class CheckboxGroup extends React.Component<ICheckboxGroup> {
   static defaultProps: {
-    labelProp: "foo";
+    valueProp: 'value',
+    labelProp: 'label',
   };
 
   onChange = (value: any) => {
     console.log(1, value);
     let propsValue = this.props.value;
     const valueIndex = propsValue.findIndex((item: any) => item === value);
-    // console.log("RadioButtonGroup onChange", value, this.props.value);
 
     if (valueIndex > -1) {
       propsValue.splice(valueIndex, 1);
@@ -56,10 +56,9 @@ export class CheckboxGroup extends React.Component<ICheckboxGroup> {
       labelProp,
       valueProp,
       disabled,
-      checked,
+      name,
       input,
-      value,
-      onChange,
+      Checkbox = _Checkbox,
       ...rest
     } = this.props;
     // console.log("CheckboxGroup this.props", this.props);
@@ -71,7 +70,8 @@ export class CheckboxGroup extends React.Component<ICheckboxGroup> {
             (item: any, index: any): any => {
               return (
                 <Checkbox
-                  name={`CheckboxGroup-${index}`}
+                  name={name}
+                  id={`CheckboxGroup-${index}`}
                   value={item.value || item[valueProp]}
                   label={item.label || item[labelProp]}
                   disabled={disabled}

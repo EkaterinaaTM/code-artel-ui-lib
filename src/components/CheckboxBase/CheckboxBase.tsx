@@ -6,7 +6,7 @@ import { Box } from "../Box/Box";
 
 const Input = styled(Box)``;
 
-export interface ICheckboxs {
+export interface ICheckbox {
   value?: any;
   id?: string;
   name?: string;
@@ -15,23 +15,20 @@ export interface ICheckboxs {
   [propName: string]: any;
 }
 
-export const CheckboxBase = (props: ICheckboxs) => {
+export const CheckboxBase = (props: ICheckbox) => {
   const {
     id,
     name,
     disabled = false,
     checked,
-    defaultChecked = false,
     value,
     onChange,
     ...rest
   } = props;
-
-  // console.log("CheckboxBase", props);
-
+  console.log('CheckboxBase: ', props);
   return (
     <Input
-      id={`checkbox-${id}`}
+      id={`${id}`}
       disabled={disabled}
       checked={checked}
       name={name}
@@ -39,7 +36,7 @@ export const CheckboxBase = (props: ICheckboxs) => {
       as={"input"}
       value={value}
       onChange={(event: any) => {
-        onChange(event.target.value);
+        onChange && onChange(event.target.value);
       }}
       {...rest}
     />

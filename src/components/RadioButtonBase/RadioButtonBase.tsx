@@ -23,17 +23,14 @@ export const RadioButtonBase = (props: IRadioButtonBase) => {
     checked,
     value,
     onChange,
-    // defaultChecked,
     ...rest
   } = props;
-  // console.log("RadioButtonBase", props);
 
   return (
     <Input
-      id={`radiocheckbox-${id}`}
+      id={id}
       checked={checked}
       name={name}
-      // defaultChecked={defaultChecked}
       onChange={(event: any) => {
         onChange(event.target.value);
       }}

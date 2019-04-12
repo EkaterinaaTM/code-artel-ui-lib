@@ -5,12 +5,13 @@ import { Box } from "../Box/Box";
  * Компонент текста
  * @example ./Text.example.md
  */
-export const Text = styled(Box)`
+export const Label = styled(Box)`
   cursor: pointer;
 `;
 
-Text.defaultProps = {
-  color: "#333333"
+Label.defaultProps = {
+  color: "#333333",
+  as: 'label'
 };
 
-export default Text;
+export default Label;
