@@ -15,7 +15,7 @@ const TextVariants = variant({
 
 
 export const Text = styled(Box)<IText>`
-${TextVariants};
+  ${TextVariants};
 `;
 
 Text.defaultProps = {

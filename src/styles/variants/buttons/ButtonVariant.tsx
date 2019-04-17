@@ -43,9 +43,10 @@ export const ButtonVariant = (theme: ITheme): IVariantList => {
         boxShadow: theme.boxShadow && theme.boxShadow[5],
       },
       ":visited": {},
-      ".active": {
+      "&.active": {
         backgroundColor: theme.colors && Color(theme.colors['white']).darken(0.24).hex(),
-        boxShadow: theme.boxShadow && theme.boxShadow[4],
+        boxShadow: theme.boxShadow && theme.boxShadow[1],
+
       }
     },
     primary: {
@@ -69,7 +70,7 @@ export const ButtonVariant = (theme: ITheme): IVariantList => {
         boxShadow: theme.boxShadow && theme.boxShadow[5],
       },
       ":visited": {},
-      ".active": {
+      "&.active": {
         backgroundColor: theme.colors && Color(theme.colors['white']).darken(0.24).hex(),
         boxShadow: theme.boxShadow && theme.boxShadow[4],
       }
@@ -94,7 +95,7 @@ export const ButtonVariant = (theme: ITheme): IVariantList => {
         boxShadow: theme.boxShadow && theme.boxShadow[5],
       },
       ":visited": {},
-      ".active": {
+      "&.active": {
         backgroundColor: theme.colors && Color(theme.colors['blue']).darken(0.24).hex(),
         boxShadow: theme.boxShadow && theme.boxShadow[4],
       }
@@ -119,7 +120,7 @@ export const ButtonVariant = (theme: ITheme): IVariantList => {
         boxShadow: theme.boxShadow && theme.boxShadow[5],
       },
       ":visited": {},
-      ".active": {
+      "&.active": {
         backgroundColor: theme.colors && Color(theme.colors['red']).darken(0.24).hex(),
         boxShadow: theme.boxShadow && theme.boxShadow[4],
       }

@@ -13,7 +13,7 @@ export interface IVariantItem {
   ':disabled': any,
   ':focus': any,
   ':visited': any,
-  '.active': any,
+  '&.active': any,
   [propName: string]: any,
 }
 

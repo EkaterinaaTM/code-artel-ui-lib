@@ -23,20 +23,23 @@ const TabsStyled = styled.div`
 `;
 
 export interface ITabs {
-  toggleTab?: any;
-  activeTab?: any;
+  toggleTab?: boolean;
+  activeTab?: number;
   children?: any;
+  TabsWrapper: any;
 }
 
 export class Tabs extends React.Component<ITabs> {
-  static defaultProps = {};
+  static defaultProps = {
+    TabsWrapper: TabsStyled
+  };
 
   /**
    * @returns
    * @memberof Tabs
    */
   render() {
-    const { children, activeTab, toggleTab } = this.props;
+    const { children, activeTab, toggleTab, TabsWrapper } = this.props;
     if (!children) {
       return null;
     }
@@ -46,11 +49,12 @@ export class Tabs extends React.Component<ITabs> {
           event.stopPropagation();
           toggleTab(index);
         },
-        active: activeTab !== index
+        active: activeTab !== index,
+        className: activeTab === index ? 'active': '',
       })
     );
 
-    return <TabsStyled>{childrenWithProps}</TabsStyled>;
+    return <TabsWrapper>{childrenWithProps}</TabsWrapper>;
   }
 }
 

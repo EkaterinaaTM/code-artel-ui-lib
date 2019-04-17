@@ -29,6 +29,7 @@ import {
 import TabContent from "../src/components/TabBar/TabContent";
 import TabController from "../src/components/TabBar/TabController";
 import Tabs from "../src/components/TabBar/Tabs";
+import {ButtonGroup} from "../src/components/ButtonGroup/ButtonGroup";
 
 addDecorator(jsxDecorator);
 
@@ -321,19 +322,77 @@ storiesOf("Сomponents", module)
         mb={5}
       >
         <Box px={5} w={1 / 3}>
-          <Flex alignItems={'center'}>
-            <Text variant={'body1'} mr={3}>Label</Text>
+
+          <Flex
+            mb={5}
+            alignItems={'center'}
+          >
+            <Text
+              width={1 / 4}
+              variant={'body1'}
+              mr={3}
+            >
+              Email
+            </Text>
             <Input
-              placeholder={"Default medium"}
+              placeholder={"Email"}
               variant={"default"}
               size={"medium"}
             />
           </Flex>
+
+          <Flex
+            alignItems={'center'}
+          >
+            <Text
+              width={1 / 4}
+              variant={'body1'}
+              mr={3}
+            >
+              Password
+            </Text>
+            <Input
+              placeholder={"Password"}
+              variant={"default"}
+              size={"medium"}
+            />
+          </Flex>
+
         </Box>
       </Flex>
     </Box>
   ))
 
+  .add("TextArea", () => (
+    <Box>
+      <h3>TextArea Component</h3>
+      <Flex
+        mb={5}
+      >
+        <Box px={5} w={1 / 3}>
+          <TextArea
+            variant={"default"}
+            size={"small"}
+            placeholder={"Default small"}
+          />
+        </Box>
+        <Box px={5} w={1 / 3}>
+          <TextArea
+            variant={"default"}
+            size={"medium"}
+            placeholder={"Default medium"}
+          />
+        </Box>
+        <Box px={5} w={1 / 3}>
+          <TextArea
+            variant={"default"}
+            size={"large"}
+            placeholder={"Default large"}
+          />
+        </Box>
+      </Flex>
+    </Box>
+  ))
   .add("Button", () => (
     <Box>
 
@@ -405,6 +464,40 @@ storiesOf("Сomponents", module)
         </ButtonBase>
       </Box>
 
+    </Box>
+  ))
+
+  .add("ButtonGroup", () => (
+    <Box>
+
+      <ButtonGroup>
+        <ButtonBase variant={"secondary"} size={"large"}>
+          Button 1
+        </ButtonBase>
+        <ButtonBase variant={"secondary"} size={"large"}>
+          Button 2
+        </ButtonBase>
+        <ButtonBase variant={"secondary"} size={"large"}>
+          Button 3
+        </ButtonBase>
+        <ButtonBase variant={"secondary"} size={"large"}>
+          Button 4
+        </ButtonBase>
+      </ButtonGroup>
+      <ButtonGroup vertical>
+        <ButtonBase variant={"secondary"} size={"large"}>
+          1
+        </ButtonBase>
+        <ButtonBase variant={"secondary"} size={"large"}>
+          2
+        </ButtonBase>
+        <ButtonBase variant={"secondary"} size={"large"}>
+          3
+        </ButtonBase>
+        <ButtonBase variant={"secondary"} size={"large"}>
+          4
+        </ButtonBase>
+      </ButtonGroup>
     </Box>
   ))
 
@@ -570,29 +663,95 @@ storiesOf("Сomponents", module)
   ))
 
   .add("Tab", () => (
-    <Box>
-      <h3>Tab</h3>
-      <TabController>
-        <Tabs label="Simple text">
-          <Box border={"1px solid black"} borderRadius={"2px"} p={3}>
-            Lorem
-          </Box>
-          <Box border={"1px solid black"} borderRadius={"2px"} p={3}>
-            Ipsum
-          </Box>
-        </Tabs>
-        <TabContent label="Image">
-          <img
-            src="https://pp.userapi.com/a9QrnDt7kgIb8VkcrCWpCoqd7JRwq5wX_YDr7Q/pOMxeuWzvxg.jpg?ava=1"
-            width={50}
-            height={50}
-            alt={"foo"}
-          />
-          <Box border={"1px solid black"} borderRadius={"2px"} p={3}>
-            Text
-          </Box>
-        </TabContent>
-      </TabController>
+    <Box width={'500px'}>
+      <Box mb={5}>
+        <Text variant={'h2'}>Tab</Text>
+        <TabController>
+          <Tabs>
+            <ButtonBase variant={"default"} size={"medium"}>
+              Tab 1
+            </ButtonBase>
+            <ButtonBase variant={"default"} size={"medium"}>
+              Tab 2
+            </ButtonBase>
+          </Tabs>
+          <TabContent>
+            <Box>
+              <Text>
+                Content 1
+              </Text>
+              <Text>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt maxime molestiae possimus ratione
+                recusandae? Ab alias commodi dolores, ea eligendi esse, ex, facilis laudantium molestias natus
+                praesentium
+                tenetur voluptate voluptates!
+              </Text>
+            </Box>
+            <Box>
+
+              <Text>
+                Content 2
+              </Text>
+              <Text mb={5}>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt maxime molestiae possimus ratione
+                recusandae? Ab alias commodi dolores, ea eligendi esse, ex, facilis laudantium molestias natus
+                praesentium
+                tenetur voluptate voluptates!
+              </Text>
+              <Text mb={5}>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt maxime molestiae possimus ratione
+                recusandae? Ab alias commodi dolores, ea eligendi esse, ex, facilis laudantium molestias natus
+                praesentium
+                tenetur voluptate voluptates!
+              </Text>
+            </Box>
+          </TabContent>
+        </TabController>
+      </Box>
+      <Box>
+        <Text variant={'h2'}>Tab variant 2</Text>
+        <TabController>
+          <Tabs TabsWrapper={ButtonGroup}>
+            <ButtonBase variant={"default"} size={"medium"}>
+              Tab 1
+            </ButtonBase>
+            <ButtonBase variant={"default"} size={"medium"}>
+              Tab 2
+            </ButtonBase>
+          </Tabs>
+          <TabContent>
+            <Box>
+              <Text>
+                Content 1
+              </Text>
+              <Text>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt maxime molestiae possimus ratione
+                recusandae? Ab alias commodi dolores, ea eligendi esse, ex, facilis laudantium molestias natus
+                praesentium
+                tenetur voluptate voluptates!
+              </Text>
+            </Box>
+            <Box>
+
+              <Text>
+                Content 2
+              </Text>
+              <Text mb={5}>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt maxime molestiae possimus ratione
+                recusandae? Ab alias commodi dolores, ea eligendi esse, ex, facilis laudantium molestias natus
+                praesentium
+                tenetur voluptate voluptates!
+              </Text>
+              <Text mb={5}>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt maxime molestiae possimus ratione
+                recusandae? Ab alias commodi dolores, ea eligendi esse, ex, facilis laudantium molestias natus
+                praesentium
+                tenetur voluptate voluptates!
+              </Text>
+            </Box>
+          </TabContent>
+        </TabController>
+      </Box>
     </Box>
   ))
 
@@ -627,12 +786,6 @@ storiesOf("Сomponents", module)
     </Box>
   ))
 
-  .add("TextArea", () => (
-    <Box>
-      <h3>TextArea Component</h3>
-      <TextArea placeholder={"TextArea"}/>
-    </Box>
-  ))
 
   .add("TooltipBase", () => (
     <Box>

@@ -22,9 +22,7 @@ export const Link: any = styled.a`
   ${fontFamily};
   ${fontWeight};
   ${lineHeight};
-  /* &:hover {
-    ${props => color({ ...props, color: "color3" })};
-  } */
+
 `;
 
 Link.defaultProps = {};

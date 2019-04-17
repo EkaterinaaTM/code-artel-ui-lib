@@ -35,7 +35,7 @@ export const InputVariant = (theme: ITheme): IVariantList => {
       ":active": {
         borderColor: theme.colors && theme.colors.blue
       },
-      ".active": {
+      "&.active": {
         borderColor: theme.colors && theme.colors.blue
       },
       ":focus": {
@@ -63,7 +63,7 @@ export const InputVariant = (theme: ITheme): IVariantList => {
       ":active": {
         borderColor: theme.colors && theme.colors.blue
       },
-      ".active": {
+      "&.active": {
         borderColor: theme.colors && theme.colors.blue
       },
       ":focus": {
@@ -91,7 +91,7 @@ export const InputVariant = (theme: ITheme): IVariantList => {
       ":active": {
         borderColor: theme.colors && theme.colors.orange
       },
-      ".active": {
+      "&.active": {
         borderColor: theme.colors && theme.colors.orange
       },
       ":focus": {
@@ -119,7 +119,7 @@ export const InputVariant = (theme: ITheme): IVariantList => {
       ":active": {
         borderColor: theme.colors && theme.colors.red
       },
-      ".active": {
+      "&.active": {
         borderColor: theme.colors && theme.colors.red
       },
       ":focus": {
