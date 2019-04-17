@@ -1,16 +1,26 @@
 import styled from "styled-components";
 import { Box } from "../Box/Box";
+import {variant} from "styled-system";
 
-/**
- * Компонент текста
- * @example ./Text.example.md
- */
-export const Text = styled(Box)`
-  cursor: pointer;
+interface IText {
+  variant: string,
+  [propName: string]: any,
+}
+
+
+const TextVariants = variant({
+  key: "variant.textVariants",
+  prop: "variant"
+});
+
+
+export const Text = styled(Box)<IText>`
+${TextVariants};
 `;
 
 Text.defaultProps = {
-  color: "#333333"
+  color: "#333333",
+  variant: 'body1'
 };
 
 export default Text;

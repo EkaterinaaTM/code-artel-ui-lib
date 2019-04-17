@@ -18,10 +18,8 @@ export interface IVariantItem {
 }
 
 export interface IVariantList {
-  default: IVariantItem,
   primary: IVariantItem,
   secondary: IVariantItem,
-  error: IVariantItem,
   [propName: string]: IVariantItem,
 }
 
@@ -54,6 +52,7 @@ export interface ITheme {
   borderRadius?: number[],
   boxShadow?: string[],
   border?: string[],
+  transition?: string[],
   colors: IColors,
   borderColor?: IColors,
   variant?: IVariant,

@@ -26,6 +26,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.3",
     "@emotion/core": "^10.0.10",
+    "@types/color": "^3.0.0",
     "@types/graphql": "^14.2.0",
     "@types/react-router-dom": "^4.3.1",
     "@types/react-select": "^2.0.15",
@@ -33,6 +34,7 @@
     "@types/styled-components": "^4.1.12",
     "@types/styled-system": "^4.0.0",
     "apollo-client": "^2.5.1",
+    "color": "^3.1.0",
     "graphql": "^14.2.1",
     "graphql-tag": "^2.10.1",
     "react": "^16.4.1",

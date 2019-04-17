@@ -2,20 +2,19 @@ import styled from "styled-components";
 
 /** View */
 import { Box } from "../Box/Box";
+import {variant} from "styled-system";
 
-/**
- * Компонент карточки
- * @example ./Card.example.md
- */
+const CardVariants = variant({
+  key: "variant.cardVariants",
+  prop: "variant"
+});
+
 export const Card = styled(Box)`
-  margin: 0 auto;
-  cursor: pointer;
+  ${CardVariants};
 `;
 
 Card.defaultProps = {
-  borderRadius: 2,
-  border: "1px solid #AEAEAE",
-  minHeight: "150px"
+  variant: "default",
 };
 
 export default Card;

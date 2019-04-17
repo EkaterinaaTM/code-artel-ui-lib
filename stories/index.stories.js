@@ -1,6 +1,6 @@
 import React from "react";
-import { jsxDecorator } from "storybook-addon-jsx";
-import { addDecorator, storiesOf } from "@storybook/react";
+import {jsxDecorator} from "storybook-addon-jsx";
+import {addDecorator, storiesOf} from "@storybook/react";
 import StyledThemeProvider from "../src/styles/StyleThemeProvider";
 
 import {
@@ -202,89 +202,259 @@ storiesOf("Сomponents", module)
 
   .add("Input", () => (
     <Box>
-      <h3>Input</h3>
-      <Input />
 
-      <h3>Input with placeholder</h3>
-      <Input
-        placeholder={"Input Component"}
-        fontSize={"24px"}
-        lineHeight={"32px"}
-        pl={3}
-      />
+      <Flex
+        mb={5}>
+        <Box px={5} w={1 / 3}>
+          <Input
+            placeholder={"Default small"}
+            variant={"default"}
+            size={"small"}
+          />
+        </Box>
+        <Box px={5} w={1 / 3}>
+          <Input
+            placeholder={"Default medium"}
+            variant={"default"}
+            size={"medium"}
+          />
+        </Box>
+        <Box px={5} w={1 / 3}>
+          <Input
+            placeholder={"Default large"}
+            variant={"default"}
+            size={"large"}
+          />
+        </Box>
+      </Flex>
 
-      <h3>Input with variant</h3>
+      <Flex
+        mb={5}>
+        <Box px={5} w={1 / 3}>
+          <Input
+            placeholder={"Primary small"}
+            variant={"primary"}
+            size={"small"}
+          />
+        </Box>
+        <Box px={5} w={1 / 3}>
+          <Input
+            placeholder={"Primary medium"}
+            variant={"primary"}
+            size={"medium"}
+          />
+        </Box>
+        <Box px={5} w={1 / 3}>
+          <Input
+            placeholder={"Primary large"}
+            variant={"primary"}
+            size={"large"}
+          />
+        </Box>
+      </Flex>
 
-      <Input
-        placeholder={"Input Component"}
-        variant={"default"}
-        size={"xSmall"}
+      <Flex
+        mb={5}>
+        <Box px={5} w={1 / 3}>
+          <Input
+            placeholder={"Error small"}
+            variant={"error"}
+            size={"small"}
+          />
+        </Box>
+        <Box px={5} w={1 / 3}>
+          <Input
+            placeholder={"Error medium"}
+            variant={"error"}
+            size={"medium"}
+          />
+        </Box>
+        <Box px={5} w={1 / 3}>
+          <Input
+            placeholder={"Error large"}
+            variant={"error"}
+            size={"large"}
+          />
+        </Box>
+      </Flex>
+
+      <Flex
+        mb={5}>
+        <Box px={5} w={1 / 3}>
+          <Input
+            placeholder={"Secondary small"}
+            variant={"secondary"}
+            size={"small"}
+          />
+        </Box>
+        <Box px={5} w={1 / 3}>
+          <Input
+            placeholder={"Secondary medium"}
+            variant={"secondary"}
+            size={"medium"}
+          />
+        </Box>
+        <Box px={5} w={1 / 3}>
+          <Input
+            placeholder={"Secondary large"}
+            variant={"secondary"}
+            size={"large"}
+          />
+        </Box>
+      </Flex>
+
+      <Flex
         mb={5}
-      />
-      <Input
-        placeholder={"Input Component"}
-        variant={"primary"}
-        size={"small"}
+      >
+        <Box px={5} w={1 / 3}>
+          <Text variant={'body1'} mb={2}>Label</Text>
+          <Input
+            placeholder={"Default medium"}
+            variant={"default"}
+            size={"medium"}
+          />
+        </Box>
+
+      </Flex>
+
+      <Flex
         mb={5}
-      />
-      <Input
-        placeholder={"Input Component"}
-        variant={"secondary"}
-        size={"medium"}
-        mb={5}
-      />
-      <Input placeholder={"Input Component"} variant={"error"} size={"large"} />
+      >
+        <Box px={5} w={1 / 3}>
+          <Flex alignItems={'center'}>
+            <Text variant={'body1'} mr={3}>Label</Text>
+            <Input
+              placeholder={"Default medium"}
+              variant={"default"}
+              size={"medium"}
+            />
+          </Flex>
+        </Box>
+      </Flex>
     </Box>
   ))
 
   .add("Button", () => (
     <Box>
-      <h3>Button</h3>
-      <ButtonBase>Button</ButtonBase>
 
-      <h3>Button with css value</h3>
+      <Box as={'h3'}>
+        Button
+      </Box>
+      <ButtonBase>
+        Button
+      </ButtonBase>
+
+      <Box as={'h3'}>
+        Button with css value
+      </Box>
       <Box mb={5}>
         <ButtonBase variant={"default"} size={"small"}>
-          Button
+          default
+        </ButtonBase>
+
+        <ButtonBase variant={"default"} size={"medium"}>
+          default
+        </ButtonBase>
+        <ButtonBase disabled variant={"default"} size={"medium"}>
+          default
+        </ButtonBase>
+
+        <ButtonBase variant={"default"} size={"large"}>
+          default
         </ButtonBase>
       </Box>
-
       <Box mb={5}>
+        <ButtonBase variant={"primary"} size={"small"}>
+          Primary
+        </ButtonBase>
         <ButtonBase variant={"primary"} size={"medium"}>
-          Button
+          Primary
+        </ButtonBase>
+        <ButtonBase disabled variant={"primary"} size={"large"}>
+          Primary
         </ButtonBase>
       </Box>
 
       <Box mb={5}>
+        <ButtonBase variant={"secondary"} size={"small"}>
+          Secondary
+        </ButtonBase>
+        <ButtonBase variant={"secondary"} size={"medium"}>
+          Secondary
+        </ButtonBase>
+        <ButtonBase disabled variant={"secondary"} size={"medium"}>
+          Secondary
+        </ButtonBase>
         <ButtonBase variant={"secondary"} size={"large"}>
-          Button
+          Secondary
         </ButtonBase>
       </Box>
 
       <Box mb={5}>
+        <ButtonBase variant={"error"} size={"small"}>
+          Error
+        </ButtonBase>
+        <ButtonBase variant={"error"} size={"medium"}>
+          Error
+        </ButtonBase>
+        <ButtonBase disabled variant={"error"} size={"medium"}>
+          Error
+        </ButtonBase>
         <ButtonBase variant={"error"} size={"large"}>
-          Button
+          Error
         </ButtonBase>
       </Box>
+
     </Box>
   ))
 
   .add("Card", () => (
     <Box>
       <h3>Card</h3>
-      <Card p={5} borderRadius={5}>
-        lorem lorem
-      </Card>
+      <Flex flexDirection={'column'} flexWrap={'wrap'}>
+        <Card
+          fontSize={7}
+          fontWeight='bold'
+          p={5}
+          width={[1, 1, 1 / 2]}
+          my={5}
+          bg={'white'}
+          boxShadow={4}
+          borderRadius={5}
+        >
+          Card
+        </Card>
+        <Card
+          width={[1, 1, 1 / 2]}
+          my={5}
+          bg={'white'}
+          boxShadow={4}
+          borderRadius={5}
+        >
+          <Image
+            width={1}
+            src='https://source.unsplash.com/random/1280x720'
+          />
+          <Box
+            fontSize={5}
+            fontWeight='bold'
+            p={5}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda beatae eius ipsa nihil omnis pariatur
+            perspiciatis quibusdam rem ullam unde. Animi, fugit magni provident qui quod sit vero voluptate voluptatem.
+          </Box>
+        </Card>
+      </Flex>
     </Box>
   ))
 
   .add("Checkbox", () => (
     <Box>
       <h3>CheckboxBase</h3>
-      <CheckboxBase />
+      <CheckboxBase/>
 
       <h3>Checkbox with label</h3>
-      <Checkbox label={"Check me!"} />
+      <Checkbox label={"Check me!"}/>
 
       <h3>CheckboxGroup</h3>
       <CheckboxGroup
@@ -349,10 +519,10 @@ storiesOf("Сomponents", module)
   .add("RadioButton", () => (
     <Box>
       <h3>RadioButtonBase</h3>
-      <RadioButtonBase />
+      <RadioButtonBase/>
 
       <h3>RadioButton with label</h3>
-      <RadioButton label={"Check me!"} />
+      <RadioButton label={"Check me!"}/>
 
       <h3>RadioButtonGroup</h3>
       <RadioButtonGroup
@@ -395,7 +565,7 @@ storiesOf("Сomponents", module)
   .add("SmallPreloader", () => (
     <Box>
       <h3>SmallPreloader</h3>
-      <SmallPreloader />
+      <SmallPreloader/>
     </Box>
   ))
 
@@ -428,12 +598,31 @@ storiesOf("Сomponents", module)
 
   .add("Text", () => (
     <Box>
-      <h3>Text Component</h3>
-      <Text>lorem</Text>
-
-      <h3>Text Component with css value</h3>
-      <Text color={"orange"} fontSize={"32px"} lineHeight={"40px"}>
-        lorem
+      <Text variant={'h1'}>
+        h1. Heading
+      </Text>
+      <Text variant={'h2'}>
+        h2. Heading
+      </Text>
+      <Text variant={'h3'}>
+        h3. Heading
+      </Text>
+      <Text variant={'h4'}>
+        h4. Heading
+      </Text>
+      <Text variant={'h5'}>
+        h5. Heading
+      </Text>
+      <Text variant={'h6'}>
+        h6. Heading
+      </Text>
+      <Text variant={'body1'}>
+        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores assumenda aut culpa deleniti
+        dolore dolores ducimus esse facere, illo impedit, in ipsa, ipsum laudantium odio saepe similique sint vitae!
+      </Text>
+      <Text variant={'body2'}>
+        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores assumenda aut culpa deleniti
+        dolore dolores ducimus esse facere, illo impedit, in ipsa, ipsum laudantium odio saepe similique sint vitae!
       </Text>
     </Box>
   ))
@@ -441,7 +630,7 @@ storiesOf("Сomponents", module)
   .add("TextArea", () => (
     <Box>
       <h3>TextArea Component</h3>
-      <TextArea placeholder={"TextArea"} />
+      <TextArea placeholder={"TextArea"}/>
     </Box>
   ))
 
