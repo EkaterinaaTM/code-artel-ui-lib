@@ -1,6 +1,6 @@
 import { IVariantList, ITheme } from "../../interfaces";
 
-const baseStyle = {
+let baseStyle = {
   font: "inherit",
   display: "block",
   boxSizing: "content-box",
@@ -11,85 +11,129 @@ const baseStyle = {
 };
 
 export const InputVariant = (theme: ITheme): IVariantList => {
+
+  baseStyle= {
+    ...baseStyle,
+    borderRadius: '4px',
+    borderStyle: "solid",
+    borderWidth: "1px",
+    outline: "none",
+    fontWeight: 400,
+    transition: theme.transition && theme.transition[0],
+
+  };
+
   return {
     default: {
       ...baseStyle,
-      color: theme.colors.dark,
-      borderBottomStyle: "solid",
-      borderBottomWidth: "2px",
-      borderColor: theme.colors.dark,
-      outline: "none",
+      color: theme.colors && theme.colors.dark,
+      borderColor: theme.colors && theme.colors.gray,
 
       ":hover": {
-        borderColor: theme.colors.blue
+        borderColor: theme.colors && theme.colors.blue
       },
       ":active": {
-        borderColor: theme.colors.blue
+        borderColor: theme.colors && theme.colors.blue
       },
       ".active": {
-        borderColor: theme.colors.blue
+        borderColor: theme.colors && theme.colors.blue
       },
       ":focus": {
         outline: "none",
-        borderColor: theme.colors.blue
+        borderColor: theme.colors && theme.colors.blue
       },
       ":disabled": {
         cursor: "default",
         outline: "none",
-        borderColor: theme.colors.gray
+        borderColor: theme.colors && theme.colors.gray
       },
       ":visited": {},
       "::placeholder": {
-        color: theme.colors.gray
+        color: theme.colors && theme.colors.gray
       }
     },
     primary: {
       ...baseStyle,
-      ":hover": {},
-      ":active": {},
-      ":disabled": {},
-      ":focus": {},
-      ":visited": {},
-      ".active": {}
-    },
-    secondary: {
-      ...baseStyle,
-      ":hover": {},
-      ":active": {},
-      ":disabled": {},
-      ":focus": {},
-      ":visited": {},
-      ".active": {}
-    },
-    error: {
-      ...baseStyle,
-      color: theme.colors.red,
-      borderBottomStyle: "solid",
-      borderBottomWidth: "2px",
-      borderColor: theme.colors.red,
-      outline: "none",
+      color: theme.colors && theme.colors.dark,
+      borderColor: theme.colors && theme.colors.blue,
 
       ":hover": {
-        borderColor: theme.colors.red
+        borderColor: theme.colors && theme.colors.blue
       },
       ":active": {
-        borderColor: theme.colors.red
+        borderColor: theme.colors && theme.colors.blue
       },
       ".active": {
-        borderColor: theme.colors.red
+        borderColor: theme.colors && theme.colors.blue
       },
       ":focus": {
         outline: "none",
-        borderColor: theme.colors.red
+        borderColor: theme.colors && theme.colors.blue
       },
       ":disabled": {
         cursor: "default",
         outline: "none",
-        borderColor: theme.colors.gray
+        borderColor: theme.colors && theme.colors.gray
       },
       ":visited": {},
       "::placeholder": {
-        color: theme.colors.gray
+        color: theme.colors && theme.colors.gray
+      }
+    },
+    secondary: {
+      ...baseStyle,
+      color: theme.colors && theme.colors.orange,
+      borderColor: theme.colors && theme.colors.orange,
+
+      ":hover": {
+        borderColor: theme.colors && theme.colors.orange
+      },
+      ":active": {
+        borderColor: theme.colors && theme.colors.orange
+      },
+      ".active": {
+        borderColor: theme.colors && theme.colors.orange
+      },
+      ":focus": {
+        outline: "none",
+        borderColor: theme.colors && theme.colors.orange
+      },
+      ":disabled": {
+        cursor: "default",
+        outline: "none",
+        borderColor: theme.colors && theme.colors.gray
+      },
+      ":visited": {},
+      "::placeholder": {
+        color: theme.colors && theme.colors.gray
+      }
+    },
+    error: {
+      ...baseStyle,
+      color: theme.colors && theme.colors.red,
+      borderColor: theme.colors && theme.colors.red,
+
+      ":hover": {
+        borderColor: theme.colors && theme.colors.red
+      },
+      ":active": {
+        borderColor: theme.colors && theme.colors.red
+      },
+      ".active": {
+        borderColor: theme.colors && theme.colors.red
+      },
+      ":focus": {
+        outline: "none",
+        borderColor: theme.colors && theme.colors.red
+      },
+      ":disabled": {
+        cursor: "default",
+        outline: "none",
+        borderColor: theme.colors && theme.colors.gray
+      },
+      ":visited": {},
+      "::placeholder": {
+        color: theme.colors && theme.colors.gray
       }
     }
   };

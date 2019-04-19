@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet commodi illum maxime minus obcaecati
+repellat. Ex iure labore laboriosam magnam numquam officia pariatur provident quaerat quisquam, recusandae suscipit
+totam!
+
+<script>
+  // Проверка того, что наш браузер поддерживает Service Worker API.
+  if ("serviceWorker" in navigator) {
+    // Весь код регистрации у нас асинхронный.
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then(reg => console.log("SW registered! index.js", reg))
+      .catch(err => console.log("Boom!", err));
+  }
+
+</script>
+</body>
+</html>

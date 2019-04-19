@@ -17,7 +17,7 @@ self.addEventListener("fetch", function(event) {
   // Мы используем `respondWith()`, чтобы мгновенно ответить без ожидания ответа с сервера.
   event.respondWith(fromCache(event.request));
   // `waitUntil()` нужен, чтобы предотвратить прекращение работы worker'a до того как кэш обновиться.
-  event.waitUntil(update(event.request));
+  event.waitUntil(update(event.request))
 });
 
 function fromCache(request) {

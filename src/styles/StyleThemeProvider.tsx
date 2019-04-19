@@ -8,13 +8,14 @@ import { ButtonSize } from "./variants/buttons/ButtonSize";
 import { InputVariant } from "./variants/inputs/InputVariant";
 import { ButtonVariant } from "./variants/buttons/ButtonVariant";
 import { InputSize } from "./variants/inputs/InputSize";
-import { BadgesPosition } from "./variants/badges/BadgesPosition";
+import { CardVariants } from "./variants/cards/CardVariants";
+import { TextVariants } from "./variants/text/TextVariants";
 
 export const Colors: IColors = {
   white: "#ffffff",
   blue: "#2196f3",
   red: "#e10050",
-  orange: "#f44336",
+  orange: "#ff9800",
   black: "#000",
   dark: "#1f1f1f",
   gray: "#6d6d6d",
@@ -26,6 +27,7 @@ export const Space: number[] = [
   2,
   4,
   8,
+  12,
   16,
   24,
   32,
@@ -43,7 +45,9 @@ export const BoxShadow: string[] = [
   "none",
   "rgba(0, 0, 0, 0.2) 0px 1px 3px 0px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 2px 1px -1px",
   "rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 3px 1px -2px",
-  "rgba(0, 0, 0, 0.2) 0px 1px 8px 0px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 3px 3px -2px"
+  "rgba(0, 0, 0, 0.2) 0px 1px 8px 0px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 3px 3px -2px",
+  "0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12)",
+  "0 0 0 2px rgba(0, 132, 255, .5)"
 ];
 
 export const Border: string[] = [
@@ -59,25 +63,28 @@ const defaultThemeProps = {
   border: Border
 };
 
+const transition: string[] = [
+  "background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms"
+];
+
 export const ThemeCreate = (props: ITheme = defaultThemeProps): ITheme => {
-  const { space, boxShadow, colors, border } = props;
+  const { space, boxShadow, colors } = props;
 
   const Theme: ITheme = {
     space: space || Space,
     fontSizes: space || Space,
     lineHeight: space || Space,
-    borderRadius: space || Space,
+    transition: transition,
     boxShadow: boxShadow || BoxShadow,
-    border: border,
-    borderColor: colors,
     colors: colors,
     variant: {
       buttonVariant: {},
       buttonSize: {},
       inputVariant: {},
       inputSize: {},
-      textVariant: {},
-      badgesPosition: {}
+      cardVariants: {},
+      imageVariant: {},
+      textVariants: {}
     }
   };
   if (Theme.variant) {
@@ -85,8 +92,8 @@ export const ThemeCreate = (props: ITheme = defaultThemeProps): ITheme => {
     Theme.variant.buttonSize = ButtonSize();
     Theme.variant.inputVariant = InputVariant(Theme);
     Theme.variant.inputSize = InputSize(Theme);
-    Theme.variant.textVariant = TextVariant();
-    Theme.variant.badgesPosition = BadgesPosition();
+    Theme.variant.cardVariants = CardVariants(Theme);
+    Theme.variant.textVariants = TextVariants(Theme);
   }
 
   return Theme;

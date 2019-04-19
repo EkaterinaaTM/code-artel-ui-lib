@@ -2,6 +2,10 @@ import {
   justifyContent,
   alignItems,
   alignContent,
+  FlexBasisProps,
+  FlexDirectionProps,
+  FlexProps,
+  FlexWrapProps,
   flex,
   flexBasis,
   flexDirection,
@@ -11,9 +15,9 @@ import {
 import styled from 'styled-components';
 
 /**View */
-import Box from '../Box/Box';
+import Box, {IBox} from '../Box/Box';
 
-export interface IFlex {
+export interface IFlex extends IBox, FlexBasisProps, FlexDirectionProps, FlexProps, FlexWrapProps {
   [propName: string]: any;
 }
 

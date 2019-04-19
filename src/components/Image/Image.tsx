@@ -1,16 +1,24 @@
 import styled from "styled-components";
-import { width, height, borderRadius, border, display } from "styled-system";
+import {width, height, variant} from "styled-system";
+import Box from "../Box/Box";
 
-export const Image: any = styled.img`
+
+const ImageVariant = variant({
+  key: "variant.imageVariant",
+  prop: "variant"
+});
+
+export const Image: any = styled(Box)`
   ${width};
   ${height};
-  ${borderRadius};
-  ${display};
-  ${border};
+  ${ImageVariant};
 `;
 
 Image.defaultProps = {
-  display: "block"
+  display: "block",
+  as: 'img',
+  maxWidth: '100%',
+  height: 'auto'
 };
 
 export default Image;

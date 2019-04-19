@@ -1,38 +1,38 @@
 import { IVariantSize, ITheme } from "../../interfaces";
 
 const baseStyle = {
-  padding: 0
 };
 
 export const InputSize = (theme: ITheme): IVariantSize => {
   return {
-    xSmall: {
-      ...baseStyle,
-      fontSize: "12px",
-
-      "::placeholder": {
-        fontSize: "12px"
-      }
-    },
     small: {
       ...baseStyle,
-      fontSize: "12px",
+      fontSize: '14px',
+      lineHeight: '22px',
+      padding: '4px 8px',
       "::placeholder": {
-        fontSize: "12px"
+        fontSize: '14px',
+        lineHeight: '22px',
       }
     },
     medium: {
       ...baseStyle,
-      fontSize: theme.space ? theme.space[5] : "",
+      fontSize: '16px',
+      lineHeight: '24px',
+      padding: '6px 12px',
       "::placeholder": {
-        fontSize: theme.space ? theme.space[5] : ""
+        fontSize: '16px',
+        lineHeight: '24px',
       }
     },
     large: {
       ...baseStyle,
-      fontSize: theme.space ? theme.space[6] : "",
+      fontSize: '20px',
+      lineHeight: '28px',
+      padding: '8px 16px',
       "::placeholder": {
-        fontSize: theme.space ? theme.space[6] : ""
+        fontSize: '20px',
+        lineHeight: '28px',
       }
     }
   };
