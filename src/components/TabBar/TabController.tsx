@@ -8,10 +8,11 @@ const Backdrop: any = styled.div`
   bottom: 0;
   right: 0;
   z-index: 1;
+  background-color: transparent;
   ${(props: any) =>
     props.backdrop && props.isActive !== null
       ? "display:block;"
-      : "display:none;"} background-color: transparent;
+      : "display:none;"}
 `;
 
 export interface ITabController {

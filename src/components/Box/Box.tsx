@@ -12,6 +12,7 @@ import {
   maxWidth,
   minWidth,
   height,
+  position,
   textAlign,
   lineHeight,
   minHeight,
@@ -56,6 +57,7 @@ export const Box = styled.div<IBox>`
   ${border};
   ${fontSize};
   ${color};
+  ${position};
   ${maxWidth};
   ${minWidth};
   ${height};

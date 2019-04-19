@@ -16,7 +16,8 @@ export const ButtonVariant = (theme: ITheme): IVariantList => {
       ":disabled": {},
       ":focus": {},
       ":visited": {},
-      ".active": {}
+      ".active": {},
+      ".button_icon": {}
     },
     primary: {
       ...baseStyle,
@@ -25,7 +26,8 @@ export const ButtonVariant = (theme: ITheme): IVariantList => {
       ":disabled": {},
       ":focus": {},
       ":visited": {},
-      ".active": {}
+      ".active": {},
+      ".button_icon": {}
     },
     secondary: {
       ...baseStyle,
@@ -34,7 +36,8 @@ export const ButtonVariant = (theme: ITheme): IVariantList => {
       ":disabled": {},
       ":focus": {},
       ":visited": {},
-      ".active": {}
+      ".active": {},
+      ".button_icon": {}
     },
     error: {
       ...baseStyle,
@@ -43,7 +46,8 @@ export const ButtonVariant = (theme: ITheme): IVariantList => {
       ":disabled": {},
       ":focus": {},
       ":visited": {},
-      ".active": {}
+      ".active": {},
+      ".button_icon": {}
     }
   };
 };

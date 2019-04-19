@@ -8,6 +8,7 @@ import { ButtonSize } from "./variants/buttons/ButtonSize";
 import { InputVariant } from "./variants/inputs/InputVariant";
 import { ButtonVariant } from "./variants/buttons/ButtonVariant";
 import { InputSize } from "./variants/inputs/InputSize";
+import { BadgesPosition } from "./variants/badges/BadgesPosition";
 
 export const Colors: IColors = {
   white: "#ffffff",
@@ -54,27 +55,29 @@ export const Border: string[] = [
 const defaultThemeProps = {
   space: Space,
   boxShadow: BoxShadow,
-  colors: Colors
-  // border: Border
+  colors: Colors,
+  border: Border
 };
 
 export const ThemeCreate = (props: ITheme = defaultThemeProps): ITheme => {
-  const { space, boxShadow, colors } = props;
+  const { space, boxShadow, colors, border } = props;
 
   const Theme: ITheme = {
     space: space || Space,
     fontSizes: space || Space,
     lineHeight: space || Space,
-    // borderRadius: space || Space,
+    borderRadius: space || Space,
     boxShadow: boxShadow || BoxShadow,
-    // border: border,
-    // borderColor: colors,
+    border: border,
+    borderColor: colors,
     colors: colors,
     variant: {
       buttonVariant: {},
       buttonSize: {},
       inputVariant: {},
       inputSize: {},
+      textVariant: {},
+      badgesPosition: {}
     }
   };
   if (Theme.variant) {
@@ -82,6 +85,8 @@ export const ThemeCreate = (props: ITheme = defaultThemeProps): ITheme => {
     Theme.variant.buttonSize = ButtonSize();
     Theme.variant.inputVariant = InputVariant(Theme);
     Theme.variant.inputSize = InputSize(Theme);
+    Theme.variant.textVariant = TextVariant();
+    Theme.variant.badgesPosition = BadgesPosition();
   }
 
   return Theme;

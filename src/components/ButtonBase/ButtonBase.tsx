@@ -1,7 +1,7 @@
+// import * as React from "react";
 import styled from "styled-components";
-import { variant } from "styled-system";
 
-/**View */
+import { variant } from "styled-system";
 import Box from "../Box/Box";
 
 const buttonsVariant = variant({
@@ -17,6 +17,12 @@ const buttonsSize = variant({
 export interface IButtonBase {
   variant: string;
   size: string;
+  children: string;
+  [propName: string]: any;
+}
+
+export interface IButton {
+  children?: string;
   [propName: string]: any;
 }
 
@@ -25,6 +31,7 @@ export interface IButtonBase {
  * @example ./ButtonBase.example.md
  */
 export const ButtonBase = styled(Box)<IButtonBase>`
+  cursor: pointer;
   ${buttonsVariant};
   ${buttonsSize};
 `;

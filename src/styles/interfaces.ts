@@ -1,28 +1,26 @@
-
-
 export interface IVariantSize {
-  small: any,
-  medium: any,
-  large: any,
-  [propName: string]: any,
+  small: any;
+  medium: any;
+  large: any;
+  [propName: string]: any;
 }
 
 export interface IVariantItem {
-  ':hover': any,
-  ':active': any,
-  ':disabled': any,
-  ':focus': any,
-  ':visited': any,
-  '.active': any,
-  [propName: string]: any,
+  ":hover": any;
+  ":active": any;
+  ":disabled": any;
+  ":focus": any;
+  ":visited": any;
+  ".active": any;
+  [propName: string]: any;
 }
 
 export interface IVariantList {
-  default: IVariantItem,
-  primary: IVariantItem,
-  secondary: IVariantItem,
-  error: IVariantItem,
-  [propName: string]: IVariantItem,
+  default: IVariantItem;
+  primary: IVariantItem;
+  secondary: IVariantItem;
+  error: IVariantItem;
+  [propName: string]: IVariantItem;
 }
 
 export interface IVariant {
@@ -31,32 +29,40 @@ export interface IVariant {
   // inputVariant: IVariantList,
   // inputSize: IVariantSize,
 
-  [propName: string]: any,
+  [propName: string]: any;
 }
 
 export interface IColors {
-  white: string,
-  blue: string,
-  red: string,
-  orange: string,
-  black: string,
-  dark: string,
-  gray: string,
-  lightGray: string,
+  white: string;
+  blue: string;
+  red: string;
+  orange: string;
+  black: string;
+  dark: string;
+  gray: string;
+  lightGray: string;
 
-  [propName: string]: any,
+  [propName: string]: any;
 }
 
 export interface ITheme {
-  space?: number[],
-  fontSizes?: number[],
-  lineHeight?: number[],
-  borderRadius?: number[],
-  boxShadow?: string[],
-  border?: string[],
-  colors: IColors,
-  borderColor?: IColors,
-  variant?: IVariant,
+  space?: number[];
+  fontSizes?: number[];
+  lineHeight?: number[];
+  borderRadius?: number[];
+  boxShadow?: string[];
+  border?: string[];
+  colors: IColors;
+  borderColor?: IColors;
+  variant?: IVariant;
 
-  [propName: string]: any,
+  [propName: string]: any;
+}
+
+export interface IBadgesPosition {
+  top: any;
+  bottom: any;
+  right: any;
+  left: any;
+  [propName: string]: any;
 }
