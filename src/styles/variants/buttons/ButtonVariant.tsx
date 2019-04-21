@@ -1,15 +1,15 @@
-import {IVariantList, ITheme} from "../../interfaces";
-import * as Color from 'color';
+import { IVariantList, ITheme } from "../../interfaces";
+import * as Color from "color";
 
 let baseStyle: any = {
   display: "inline-block",
   border: "none",
   background: "none",
   font: "inherit",
-  cursor: 'pointer',
-  outline: 'none',
+  cursor: "pointer",
+  outline: "none",
   fontWeight: 500,
-  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif'
 };
 
 export const ButtonVariant = (theme: ITheme): IVariantList => {
@@ -17,116 +17,179 @@ export const ButtonVariant = (theme: ITheme): IVariantList => {
     ...baseStyle,
     borderRadius: theme.space && theme.space[2],
     boxShadow: theme.boxShadow && theme.boxShadow[1],
-    transition: theme.transition && theme.transition[0],
+    transition: theme.transition && theme.transition[0]
   };
 
   return {
     default: {
       ...baseStyle,
-      color: theme.colors && theme.colors['black'],
-      boxShadow: 'none',
+      color: theme.colors && theme.colors["black"],
+      boxShadow: "none",
       // backgroundColor: theme.colors && Color(theme.colors['white']).darken(0.08).hex(),
 
       ":hover": {
-        backgroundColor: theme.colors && Color(theme.colors['white']).darken(0.16).hex(),
+        backgroundColor:
+          theme.colors &&
+          Color(theme.colors["white"])
+            .darken(0.16)
+            .hex()
       },
       ":active": {
-        backgroundColor: theme.colors && Color(theme.colors['white']).darken(0.24).hex(),
-        boxShadow: theme.boxShadow && theme.boxShadow[4],
+        backgroundColor:
+          theme.colors &&
+          Color(theme.colors["white"])
+            .darken(0.24)
+            .hex(),
+        boxShadow: theme.boxShadow && theme.boxShadow[4]
       },
       ":disabled": {
-        backgroundColor: theme.colors && Color(theme.colors['white']).darken(0.32).hex(),
-        cursor: 'default',
-        color: theme.colors && theme.colors['black'],
+        backgroundColor:
+          theme.colors &&
+          Color(theme.colors["white"])
+            .darken(0.32)
+            .hex(),
+        cursor: "default",
+        color: theme.colors && theme.colors["black"]
       },
       ":focus": {
-        boxShadow: theme.boxShadow && theme.boxShadow[5],
+        boxShadow: theme.boxShadow && theme.boxShadow[5]
       },
       ":visited": {},
       ".active": {
-        backgroundColor: theme.colors && Color(theme.colors['white']).darken(0.24).hex(),
-        boxShadow: theme.boxShadow && theme.boxShadow[4],
+        backgroundColor:
+          theme.colors &&
+          Color(theme.colors["white"])
+            .darken(0.24)
+            .hex(),
+        boxShadow: theme.boxShadow && theme.boxShadow[4]
       }
     },
     primary: {
       ...baseStyle,
-      color: theme.colors && theme.colors['black'],
-      backgroundColor: theme.colors && Color(theme.colors['white']).darken(0.08).hex(),
+      color: theme.colors && theme.colors["black"],
+      backgroundColor:
+        theme.colors &&
+        Color(theme.colors["white"])
+          .darken(0.08)
+          .hex(),
 
       ":hover": {
-        backgroundColor: theme.colors && Color(theme.colors['white']).darken(0.16).hex(),
+        backgroundColor:
+          theme.colors &&
+          Color(theme.colors["white"])
+            .darken(0.16)
+            .hex()
       },
       ":active": {
-        backgroundColor: theme.colors && Color(theme.colors['white']).darken(0.24).hex(),
-        boxShadow: theme.boxShadow && theme.boxShadow[4],
+        backgroundColor:
+          theme.colors &&
+          Color(theme.colors["white"])
+            .darken(0.24)
+            .hex(),
+        boxShadow: theme.boxShadow && theme.boxShadow[4]
       },
       ":disabled": {
-        backgroundColor: theme.colors && Color(theme.colors['white']).darken(0.32).hex(),
-        cursor: 'default',
-        color: theme.colors && theme.colors['black'],
+        backgroundColor:
+          theme.colors &&
+          Color(theme.colors["white"])
+            .darken(0.32)
+            .hex(),
+        cursor: "default",
+        color: theme.colors && theme.colors["black"]
       },
       ":focus": {
-        boxShadow: theme.boxShadow && theme.boxShadow[5],
+        boxShadow: theme.boxShadow && theme.boxShadow[5]
       },
       ":visited": {},
-<<<<<<< HEAD
-      ".active": {},
-      ".button_icon": {}
-=======
       ".active": {
-        backgroundColor: theme.colors && Color(theme.colors['white']).darken(0.24).hex(),
-        boxShadow: theme.boxShadow && theme.boxShadow[4],
+        backgroundColor:
+          theme.colors &&
+          Color(theme.colors["white"])
+            .darken(0.24)
+            .hex(),
+        boxShadow: theme.boxShadow && theme.boxShadow[4]
       }
->>>>>>> 6263c06add760f4a370f49d50708cb55820429e6
     },
     secondary: {
       ...baseStyle,
-      backgroundColor: theme.colors && theme.colors['blue'],
-      color: theme.colors && theme.colors['white'],
+      backgroundColor: theme.colors && theme.colors["blue"],
+      color: theme.colors && theme.colors["white"],
       ":hover": {
-        backgroundColor: theme.colors && Color(theme.colors['blue']).darken(0.16).hex(),
+        backgroundColor:
+          theme.colors &&
+          Color(theme.colors["blue"])
+            .darken(0.16)
+            .hex()
       },
       ":active": {
-        backgroundColor: theme.colors && Color(theme.colors['blue']).darken(0.24).hex(),
-        boxShadow: theme.boxShadow && theme.boxShadow[4],
+        backgroundColor:
+          theme.colors &&
+          Color(theme.colors["blue"])
+            .darken(0.24)
+            .hex(),
+        boxShadow: theme.boxShadow && theme.boxShadow[4]
       },
       ":disabled": {
-        backgroundColor: theme.colors && Color(theme.colors['blue']).darken(0.32).hex(),
-        cursor: 'default',
-        color: theme.colors && theme.colors['white'],
+        backgroundColor:
+          theme.colors &&
+          Color(theme.colors["blue"])
+            .darken(0.32)
+            .hex(),
+        cursor: "default",
+        color: theme.colors && theme.colors["white"]
       },
       ":focus": {
-        boxShadow: theme.boxShadow && theme.boxShadow[5],
+        boxShadow: theme.boxShadow && theme.boxShadow[5]
       },
       ":visited": {},
       ".active": {
-        backgroundColor: theme.colors && Color(theme.colors['blue']).darken(0.24).hex(),
-        boxShadow: theme.boxShadow && theme.boxShadow[4],
+        backgroundColor:
+          theme.colors &&
+          Color(theme.colors["blue"])
+            .darken(0.24)
+            .hex(),
+        boxShadow: theme.boxShadow && theme.boxShadow[4]
       }
     },
     error: {
       ...baseStyle,
-      backgroundColor: theme.colors && theme.colors['red'],
-      color: theme.colors && theme.colors['white'],
+      backgroundColor: theme.colors && theme.colors["red"],
+      color: theme.colors && theme.colors["white"],
       ":hover": {
-        backgroundColor: theme.colors && Color(theme.colors['red']).darken(0.16).hex(),
+        backgroundColor:
+          theme.colors &&
+          Color(theme.colors["red"])
+            .darken(0.16)
+            .hex()
       },
       ":active": {
-        backgroundColor: theme.colors && Color(theme.colors['red']).darken(0.24).hex(),
-        boxShadow: theme.boxShadow && theme.boxShadow[4],
+        backgroundColor:
+          theme.colors &&
+          Color(theme.colors["red"])
+            .darken(0.24)
+            .hex(),
+        boxShadow: theme.boxShadow && theme.boxShadow[4]
       },
       ":disabled": {
-        backgroundColor: theme.colors && Color(theme.colors['red']).darken(0.32).hex(),
-        cursor: 'default',
-        color: theme.colors && theme.colors['white'],
+        backgroundColor:
+          theme.colors &&
+          Color(theme.colors["red"])
+            .darken(0.32)
+            .hex(),
+        cursor: "default",
+        color: theme.colors && theme.colors["white"]
       },
       ":focus": {
-        boxShadow: theme.boxShadow && theme.boxShadow[5],
+        boxShadow: theme.boxShadow && theme.boxShadow[5]
       },
       ":visited": {},
       ".active": {
-        backgroundColor: theme.colors && Color(theme.colors['red']).darken(0.24).hex(),
-        boxShadow: theme.boxShadow && theme.boxShadow[4],
+        backgroundColor:
+          theme.colors &&
+          Color(theme.colors["red"])
+            .darken(0.24)
+            .hex(),
+        boxShadow: theme.boxShadow && theme.boxShadow[4]
       }
     }
   };

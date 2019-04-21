@@ -14,7 +14,7 @@ export interface IButtonwithImage {
   variant: string;
 }
 
-export class ButtonWithImage extends React.Component {
+export class ButtonWithImage extends React.Component<IButtonwithImage> {
   render() {
     const { src, alt, left, children, right, size, variant } = this.props;
     return (

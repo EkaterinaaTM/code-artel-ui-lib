@@ -31,6 +31,7 @@ import TabContent from "../src/components/TabBar/TabContent";
 import TabController from "../src/components/TabBar/TabController";
 import Tabs from "../src/components/TabBar/Tabs";
 import Badg from "../src/components/Badg/Badg";
+import Accordion from "../src/components/Accordion/Accordion";
 
 addDecorator(jsxDecorator);
 
@@ -622,8 +623,28 @@ storiesOf("Сomponents", module)
   ))
 
   .add("Badg", () => (
-    <Box position={"relative"} width={"50%"}>
+    <Box position={"relative"} width={"50%"} p={5}>
       <Box p={5}> 123</Box>
       <Badg position={"topRight"}>1</Badg>
+    </Box>
+  ));
+
+storiesOf("Accordion", module)
+  .addDecorator(story => {
+    return (
+      <StyledThemeProvider theme={StyleTheme}>{story()}</StyledThemeProvider>
+    );
+  })
+  .add("Accordion", () => (
+    <Box p={5}>
+      <Accordion
+        panels={[
+          { title: "Add Edit Menus", subtitle: "Первый подраздел" },
+          { title: "Resource Management", subtitle: "Второй подраздел" },
+          { title: "Asset Management", subtitle: "Третий подраздел" },
+          { title: "User Management", subtitle: "Четвертый подраздел" },
+          { title: "Account Management", subtitle: "Пятый подраздел " }
+        ]}
+      />
     </Box>
   ));
