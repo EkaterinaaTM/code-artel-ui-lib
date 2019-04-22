@@ -1,15 +1,18 @@
 import * as React from "react";
-import { ThemeProvider } from "styled-components";
+import {ThemeProvider} from "styled-components";
 
-import { IColors, ITheme } from "./interfaces";
+import {IColors, ITheme} from "./interfaces";
 
 /** Variants */
-import { ButtonSize } from "./variants/buttons/ButtonSize";
-import { InputVariant } from "./variants/inputs/InputVariant";
-import { ButtonVariant } from "./variants/buttons/ButtonVariant";
-import { InputSize } from "./variants/inputs/InputSize";
-import { CardVariants } from "./variants/cards/CardVariants";
-import { TextVariants } from "./variants/text/TextVariants";
+import {ButtonSize} from "./variants/buttons/ButtonSize";
+import {InputVariant} from "./variants/inputs/InputVariant";
+import {ButtonVariant} from "./variants/buttons/ButtonVariant";
+import {InputSize} from "./variants/inputs/InputSize";
+import {CardVariants} from "./variants/cards/CardVariants";
+import {TextVariants} from "./variants/text/TextVariants";
+import {BadgePosition} from "./variants/badges/BadgePosition";
+import {BadgeVariants} from "./variants/badges/BadgeVariants";
+import {TooltipVariant} from "./variants/Tooltip/TooltipVariant";
 
 export const Colors: IColors = {
   white: "#ffffff",
@@ -68,7 +71,7 @@ const transition: string[] = [
 ];
 
 export const ThemeCreate = (props: ITheme = defaultThemeProps): ITheme => {
-  const { space, boxShadow, colors } = props;
+  const {space, boxShadow, colors} = props;
 
   const Theme: ITheme = {
     space: space || Space,
@@ -84,22 +87,30 @@ export const ThemeCreate = (props: ITheme = defaultThemeProps): ITheme => {
       inputSize: {},
       cardVariants: {},
       imageVariant: {},
-      textVariants: {}
+      badgePosition: {},
+      badgeVariants: {},
+      textVariants: {},
+      tooltipVariant: {},
     }
   };
   if (Theme.variant) {
     Theme.variant.buttonVariant = ButtonVariant(Theme);
     Theme.variant.buttonSize = ButtonSize();
     Theme.variant.inputVariant = InputVariant(Theme);
-    Theme.variant.inputSize = InputSize(Theme);
+    Theme.variant.inputSize = InputSize();
     Theme.variant.cardVariants = CardVariants(Theme);
     Theme.variant.textVariants = TextVariants(Theme);
+
+    Theme.variant.badgePosition = BadgePosition();
+    Theme.variant.badgeVariants = BadgeVariants(Theme);
+
+    Theme.variant.tooltipVariant = TooltipVariant(Theme);
   }
 
   return Theme;
 };
 
-export const StyledThemeProvider: any = ({ children, theme }: any) => (
+export const StyledThemeProvider: any = ({children, theme}: any) => (
   <ThemeProvider theme={theme}>{children}</ThemeProvider>
 );
 

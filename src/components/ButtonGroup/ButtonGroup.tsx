@@ -7,6 +7,11 @@ interface IButtonGroup {
 }
 
 export const ButtonGroup = styled(Flex)<IButtonGroup>`
+  
+  > * {
+    box-shadow: none;
+  }
+  
   border: 0;
   width: 100%;
   display: flex;
@@ -15,10 +20,26 @@ export const ButtonGroup = styled(Flex)<IButtonGroup>`
     if(vertical){
       return `
         flex-direction: column;
+        >:not(:last-child) {
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+        >:not(:first-child) {
+          border-top-right-radius: 0;
+          border-top-left-radius: 0;
+        }
       `
     } else {
       return `
         flex-direction: row;
+        >:not(:last-child) {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+        >:not(:first-child) {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
       `
     }
   }};
@@ -37,21 +58,9 @@ export const ButtonGroup = styled(Flex)<IButtonGroup>`
   @media (min-width: 1200px) {
     flex-wrap: nowrap;
   }
-  
-  > {
-    box-shadow: none;
-  }
-  
-  >:not(:last-child) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-  >:not(:first-child) {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
 
-`
+
+`;
 
 ButtonGroup.defaultProps = {
   vertical: false,

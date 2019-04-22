@@ -1,4 +1,3 @@
-const {CheckerPlugin} = require('awesome-typescript-loader');
 const nodeExternals = require('webpack-node-externals');
 const path = require('path');
 
@@ -7,6 +6,7 @@ const graphqlLoader = require('./configs/graphqlLoader');
 const fileLoaderConfig = require('./configs/fileLoaderConfig');
 
 const pkg = require('./package.json');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 
 module.exports = {
@@ -37,6 +37,6 @@ module.exports = {
     extensions: ['.js','.json', '.jsx', '.ts', '.tsx', '.scss', '.css', '.html']
   },
   plugins: [
-    new CheckerPlugin()
+    new ForkTsCheckerWebpackPlugin()
   ]
 };

@@ -25,8 +25,10 @@ export const Input = styled(Box)<IInput>`
   box-sizing: border-box;
 `;
 
+
+
 Input.defaultProps = {
-  variant: "default",
+  variant: "primary",
   size: "medium",
   as: "input"
 };

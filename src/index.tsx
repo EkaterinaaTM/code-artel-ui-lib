@@ -3,13 +3,12 @@ import Flex from "./components/Flex/Flex";
 import Input from "./components/Input/Input";
 import TextArea from "./components/TextArea/TextArea";
 import SelectBase from "./components/SelectBase/SelectBase";
-import ButtonBase from "./components/ButtonBase/ButtonBase";
-import CheckboxBase from "./components/CheckboxBase/CheckboxBase";
+import Button from "./components/Button/Button";
 import Checkbox from "./components/Checkbox/Checkbox";
 import CheckboxGroup from "./components/CheckboxGroup/CheckboxGroup";
-import RadioButtonBase from "./components/RadioButtonBase/RadioButtonBase";
 import RadioButton from "./components/RadioButton/RadioButton";
 import RadioButtonGroup from "./components/RadioButtonGroup/RadioButtonGroup";
+import ButtonGroup from "./components/ButtonGroup/ButtonGroup";
 import Tabs from "./components/TabBar/Tabs";
 import TabContent from "./components/TabBar/TabContent";
 import TabController from "./components/TabBar/TabController";
@@ -20,6 +19,8 @@ import Card from "./components/Card/Card";
 import Container from "./components/Container/Container";
 import Image from "./components/Image/Image";
 import Link from "./components/Link/Link";
+import Badge from "./components/Badge/Badge";
+import Accordion from "./components/Accordion/Accordion";
 // import PaginationPage from "./components/Pagination/Pagination";
 // import PaginationHOC from "./components/Pagination/PaginationHOC";
 
@@ -48,21 +49,22 @@ import {
 } from "./styles/interfaces";
 
 export {
+  Accordion,
   Flex,
   Box,
   Input,
   TextArea,
-  ButtonBase,
+  Button,
   SelectBase,
-  CheckboxBase,
   Checkbox,
   CheckboxGroup,
-  RadioButtonBase,
   RadioButton,
   Tabs,
   TabController,
   TabContent,
   TooltipBase,
+  Badge,
+  ButtonGroup,
   RadioButtonGroup,
   Text,
   SmallPreloader,

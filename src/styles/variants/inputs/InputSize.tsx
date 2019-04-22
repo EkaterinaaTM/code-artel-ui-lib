@@ -1,9 +1,9 @@
-import { IVariantSize, ITheme } from "../../interfaces";
+import { IVariantSize } from "../../interfaces";
 
 const baseStyle = {
 };
 
-export const InputSize = (theme: ITheme): IVariantSize => {
+export const InputSize = (): IVariantSize => {
   return {
     small: {
       ...baseStyle,

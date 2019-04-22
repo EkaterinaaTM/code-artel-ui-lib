@@ -1,55 +1,47 @@
 import * as React from "react";
 import styled from "styled-components";
-import {
-  Wrapper,
-  OutsideTriangle,
-  InsideTriangle,
-  Warning
-} from "./TooltipBaseStyled";
+import * as ReactTooltip from 'react-tooltip';
 
-const Relative = styled.div`
-  position: relative;
-`;
+import {variant} from "styled-system";
 
 export interface ITooltipBase {
-  isActive?: any;
-  position?: any;
-  warning?: any;
-  ClickContentCloseTab?: any;
+  variant?: any;
+  place?: any,
+  [propName: string]: any
 }
+
+
+const tooltipVariant = variant({
+  key: "variant.tooltipVariant",
+  prop: "variant"
+});
+
+const ReactTooltipStyled = styled(ReactTooltip)`
+  ${tooltipVariant};
+`;
+
 
 /**
  * Компонент тултипа (Tooltip)
  * @example ./TooltipBase.example.md
  */
 export class TooltipBase extends React.Component<ITooltipBase> {
+
   static defaultProps = {
-    warning: "Информация не доступна",
-    position: "bottom",
-    isActive: false
+    variant: "dark",
+    effect: 'solid',
+    place: 'top',
+    id: 'ReactTooltipGlobal',
   };
 
-  shouldComponentUpdate(nextProps: any) {
-    if (nextProps.isActive !== this.props.isActive) {
-      return true;
-    }
-    return false;
-  }
-
   render() {
-    const { warning, position, isActive, children } = this.props;
-    return (
-      <Relative>
-        {isActive && (
-          <Wrapper position={position}>
-            <OutsideTriangle position={position} />
-            <InsideTriangle position={position} />
-            <Warning>{warning}</Warning>
-          </Wrapper>
-        )}
-        {children}
-      </Relative>
-    );
+    const {variant} = this.props;
+
+    return (<ReactTooltipStyled
+      variant={variant}
+      type={variant}
+      {...this.props}
+    />);
   }
 }
 

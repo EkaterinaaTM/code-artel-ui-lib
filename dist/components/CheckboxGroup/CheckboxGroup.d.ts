@@ -15,7 +15,8 @@ export interface IOptions {
 }
 export declare class CheckboxGroup extends React.Component<ICheckboxGroup> {
     static defaultProps: {
-        labelProp: "foo";
+        valueProp: "value";
+        labelProp: "label";
     };
     onChange: (value: any) => void;
     checkStatusCheckbox: (value: any) => boolean;

@@ -1,6 +1,11 @@
 export interface IButtonBase {
     variant: string;
     size: string;
+    children: string;
+    [propName: string]: any;
+}
+export interface IButton {
+    children?: string;
     [propName: string]: any;
 }
 /**

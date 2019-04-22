@@ -1,6 +1,4 @@
-// import * as React from "react";
 import styled from "styled-components";
-
 import { variant } from "styled-system";
 import Box from "../Box/Box";
 
@@ -14,32 +12,27 @@ const buttonsSize = variant({
   prop: "size"
 });
 
-export interface IButtonBase {
+export interface IButton {
   variant: string;
   size: string;
-  children: string;
-  [propName: string]: any;
-}
-
-export interface IButton {
-  children?: string;
   [propName: string]: any;
 }
 
 /**
  * Компонента обычная кнопка
- * @example ./ButtonBase.example.md
+ * @example ./Button.example.md
  */
-export const ButtonBase = styled(Box)<IButtonBase>`
+export const Button = styled(Box)<IButton>`
   cursor: pointer;
+  position: relative;
   ${buttonsVariant};
   ${buttonsSize};
 `;
 
-ButtonBase.defaultProps = {
+Button.defaultProps = {
   variant: "default",
   size: "small",
   as: "button"
 };
 
-export default ButtonBase;
+export default Button;

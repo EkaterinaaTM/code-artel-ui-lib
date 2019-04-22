@@ -1,5 +1,4 @@
 import * as React from "react";
-import RadioButtonBase from "../RadioButtonBase/RadioButtonBase";
 import Label from "../Label/Label";
 import styled from "styled-components";
 import { Box } from "../Box/Box";
@@ -15,6 +14,8 @@ export interface IRadioButton {
   [propName: string]: any;
 }
 
+const Radio = styled(Box)<IRadioButton>``;
+
 const Wrapper = styled(Box)`
   position: relative;
 
@@ -22,14 +23,14 @@ const Wrapper = styled(Box)`
     position: absolute;
     opacity: 0;
   }
-  .RadioButtonBase + label {
+  .RadioButton + label {
     position: relative;
     cursor: pointer;
     padding: 0;
   }
 
   // Box.
-  .RadioButtonBase + label:before {
+  .RadioButton + label:before {
     content: "";
     margin-right: 10px;
     border-radius: 50%;
@@ -41,34 +42,34 @@ const Wrapper = styled(Box)`
   }
 
   // Box hover
-  .RadioButtonBase:hover + label:before {
+  .RadioButton:hover + label:before {
     background-color: #f35429;
   }
 
   // Box focus
-  .RadioButtonBase:focus + label:before {
+  .RadioButton:focus + label:before {
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
   }
 
   // Box checked
-  .RadioButtonBase:checked + label:before {
+  .RadioButton:checked + label:before {
     background-color: #f35429;
   }
 
   // Disabled state label.
-  .RadioButtonBase:disabled + label {
+  .RadioButton:disabled + label {
     color: #b8b8b8;
     cursor: auto;
   }
 
   // Disabled box.
-  .RadioButtonBase:disabled + label:before {
+  .RadioButton:disabled + label:before {
     box-shadow: none;
     background-color: #ddd;
   }
 
   // Checkmark. Could be replaced with an image
-  .RadioButtonBase:checked + label:after {
+  .RadioButton:checked + label:after {
     content: "";
     position: absolute;
     left: 6px;
@@ -86,13 +87,17 @@ export const RadioButton = (props: IRadioButton) => {
 
   return (
     <Wrapper>
-      <RadioButtonBase
-        className={"RadioButtonBase"}
+      <Radio
+        className={"RadioButton"}
         id={htmlID}
         checked={checked}
         name={name}
-        onChange={onChange}
+        onChange={(event: any) => {
+          onChange(event.target.value);
+        }}
         value={value}
+        type={"radio"}
+        as={"input"}
         {...rest}
       />
       {label && <Label htmlFor={htmlID}>{label}</Label>}

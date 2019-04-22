@@ -1,6 +1,8 @@
 import React from "react";
-import { jsxDecorator } from "storybook-addon-jsx";
-import { addDecorator, storiesOf } from "@storybook/react";
+import {jsxDecorator} from "storybook-addon-jsx";
+import { withKnobs, select  } from '@storybook/addon-knobs';
+
+import {addDecorator, storiesOf} from "@storybook/react";
 import StyledThemeProvider from "../src/styles/StyleThemeProvider";
 
 import {
@@ -8,199 +10,497 @@ import {
   Box,
   Flex,
   Input,
-  ButtonBase,
+  Button,
   Card,
   Checkbox,
-  CheckboxBase,
   CheckboxGroup,
   Container,
   Image,
   Link,
   RadioButton,
-  RadioButtonBase,
   RadioButtonGroup,
   SelectBase,
   SmallPreloader,
   Text,
   TextArea,
-  TooltipBase
+  TooltipBase,
+  Badge,
+  TabContent,
+  TabController,
+  Tabs,
+  Accordion,
+  ButtonGroup
 } from "../src";
 
-import ButtonWithImage from "../src/components/ButtonWithImage/ButtonWithImage";
-import TabContent from "../src/components/TabBar/TabContent";
-import TabController from "../src/components/TabBar/TabController";
-import Tabs from "../src/components/TabBar/Tabs";
-import Badg from "../src/components/Badg/Badg";
-import Accordion from "../src/components/Accordion/Accordion";
-import {ButtonGroup} from "../src/components/ButtonGroup/ButtonGroup";
 
 addDecorator(jsxDecorator);
+addDecorator(withKnobs);
 
 const StyleTheme = ThemeCreate();
 
-storiesOf("Сomponents", module)
+
+
+storiesOf("Components", module)
   .addDecorator(story => {
     return (
       <StyledThemeProvider theme={StyleTheme}>{story()}</StyledThemeProvider>
     );
   })
-  .add("Box", props => {
-    return (
+  .add("Box", () => (
+    <Box>
+      <h3> Box</h3>
       <Box>
-        <h3> Box</h3>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
+        exercitationem inventore porro rerum, sapiente suscipit? Accusamus
+        asperiores atque eius eveniet illo iste itaque, laudantium nihil odit
+        praesentium sed vero voluptas?
+      </Box>
+
+      <h3> Box with css value</h3>
+      <Box
+        width={"50%"}
+        border={"1px solid red"}
+        borderRadius={"3px"}
+        boxShadow={StyleTheme.boxShadow[1]}
+        padding={3}
+      >
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
+        exercitationem inventore porro rerum, sapiente suscipit? Accusamus
+        asperiores atque eius eveniet illo iste itaque, laudantium nihil odit
+        praesentium sed vero voluptas?
+      </Box>
+    </Box>
+  ))
+
+  .add("Flex", () => (
+    <Box>
+      <h3> Flex</h3>
+      <Flex mb={3}>
+        <Box
+          width={"30%"}
+          border={"1px solid red"}
+          borderRadius={"3px"}
+          p={1}
+          mr={2}
+        >
+          first block
+        </Box>
+        <Box
+          width={"40%"}
+          border={"1px solid red"}
+          borderRadius={"3px"}
+          p={2}
+        >
+          second block
+        </Box>
+      </Flex>
+
+      <h3> Align -items : center</h3>
+      <Flex mb={3} alignItems={"center"}>
+        <Box
+          width={"30%"}
+          border={"1px solid red"}
+          borderRadius={"3px"}
+          p={1}
+          mr={2}
+        >
+          first block
+        </Box>
+        <Box
+          width={"40%"}
+          border={"1px solid red"}
+          borderRadius={"3px"}
+          p={2}
+        >
+          second block
+        </Box>
+      </Flex>
+
+      <h3>Justify - content : space-around</h3>
+      <Flex justifyContent={"space-around"} mb={3}>
+        <Box
+          width={"30%"}
+          border={"1px solid red"}
+          borderRadius={"3px"}
+          p={1}
+        >
+          first block
+        </Box>
+        <Box
+          width={"40%"}
+          border={"1px solid red"}
+          borderRadius={"3px"}
+          p={2}
+        >
+          second block
+        </Box>
+      </Flex>
+
+      <h3>Justify - content : space-between</h3>
+      <Flex justifyContent={"space-between"} mb={3}>
+        <Box
+          width={"30%"}
+          border={"1px solid red"}
+          borderRadius={"3px"}
+          p={1}
+        >
+          first block
+        </Box>
+        <Box
+          width={"40%"}
+          border={"1px solid red"}
+          borderRadius={"3px"}
+          p={2}
+        >
+          second block
+        </Box>
+      </Flex>
+
+      <h3>Justify - content : center</h3>
+      <Flex justifyContent={"center"} mb={3}>
+        <Box
+          width={"30%"}
+          border={"1px solid red"}
+          borderRadius={"3px"}
+          p={1}
+          mr={2}
+        >
+          first block
+        </Box>
+        <Box
+          width={"40%"}
+          border={"1px solid red"}
+          borderRadius={"3px"}
+          p={2}
+        >
+          second block
+        </Box>
+      </Flex>
+
+      <h3> Flex-direction : column</h3>
+      <Flex flexDirection={"column"} mb={3}>
+        <Box
+          width={"30%"}
+          border={"1px solid red"}
+          borderRadius={"3px"}
+          p={1}
+          mb={2}
+        >
+          first block
+        </Box>
+        <Box
+          width={"40%"}
+          border={"1px solid red"}
+          borderRadius={"3px"}
+          p={2}
+        >
+          second block
+        </Box>
+      </Flex>
+    </Box>
+  ))
+
+  .add("Text", () => (
+    <Box>
+      <Text variant={'h1'}>
+        h1. Heading
+      </Text>
+      <Text variant={'h2'}>
+        h2. Heading
+      </Text>
+      <Text variant={'h5'}>
+        h3. Heading
+      </Text>
+      <Text variant={'h4'}>
+        h4. Heading
+      </Text>
+      <Text variant={'h5'}>
+        h5. Heading
+      </Text>
+      <Text variant={'h6'}>
+        h6. Heading
+      </Text>
+      <Text variant={'body1'}>
+        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores assumenda aut culpa deleniti
+        dolore dolores ducimus esse facere, illo impedit, in ipsa, ipsum laudantium odio saepe similique sint vitae!
+      </Text>
+      <Text variant={'body2'}>
+        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores assumenda aut culpa deleniti
+        dolore dolores ducimus esse facere, illo impedit, in ipsa, ipsum laudantium odio saepe similique sint vitae!
+      </Text>
+    </Box>
+  ))
+
+  .add("Card", () => (
+    <Box>
+      <Text as={'h3'} variant={'h5'}>Card</Text>
+      <Flex flexDirection={'column'} flexWrap={'wrap'}>
+        <Card
+          fontSize={7}
+          fontWeight='bold'
+          p={5}
+          width={[1, 1, 1 / 2]}
+          my={5}
+          bg={'white'}
+          boxShadow={4}
+          borderRadius={5}
+        >
+          Card
+        </Card>
+        <Card
+          width={[1, 1, 1 / 2]}
+          my={5}
+          bg={'white'}
+          boxShadow={4}
+          borderRadius={5}
+        >
+          <Image
+            width={1}
+            src='https://source.unsplash.com/random/1280x720'
+          />
+          <Box
+            fontSize={5}
+            fontWeight='bold'
+            p={5}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda beatae eius ipsa nihil omnis pariatur
+            perspiciatis quibusdam rem ullam unde. Animi, fugit magni provident qui quod sit vero voluptate voluptatem.
+          </Box>
+        </Card>
+      </Flex>
+    </Box>
+  ))
+
+  .add("Container", () => (
+    <Box>
+      <h3>Container Component</h3>
+      <Container>
         <Box>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
           exercitationem inventore porro rerum, sapiente suscipit? Accusamus
           asperiores atque eius eveniet illo iste itaque, laudantium nihil odit
           praesentium sed vero voluptas?
         </Box>
+      </Container>
+    </Box>
+  ))
 
-        <h3> Box with css value</h3>
-        <Box
-          width={"50%"}
-          border={"1px solid red"}
-          borderRadius={"3px"}
-          boxShadow={StyleTheme.boxShadow[1]}
-          padding={3}
-        >
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
-          exercitationem inventore porro rerum, sapiente suscipit? Accusamus
-          asperiores atque eius eveniet illo iste itaque, laudantium nihil odit
-          praesentium sed vero voluptas?
+  .add("Image", () => (
+    <Box>
+      <h3>Image Component</h3>
+      <Image
+        src={
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/240px-JavaScript-logo.png"
+        }
+      />
+
+      <h3>Image Component with css value</h3>
+      <Image
+        src={
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/240px-JavaScript-logo.png"
+        }
+        width={"100px"}
+        height={"100px"}
+        border={"1px solid black"}
+      />
+    </Box>
+  ))
+
+  .add("Button", () => (
+    <Box>
+      <Text as={'h3'} variant={'h5'}>
+        Button
+      </Text>
+      <Button>
+        Button
+      </Button>
+
+      <Box as={'h3'}>
+        Button
+      </Box>
+      <Button>
+        Button
+      </Button>
+
+      <Text as={'h3'} variant={'h5'}>
+        Button with css value
+      </Text>
+      <Box mb={5}>
+        <Button variant={"default"} size={"small"}>
+          default
+        </Button>
+
+        <Button variant={"default"} size={"medium"}>
+          default
+        </Button>
+        <Button disabled variant={"default"} size={"medium"}>
+          default
+        </Button>
+
+        <Button variant={"default"} size={"large"}>
+          default
+        </Button>
+      </Box>
+      <Box mb={5}>
+        <Button variant={"primary"} size={"small"}>
+          Primary
+        </Button>
+        <Button variant={"primary"} size={"medium"}>
+          Primary
+        </Button>
+        <Button disabled variant={"primary"} size={"large"}>
+          Primary
+        </Button>
+      </Box>
+
+      <Box mb={5}>
+        <Button variant={"secondary"} size={"small"}>
+          Secondary
+        </Button>
+        <Button variant={"secondary"} size={"medium"}>
+          Secondary
+        </Button>
+        <Button disabled variant={"secondary"} size={"medium"}>
+          Secondary
+        </Button>
+        <Button variant={"secondary"} size={"large"}>
+          Secondary
+        </Button>
+      </Box>
+
+      <Box mb={5}>
+        <Button variant={"error"} size={"small"}>
+          Error
+        </Button>
+        <Button variant={"error"} size={"medium"}>
+          Error
+        </Button>
+        <Button disabled variant={"error"} size={"medium"}>
+          Error
+        </Button>
+        <Button variant={"error"} size={"large"}>
+          Error
+        </Button>
+      </Box>
+
+    </Box>
+  ))
+
+  .add("ButtonGroup", () => (
+    <Box>
+      <Text mb={5}>
+        Default
+      </Text>
+
+      <ButtonGroup mb={7}>
+        <Button variant={"secondary"} size={"large"}>
+          Button 1
+        </Button>
+        <Button variant={"secondary"} size={"large"}>
+          Button 2
+        </Button>
+        <Button variant={"secondary"} size={"large"}>
+          Button 3
+        </Button>
+        <Button variant={"secondary"} size={"large"}>
+          Button 4
+        </Button>
+      </ButtonGroup>
+
+      <Text mb={5}>
+        Vertical
+      </Text>
+
+      <ButtonGroup vertical>
+        <Button variant={"secondary"} size={"large"}>
+          1
+        </Button>
+        <Button variant={"secondary"} size={"large"}>
+          2
+        </Button>
+        <Button variant={"secondary"} size={"large"}>
+          3
+        </Button>
+        <Button variant={"secondary"} size={"large"}>
+          4
+        </Button>
+      </ButtonGroup>
+    </Box>
+  ))
+
+  .add("Badge", () => (
+    <Box position={"relative"} width={"50%"} p={5}>
+      <Text as={'h3'} variant={'h5'} mb={5}>
+        Badge
+      </Text>
+
+      <Flex mb={5} flexWrap={'wrap'}>
+        <Box mx={5}>
+          <Button variant={"primary"} size={"medium"}>
+            <Badge variant={"default"}>10</Badge>
+            Button
+          </Button>
         </Box>
-      </Box>
-    );
-  })
+        <Box mx={5}>
+          <Button variant={"primary"} size={"medium"}>
+            <Badge variant={"primary"}>99</Badge>
+            Button
+          </Button>
+        </Box>
+        <Box mx={5}>
+          <Button variant={"primary"} size={"medium"}>
+            <Badge variant={"secondary"}>999</Badge>
+            Button
+          </Button>
+        </Box>
+        <Box mx={5}>
+          <Button variant={"primary"} size={"medium"}>
+            <Badge variant={"default"}>9999</Badge>
+            Button
+          </Button>
+        </Box>
+      </Flex>
 
-  .add("Flex", () => {
-    return (
-      <Box>
-        <h3> Flex</h3>
-        <Flex mb={3}>
-          <Box
-            width={"30%"}
-            border={"1px solid red"}
-            borderRadius={"3px"}
-            p={1}
-            mr={2}
-          >
-            first block
-          </Box>
-          <Box
-            width={"40%"}
-            border={"1px solid red"}
-            borderRadius={"3px"}
-            p={2}
-          >
-            second block
-          </Box>
-        </Flex>
+      <Flex mb={5} flexWrap={'wrap'}>
+        <Box mx={5}>
+          <Button variant={"primary"} size={"medium"}>
+            <Badge position={'topEnd'} variant={"default"}>10</Badge>
+            Button
+          </Button>
+        </Box>
+        <Box mx={5}>
+          <Button variant={"primary"} size={"medium"}>
+            <Badge position={'topStart'} variant={"primary"}>10</Badge>
+            Button
+          </Button>
+        </Box>
+        <Box mx={5}>
+          <Button variant={"primary"} size={"medium"}>
+            <Badge position={'bottomStart'} variant={"secondary"}>10</Badge>
+            Button
+          </Button>
+        </Box>
+        <Box mx={5}>
+          <Button variant={"primary"} size={"medium"}>
+            <Badge position={'bottomEnd'} variant={"default"}>10</Badge>
+            Button
+          </Button>
+        </Box>
+      </Flex>
 
-        <h3> Align -items : center</h3>
-        <Flex mb={3} alignItems={"center"}>
-          <Box
-            width={"30%"}
-            border={"1px solid red"}
-            borderRadius={"3px"}
-            p={1}
-            mr={2}
-          >
-            first block
-          </Box>
-          <Box
-            width={"40%"}
-            border={"1px solid red"}
-            borderRadius={"3px"}
-            p={2}
-          >
-            second block
-          </Box>
-        </Flex>
+      <Flex mb={5} flexWrap={'wrap'}>
 
-        <h3>Justify - content : space-around</h3>
-        <Flex justifyContent={"space-around"} mb={3}>
-          <Box
-            width={"30%"}
-            border={"1px solid red"}
-            borderRadius={"3px"}
-            p={1}
-          >
-            first block
-          </Box>
-          <Box
-            width={"40%"}
-            border={"1px solid red"}
-            borderRadius={"3px"}
-            p={2}
-          >
-            second block
-          </Box>
-        </Flex>
+        <Box mx={5}>
+          <Button variant={"primary"} size={"medium"}>
+            <Badge position={'topEnd'} variant={"dot"}/>
+            Button
+          </Button>
+        </Box>
 
-        <h3>Justify - content : space-between</h3>
-        <Flex justifyContent={"space-between"} mb={3}>
-          <Box
-            width={"30%"}
-            border={"1px solid red"}
-            borderRadius={"3px"}
-            p={1}
-          >
-            first block
-          </Box>
-          <Box
-            width={"40%"}
-            border={"1px solid red"}
-            borderRadius={"3px"}
-            p={2}
-          >
-            second block
-          </Box>
-        </Flex>
+      </Flex>
 
-        <h3>Justify - content : center</h3>
-        <Flex justifyContent={"center"} mb={3}>
-          <Box
-            width={"30%"}
-            border={"1px solid red"}
-            borderRadius={"3px"}
-            p={1}
-            mr={2}
-          >
-            first block
-          </Box>
-          <Box
-            width={"40%"}
-            border={"1px solid red"}
-            borderRadius={"3px"}
-            p={2}
-          >
-            second block
-          </Box>
-        </Flex>
-
-        <h3> Flex-direction : column</h3>
-        <Flex flexDirection={"column"} mb={3}>
-          <Box
-            width={"30%"}
-            border={"1px solid red"}
-            borderRadius={"3px"}
-            p={1}
-            mb={2}
-          >
-            first block
-          </Box>
-          <Box
-            width={"40%"}
-            border={"1px solid red"}
-            borderRadius={"3px"}
-            p={2}
-          >
-            second block
-          </Box>
-        </Flex>
-      </Box>
-    );
-  })
+    </Box>
+  ))
 
   .add("Input", () => (
     <Box>
@@ -208,21 +508,21 @@ storiesOf("Сomponents", module)
         <Box px={5} w={1 / 3}>
           <Input
             placeholder={"Default small"}
-            variant={"default"}
+            variant={"primary"}
             size={"small"}
           />
         </Box>
         <Box px={5} w={1 / 3}>
           <Input
             placeholder={"Default medium"}
-            variant={"default"}
+            variant={"primary"}
             size={"medium"}
           />
         </Box>
         <Box px={5} w={1 / 3}>
           <Input
             placeholder={"Default large"}
-            variant={"default"}
+            variant={"primary"}
             size={"large"}
           />
         </Box>
@@ -279,22 +579,22 @@ storiesOf("Сomponents", module)
       <Flex mb={5}>
         <Box px={5} w={1 / 3}>
           <Input
-            placeholder={"Secondary small"}
-            variant={"secondary"}
+            placeholder={"warning small"}
+            variant={"warning"}
             size={"small"}
           />
         </Box>
         <Box px={5} w={1 / 3}>
           <Input
-            placeholder={"Secondary medium"}
-            variant={"secondary"}
+            placeholder={"warning medium"}
+            variant={"warning"}
             size={"medium"}
           />
         </Box>
         <Box px={5} w={1 / 3}>
           <Input
-            placeholder={"Secondary large"}
-            variant={"secondary"}
+            placeholder={"warning large"}
+            variant={"warning"}
             size={"large"}
           />
         </Box>
@@ -305,7 +605,7 @@ storiesOf("Сomponents", module)
           <Text variant={'body1'} mb={2}>Label</Text>
           <Input
             placeholder={"Default medium"}
-            variant={"default"}
+            variant={"primary"}
             size={"medium"}
           />
         </Box>
@@ -329,7 +629,7 @@ storiesOf("Сomponents", module)
             </Text>
             <Input
               placeholder={"Email"}
-              variant={"default"}
+              variant={"primary"}
               size={"medium"}
             />
           </Flex>
@@ -353,6 +653,31 @@ storiesOf("Сomponents", module)
 
         </Box>
       </Flex>
+
+
+      <Flex mb={5}>
+        <Box px={5} w={1 / 3}>
+          <Text variant={'error'} mb={2}>Label</Text>
+          <Input
+            placeholder={"Default medium"}
+            variant={"error"}
+            size={"medium"}
+          />
+          <Text variant={"error"}>Error</Text>
+        </Box>
+      </Flex>
+      <Flex mb={5}>
+        <Box px={5} w={1 / 3}>
+          <Text variant={'warning'} mb={2}>Label</Text>
+          <Input
+            placeholder={"Default medium"}
+            variant={"warning"}
+            size={"medium"}
+          />
+          <Text variant={"warning"}>Error</Text>
+        </Box>
+      </Flex>
+
     </Box>
   ))
 
@@ -364,21 +689,21 @@ storiesOf("Сomponents", module)
       >
         <Box px={5} w={1 / 3}>
           <TextArea
-            variant={"default"}
+            variant={"primary"}
             size={"small"}
             placeholder={"Default small"}
           />
         </Box>
         <Box px={5} w={1 / 3}>
           <TextArea
-            variant={"default"}
+            variant={"primary"}
             size={"medium"}
             placeholder={"Default medium"}
           />
         </Box>
         <Box px={5} w={1 / 3}>
           <TextArea
-            variant={"default"}
+            variant={"primary"}
             size={"large"}
             placeholder={"Default large"}
           />
@@ -386,165 +711,50 @@ storiesOf("Сomponents", module)
       </Flex>
     </Box>
   ))
-  .add("Button", () => (
-    <Box>
-      <Box as={"h3"}>Button</Box>
-      <ButtonBase>Button</ButtonBase>
 
-      <Box as={'h3'}>
-        Button
-      </Box>
-      <ButtonBase>
-        Button
-      </ButtonBase>
+  .add("TooltipBase", () => {
 
-      <Box as={'h3'}>
-        Button with css value
-      </Box>
-      <Box mb={5}>
-        <ButtonBase variant={"default"} size={"small"}>
-          default
-        </ButtonBase>
+    const label = 'Variant';
+    const options = {
+     dark:'dark',
+     success:'success',
+     warning:'warning',
+     error:'error',
+     info:'info',
+    };
+    const defaultValue = 'dark';
+    const groupId = 'GROUP-ID1';
+    const value = select(label, options, defaultValue, groupId);
 
-        <ButtonBase variant={"default"} size={"medium"}>
-          default
-        </ButtonBase>
-        <ButtonBase disabled variant={"default"} size={"medium"}>
-          default
-        </ButtonBase>
-
-        <ButtonBase variant={"default"} size={"large"}>
-          default
-        </ButtonBase>
-      </Box>
-      <Box mb={5}>
-        <ButtonBase variant={"primary"} size={"small"}>
-          Primary
-        </ButtonBase>
-        <ButtonBase variant={"primary"} size={"medium"}>
-          Primary
-        </ButtonBase>
-        <ButtonBase disabled variant={"primary"} size={"large"}>
-          Primary
-        </ButtonBase>
-      </Box>
-
-      <Box mb={5}>
-        <ButtonBase variant={"secondary"} size={"small"}>
-          Secondary
-        </ButtonBase>
-        <ButtonBase variant={"secondary"} size={"medium"}>
-          Secondary
-        </ButtonBase>
-        <ButtonBase disabled variant={"secondary"} size={"medium"}>
-          Secondary
-        </ButtonBase>
-        <ButtonBase variant={"secondary"} size={"large"}>
-          Secondary
-        </ButtonBase>
-      </Box>
-
-      <Box mb={5}>
-        <ButtonBase variant={"error"} size={"small"}>
-          Error
-        </ButtonBase>
-        <ButtonBase variant={"error"} size={"medium"}>
-          Error
-        </ButtonBase>
-        <ButtonBase disabled variant={"error"} size={"medium"}>
-          Error
-        </ButtonBase>
-        <ButtonBase variant={"error"} size={"large"}>
-          Error
-        </ButtonBase>
-      </Box>
-
-    </Box>
-  ))
-
-  .add("ButtonGroup", () => (
-    <Box>
-
-      <ButtonGroup>
-        <ButtonBase variant={"secondary"} size={"large"}>
-          Button 1
-        </ButtonBase>
-        <ButtonBase variant={"secondary"} size={"large"}>
-          Button 2
-        </ButtonBase>
-        <ButtonBase variant={"secondary"} size={"large"}>
-          Button 3
-        </ButtonBase>
-        <ButtonBase variant={"secondary"} size={"large"}>
-          Button 4
-        </ButtonBase>
-      </ButtonGroup>
-      <ButtonGroup vertical>
-        <ButtonBase variant={"secondary"} size={"large"}>
-          1
-        </ButtonBase>
-        <ButtonBase variant={"secondary"} size={"large"}>
-          2
-        </ButtonBase>
-        <ButtonBase variant={"secondary"} size={"large"}>
-          3
-        </ButtonBase>
-        <ButtonBase variant={"secondary"} size={"large"}>
-          4
-        </ButtonBase>
-      </ButtonGroup>
-    </Box>
-  ))
-
-  .add("Card", () => (
-    <Box>
-      <h3>Card</h3>
-      <Flex flexDirection={'column'} flexWrap={'wrap'}>
-        <Card
-          fontSize={7}
-          fontWeight='bold'
-          p={5}
-          width={[1, 1, 1 / 2]}
-          my={5}
-          bg={'white'}
-          boxShadow={4}
-          borderRadius={5}
-        >
-          Card
-        </Card>
-        <Card
-          width={[1, 1, 1 / 2]}
-          my={5}
-          bg={'white'}
-          boxShadow={4}
-          borderRadius={5}
-        >
-          <Image
-            width={1}
-            src='https://source.unsplash.com/random/1280x720'
-          />
-          <Box
-            fontSize={5}
-            fontWeight='bold'
-            p={5}
+    return (
+      <Box>
+        <Text as={'h3'} variant={'h5'} mb={10}>
+          Tooltip
+        </Text>
+        <Box mb={7}>
+          <TooltipBase variant={value} />
+          <Button
+            data-tip='hover on me will keep the tooltip'
+            data-for='ReactTooltipGlobal'
+            variant={"primary"}
+            size={"medium"}
           >
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda beatae eius ipsa nihil omnis pariatur
-            perspiciatis quibusdam rem ullam unde. Animi, fugit magni provident qui quod sit vero voluptate voluptatem.
-          </Box>
-        </Card>
-      </Flex>
-    </Box>
-  ))
+            Button
+          </Button>
+        </Box>
+      </Box>
+    )
+  })
 
   .add("Checkbox", () => (
     <Box>
-      <h3>CheckboxBase</h3>
-      <CheckboxBase/>
-
-      <h3>Checkbox with label</h3>
-      <Checkbox label={"Check me!"}/>
-
-      <h3>CheckboxGroup</h3>
+      <Text as={'h3'} variant={'h5'}>
+        Checkbox
+      </Text>
+      <Checkbox label={'checkbox'}/>
+      <Text as={'h3'} variant={'h5'}>
+        Checkbox group
+      </Text>
       <CheckboxGroup
         value={[]}
         name={"checkbox"}
@@ -562,57 +772,18 @@ storiesOf("Сomponents", module)
     </Box>
   ))
 
-  .add("Container", () => (
-    <Box>
-      <h3>Container Component</h3>
-      <Container>
-        <Box>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
-          exercitationem inventore porro rerum, sapiente suscipit? Accusamus
-          asperiores atque eius eveniet illo iste itaque, laudantium nihil odit
-          praesentium sed vero voluptas?
-        </Box>
-      </Container>
-    </Box>
-  ))
-
-  .add("Image", () => (
-    <Box>
-      <h3>Image Component</h3>
-      <Image
-        src={
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/240px-JavaScript-logo.png"
-        }
-      />
-
-      <h3>Image Component with css value</h3>
-      <Image
-        src={
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/240px-JavaScript-logo.png"
-        }
-        width={"100px"}
-        height={"100px"}
-        border={"1px solid black"}
-      />
-    </Box>
-  ))
-
-  .add("Link", () => (
-    <Box>
-      <h3>Link Component</h3>
-      <Link href={"/"}>Link</Link>
-    </Box>
-  ))
-
   .add("RadioButton", () => (
     <Box>
-      <h3>RadioButtonBase</h3>
-      <RadioButtonBase/>
+      <Text as={'h3'} variant={'h5'}>
+        RadioButton
+      </Text>
 
-      <h3>RadioButton with label</h3>
       <RadioButton label={"Check me!"}/>
 
-      <h3>RadioButtonGroup</h3>
+      <Text as={'h3'} variant={'h5'}>
+        RadioButtonGroup
+      </Text>
+
       <RadioButtonGroup
         value={""}
         id={"hid"}
@@ -650,6 +821,13 @@ storiesOf("Сomponents", module)
     </Box>
   ))
 
+  .add("Link", () => (
+    <Box>
+      <h3>Link Component</h3>
+      <Link href={"/"}>Link</Link>
+    </Box>
+  ))
+
   .add("SmallPreloader", () => (
     <Box>
       <h3>SmallPreloader</h3>
@@ -663,12 +841,12 @@ storiesOf("Сomponents", module)
         <Text variant={'h2'}>Tab</Text>
         <TabController>
           <Tabs>
-            <ButtonBase variant={"default"} size={"medium"}>
+            <Button variant={"default"} size={"medium"}>
               Tab 1
-            </ButtonBase>
-            <ButtonBase variant={"default"} size={"medium"}>
+            </Button>
+            <Button variant={"default"} size={"medium"}>
               Tab 2
-            </ButtonBase>
+            </Button>
           </Tabs>
           <TabContent>
             <Box>
@@ -707,12 +885,12 @@ storiesOf("Сomponents", module)
         <Text variant={'h2'}>Tab variant 2</Text>
         <TabController>
           <Tabs TabsWrapper={ButtonGroup}>
-            <ButtonBase variant={"default"} size={"medium"}>
+            <Button variant={"default"} size={"medium"}>
               Tab 1
-            </ButtonBase>
-            <ButtonBase variant={"default"} size={"medium"}>
+            </Button>
+            <Button variant={"default"} size={"medium"}>
               Tab 2
-            </ButtonBase>
+            </Button>
           </Tabs>
           <TabContent>
             <Box>
@@ -750,83 +928,29 @@ storiesOf("Сomponents", module)
     </Box>
   ))
 
-  .add("Text", () => (
-    <Box>
-      <Text variant={'h1'}>
-        h1. Heading
-      </Text>
-      <Text variant={'h2'}>
-        h2. Heading
-      </Text>
-      <Text variant={'h3'}>
-        h3. Heading
-      </Text>
-      <Text variant={'h4'}>
-        h4. Heading
-      </Text>
-      <Text variant={'h5'}>
-        h5. Heading
-      </Text>
-      <Text variant={'h6'}>
-        h6. Heading
-      </Text>
-      <Text variant={'body1'}>
-        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores assumenda aut culpa deleniti
-        dolore dolores ducimus esse facere, illo impedit, in ipsa, ipsum laudantium odio saepe similique sint vitae!
-      </Text>
-      <Text variant={'body2'}>
-        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores assumenda aut culpa deleniti
-        dolore dolores ducimus esse facere, illo impedit, in ipsa, ipsum laudantium odio saepe similique sint vitae!
-      </Text>
-    </Box>
-  ))
-
-
-  .add("TooltipBase", () => (
-    <Box>
-      <h3>TooltipBase Component</h3>
-
-      <Box p={5}>
-        <TooltipBase position="top" isActive={true} warning={"Надпись тултипа"}>
-          TooltipBase
-        </TooltipBase>
-      </Box>
-
-      <Box p={5}>
-        <TooltipBase
-          position="bottom"
-          isActive={true}
-          warning={"Надпись тултипа"}
-        >
-          TooltipBase
-        </TooltipBase>
-      </Box>
-    </Box>
-  ))
-
-  .add("Badg", () => (
-    <Box position={"relative"} width={"50%"} p={5}>
-      <Box p={5}> 123</Box>
-      <Badg position={"topRight"}>1</Badg>
-    </Box>
-  ));
-
-storiesOf("Accordion", module)
-  .addDecorator(story => {
-    return (
-      <StyledThemeProvider theme={StyleTheme}>{story()}</StyledThemeProvider>
-    );
-  })
   .add("Accordion", () => (
     <Box p={5}>
       <Accordion
         panels={[
-          { title: "Add Edit Menus", subtitle: "Первый подраздел" },
-          { title: "Resource Management", subtitle: "Второй подраздел" },
-          { title: "Asset Management", subtitle: "Третий подраздел" },
-          { title: "User Management", subtitle: "Четвертый подраздел" },
-          { title: "Account Management", subtitle: "Пятый подраздел " }
+          {
+            title: "Add Edit Menus",
+            subtitle: "Первый подраздел"
+          },
+          {
+            title: "Resource Management",
+            subtitle: "Второй подраздел",
+          },
+          {
+            title: "Asset Management", subtitle: "Третий подраздел"
+          },
+          {
+            title: "User Management", subtitle: "Четвертый подраздел"
+          },
+          {
+            title: "Account Management", subtitle: "Пятый подраздел "
+          }
         ]}
       />
     </Box>
   ));
+

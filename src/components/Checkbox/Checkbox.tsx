@@ -1,10 +1,20 @@
 import * as React from "react";
 import styled from "styled-components";
-
-import {CheckboxBase} from "../CheckboxBase/CheckboxBase";
 import {Box} from "../Box/Box";
 import Label from "../Label/Label";
 
+export interface ICheckbox {
+  label?: string;
+  id?: string;
+  name?: string;
+  disabled?: boolean;
+  checked?: boolean;
+  defaultChecked?: boolean;
+
+  [propName: string]: any;
+}
+
+const CheckboxBase = styled(Box)<ICheckbox>``;
 
 const Wrapper = styled(Box)`
   position: relative;
@@ -28,6 +38,7 @@ const Wrapper = styled(Box)`
     width: 20px;
     height: 20px;
     background: #e2e2e2;
+    border-radius: 4px;
   }
 
   // Box hover
@@ -77,17 +88,6 @@ const Wrapper = styled(Box)`
   }
   
 `;
-
-export interface ICheckbox {
-  label?: string;
-  id?: string;
-  name?: string;
-  disabled?: boolean;
-  checked?: boolean;
-  defaultChecked?: boolean;
-
-  [propName: string]: any;
-}
 
 export const Checkbox = (props: ICheckbox) => {
   const {id, name, disabled, checked, label, onChange, ...rest} = props;

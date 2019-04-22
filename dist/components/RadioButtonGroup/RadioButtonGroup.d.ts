@@ -17,7 +17,8 @@ export interface IOptions {
 }
 export declare class RadioButtonGroup extends React.Component<IRadioButtonGroup> {
     static defaultProps: {
-        labelProp: "foo";
+        valueProp: "value";
+        labelProp: "label";
     };
     onChange: (value: any) => void;
     render(): JSX.Element;

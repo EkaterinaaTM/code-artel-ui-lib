@@ -6,7 +6,7 @@ import { Box } from "../Box/Box";
 
 const Input = styled(Box)``;
 
-export interface IRadioButtonBase {
+export interface IRadioButton {
   id?: string,
   checked?: boolean,
   className?: string,
@@ -18,7 +18,7 @@ export interface IRadioButtonBase {
   [propName: string]: any,
 }
 
-export const RadioButtonBase = (props: IRadioButtonBase) => {
+export const RadioButton = (props: IRadioButton) => {
   const {
     id,
     name,
@@ -44,4 +44,4 @@ export const RadioButtonBase = (props: IRadioButtonBase) => {
   );
 };
 
-export default RadioButtonBase;
+export default RadioButton;

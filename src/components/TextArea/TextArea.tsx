@@ -28,7 +28,7 @@ export const TextArea = styled(Box)<ITextArea>`
 `;
 
 TextArea.defaultProps = {
-  variant: 'default',
+  variant: 'primary',
   size: 'medium',
   as: 'textarea'
 };

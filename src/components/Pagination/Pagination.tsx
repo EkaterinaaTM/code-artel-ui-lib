@@ -2,7 +2,7 @@ import * as React from "react";
 import Text from "../Text/Text";
 import Flex from "../Flex/Flex";
 import Box from "../Box/Box";
-import ButtonBase from "../ButtonBase/ButtonBase";
+import Button from "../Button/Button";
 import SmallPreloader from "../SmallPreloader/SmallPreloader";
 
 export interface IPaginationPage {
@@ -27,7 +27,7 @@ export class PaginationPage extends React.Component<IPaginationPage> {
 
         {!loading && <Consumer data={data} />}
         <Flex justifyContent={"center"} mt={[4]}>
-          <ButtonBase
+          <Button
             fontSize={4}
             onClick={pagination.prevPage}
             disabled={pagination.disabledToPrevPage}
@@ -36,7 +36,7 @@ export class PaginationPage extends React.Component<IPaginationPage> {
             style={{ transform: "rotate(180deg)" }}
           >
             <img src={src} alt={alt} />
-          </ButtonBase>
+          </Button>
 
           <Text
             fontSize={6}
@@ -49,7 +49,7 @@ export class PaginationPage extends React.Component<IPaginationPage> {
             {pagination.pageNumber}
           </Text>
 
-          <ButtonBase
+          <Button
             fontSize={4}
             onClick={pagination.nextPage}
             disabled={pagination.disabledToNextPage}
@@ -57,7 +57,7 @@ export class PaginationPage extends React.Component<IPaginationPage> {
             variant={"large"}
           >
             <img src={src} alt={alt} />
-          </ButtonBase>
+          </Button>
         </Flex>
       </Box>
     );

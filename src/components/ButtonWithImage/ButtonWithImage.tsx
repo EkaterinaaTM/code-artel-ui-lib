@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import ButtonBase from "../ButtonBase/ButtonBase";
+import Button from "../Button/Button";
 import Image from "../Image/Image";
 import Flex from "../Flex/Flex";
 
@@ -18,7 +18,7 @@ export class ButtonWithImage extends React.Component<IButtonwithImage> {
   render() {
     const { src, alt, left, children, right, size, variant } = this.props;
     return (
-      <ButtonBase variant={variant} size={size}>
+      <Button variant={variant} size={size}>
         <Flex alignItems={"center"}>
           <Flex className={"button_icon"}>
             {left && (
@@ -34,7 +34,7 @@ export class ButtonWithImage extends React.Component<IButtonwithImage> {
             )}
           </Flex>
         </Flex>
-      </ButtonBase>
+      </Button>
     );
   }
 }

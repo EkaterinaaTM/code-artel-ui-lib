@@ -58,6 +58,18 @@ export const TextVariants = (theme: ITheme):any => {
       lineHeight: '22px',
       fontWeight: 500,
     },
+    error: {
+      ...baseStyle,
+      fontSize: '16px',
+      lineHeight: '24px',
+      color: theme.colors && theme.colors.red,
+    },
+    warning: {
+      ...baseStyle,
+      fontSize: '16px',
+      lineHeight: '24px',
+      color: theme.colors && theme.colors.orange,
+    },
   }
 };
 

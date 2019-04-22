@@ -1,6 +1,6 @@
-import { IVariantList, ITheme } from "../../interfaces";
+import {IVariantList, ITheme} from "../../interfaces";
 
-let baseStyle = {
+let baseStyle: any = {
   font: "inherit",
   display: "block",
   boxSizing: "content-box",
@@ -12,7 +12,7 @@ let baseStyle = {
 
 export const InputVariant = (theme: ITheme): IVariantList => {
 
-  baseStyle= {
+  baseStyle = {
     ...baseStyle,
     borderRadius: '4px',
     borderStyle: "solid",
@@ -24,7 +24,7 @@ export const InputVariant = (theme: ITheme): IVariantList => {
   };
 
   return {
-    default: {
+    primary: {
       ...baseStyle,
       color: theme.colors && theme.colors.dark,
       borderColor: theme.colors && theme.colors.gray,
@@ -52,7 +52,7 @@ export const InputVariant = (theme: ITheme): IVariantList => {
         color: theme.colors && theme.colors.gray
       }
     },
-    primary: {
+    secondary: {
       ...baseStyle,
       color: theme.colors && theme.colors.dark,
       borderColor: theme.colors && theme.colors.blue,
@@ -80,7 +80,7 @@ export const InputVariant = (theme: ITheme): IVariantList => {
         color: theme.colors && theme.colors.gray
       }
     },
-    secondary: {
+    warning: {
       ...baseStyle,
       color: theme.colors && theme.colors.orange,
       borderColor: theme.colors && theme.colors.orange,
