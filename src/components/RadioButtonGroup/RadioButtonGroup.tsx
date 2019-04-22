@@ -1,7 +1,7 @@
 import * as React from "react";
 
 /** View  */
-import {RadioButton as _RadioButton} from "../RadioButton/RadioButton";
+import { RadioButton as _RadioButton } from "../RadioButton/RadioButton";
 
 export interface IRadioButtonGroup {
   checked?: boolean;
@@ -22,12 +22,10 @@ export interface IOptions {
 }
 
 export class RadioButtonGroup extends React.Component<IRadioButtonGroup> {
-
   static defaultProps: {
-    valueProp: 'value',
-    labelProp: 'label',
+    valueProp: "value";
+    labelProp: "label";
   };
-
 
   onChange = (value: any) => {
     this.props.onChange(value);

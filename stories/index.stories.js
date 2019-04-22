@@ -1,6 +1,6 @@
 import React from "react";
-import {jsxDecorator} from "storybook-addon-jsx";
-import {addDecorator, storiesOf} from "@storybook/react";
+import { jsxDecorator } from "storybook-addon-jsx";
+import { addDecorator, storiesOf } from "@storybook/react";
 import StyledThemeProvider from "../src/styles/StyleThemeProvider";
 
 import {
@@ -26,9 +26,12 @@ import {
   TooltipBase
 } from "../src";
 
+import ButtonWithImage from "../src/components/ButtonWithImage/ButtonWithImage";
 import TabContent from "../src/components/TabBar/TabContent";
 import TabController from "../src/components/TabBar/TabController";
 import Tabs from "../src/components/TabBar/Tabs";
+import Badg from "../src/components/Badg/Badg";
+import Accordion from "../src/components/Accordion/Accordion";
 import {ButtonGroup} from "../src/components/ButtonGroup/ButtonGroup";
 
 addDecorator(jsxDecorator);
@@ -37,13 +40,11 @@ const StyleTheme = ThemeCreate();
 
 storiesOf("Сomponents", module)
   .addDecorator(story => {
-    // console.log(1, StyleTheme);
     return (
       <StyledThemeProvider theme={StyleTheme}>{story()}</StyledThemeProvider>
     );
   })
   .add("Box", props => {
-    console.log(1, StyleTheme);
     return (
       <Box>
         <h3> Box</h3>
@@ -203,9 +204,7 @@ storiesOf("Сomponents", module)
 
   .add("Input", () => (
     <Box>
-
-      <Flex
-        mb={5}>
+      <Flex mb={5}>
         <Box px={5} w={1 / 3}>
           <Input
             placeholder={"Default small"}
@@ -229,8 +228,7 @@ storiesOf("Сomponents", module)
         </Box>
       </Flex>
 
-      <Flex
-        mb={5}>
+      <Flex mb={5}>
         <Box px={5} w={1 / 3}>
           <Input
             placeholder={"Primary small"}
@@ -254,8 +252,7 @@ storiesOf("Сomponents", module)
         </Box>
       </Flex>
 
-      <Flex
-        mb={5}>
+      <Flex mb={5}>
         <Box px={5} w={1 / 3}>
           <Input
             placeholder={"Error small"}
@@ -279,8 +276,7 @@ storiesOf("Сomponents", module)
         </Box>
       </Flex>
 
-      <Flex
-        mb={5}>
+      <Flex mb={5}>
         <Box px={5} w={1 / 3}>
           <Input
             placeholder={"Secondary small"}
@@ -304,9 +300,7 @@ storiesOf("Сomponents", module)
         </Box>
       </Flex>
 
-      <Flex
-        mb={5}
-      >
+      <Flex mb={5}>
         <Box px={5} w={1 / 3}>
           <Text variant={'body1'} mb={2}>Label</Text>
           <Input
@@ -315,7 +309,6 @@ storiesOf("Сomponents", module)
             size={"medium"}
           />
         </Box>
-
       </Flex>
 
       <Flex
@@ -395,6 +388,8 @@ storiesOf("Сomponents", module)
   ))
   .add("Button", () => (
     <Box>
+      <Box as={"h3"}>Button</Box>
+      <ButtonBase>Button</ButtonBase>
 
       <Box as={'h3'}>
         Button
@@ -806,5 +801,32 @@ storiesOf("Сomponents", module)
           TooltipBase
         </TooltipBase>
       </Box>
+    </Box>
+  ))
+
+  .add("Badg", () => (
+    <Box position={"relative"} width={"50%"} p={5}>
+      <Box p={5}> 123</Box>
+      <Badg position={"topRight"}>1</Badg>
+    </Box>
+  ));
+
+storiesOf("Accordion", module)
+  .addDecorator(story => {
+    return (
+      <StyledThemeProvider theme={StyleTheme}>{story()}</StyledThemeProvider>
+    );
+  })
+  .add("Accordion", () => (
+    <Box p={5}>
+      <Accordion
+        panels={[
+          { title: "Add Edit Menus", subtitle: "Первый подраздел" },
+          { title: "Resource Management", subtitle: "Второй подраздел" },
+          { title: "Asset Management", subtitle: "Третий подраздел" },
+          { title: "User Management", subtitle: "Четвертый подраздел" },
+          { title: "Account Management", subtitle: "Пятый подраздел " }
+        ]}
+      />
     </Box>
   ));

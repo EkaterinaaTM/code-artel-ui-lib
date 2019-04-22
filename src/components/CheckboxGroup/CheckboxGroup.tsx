@@ -1,7 +1,7 @@
 import * as React from "react";
 
 /** View  */
-import {Checkbox as _Checkbox} from "../Checkbox/Checkbox";
+import { Checkbox as _Checkbox } from "../Checkbox/Checkbox";
 
 export interface ICheckboxGroup {
   labelProp: string;
@@ -21,8 +21,8 @@ export interface IOptions {
 
 export class CheckboxGroup extends React.Component<ICheckboxGroup> {
   static defaultProps: {
-    valueProp: 'value',
-    labelProp: 'label',
+    valueProp: "value";
+    labelProp: "label";
   };
 
   onChange = (value: any) => {

@@ -7,12 +7,12 @@ import {
   border,
   borderRadius,
   borderColor,
-  borders,
   overflow,
   display,
   maxWidth,
   minWidth,
   height,
+  position,
   textAlign,
   lineHeight,
   minHeight,
@@ -54,10 +54,10 @@ export const Box = styled.div<IBox>`
   ${overflow};
   ${borderRadius};
   ${borderColor};
-  ${borders};
   ${border};
   ${fontSize};
   ${color};
+  ${position};
   ${maxWidth};
   ${minWidth};
   ${height};

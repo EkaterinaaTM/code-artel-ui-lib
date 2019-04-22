@@ -1,5 +1,3 @@
-
-
 export interface IVariantSize {
   small: any,
   medium: any,
@@ -24,11 +22,6 @@ export interface IVariantList {
 }
 
 export interface IVariant {
-  // buttonVariant: IVariantList,
-  // buttonSize: IVariantSize,
-  // inputVariant: IVariantList,
-  // inputSize: IVariantSize,
-
   [propName: string]: any,
 }
 

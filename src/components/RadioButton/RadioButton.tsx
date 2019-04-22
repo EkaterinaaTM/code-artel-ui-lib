@@ -2,7 +2,7 @@ import * as React from "react";
 import RadioButtonBase from "../RadioButtonBase/RadioButtonBase";
 import Label from "../Label/Label";
 import styled from "styled-components";
-import {Box} from "../Box/Box";
+import { Box } from "../Box/Box";
 
 export interface IRadioButton {
   checked?: boolean;
@@ -15,13 +15,12 @@ export interface IRadioButton {
   [propName: string]: any;
 }
 
-
 const Wrapper = styled(Box)`
   position: relative;
-  
-  input[type=radio] {
+
+  input[type="radio"] {
     position: absolute;
-    opacity: 0; 
+    opacity: 0;
   }
   .RadioButtonBase + label {
     position: relative;
@@ -31,7 +30,7 @@ const Wrapper = styled(Box)`
 
   // Box.
   .RadioButtonBase + label:before {
-    content: '';
+    content: "";
     margin-right: 10px;
     border-radius: 50%;
     display: inline-block;
@@ -45,7 +44,7 @@ const Wrapper = styled(Box)`
   .RadioButtonBase:hover + label:before {
     background-color: #f35429;
   }
-  
+
   // Box focus
   .RadioButtonBase:focus + label:before {
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
@@ -55,7 +54,7 @@ const Wrapper = styled(Box)`
   .RadioButtonBase:checked + label:before {
     background-color: #f35429;
   }
-  
+
   // Disabled state label.
   .RadioButtonBase:disabled + label {
     color: #b8b8b8;
@@ -70,7 +69,7 @@ const Wrapper = styled(Box)`
 
   // Checkmark. Could be replaced with an image
   .RadioButtonBase:checked + label:after {
-    content: '';
+    content: "";
     position: absolute;
     left: 6px;
     top: 6px;
@@ -79,25 +78,16 @@ const Wrapper = styled(Box)`
     height: 8px;
     border-radius: 50%;
   }
-  
 `;
 
 export const RadioButton = (props: IRadioButton) => {
-  const {
-    label,
-    onChange,
-    checked,
-    name,
-    id,
-    value,
-    ...rest
-  } = props;
+  const { label, onChange, checked, name, id, value, ...rest } = props;
   const htmlID = `${name}-radio-${id}`;
 
   return (
     <Wrapper>
       <RadioButtonBase
-        className={'RadioButtonBase'}
+        className={"RadioButtonBase"}
         id={htmlID}
         checked={checked}
         name={name}

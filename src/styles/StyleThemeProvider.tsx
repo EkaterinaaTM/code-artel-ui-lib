@@ -1,15 +1,15 @@
 import * as React from "react";
-import {ThemeProvider} from "styled-components";
+import { ThemeProvider } from "styled-components";
 
-import {IColors, ITheme} from "./interfaces";
+import { IColors, ITheme } from "./interfaces";
 
 /** Variants */
-import {ButtonSize} from "./variants/buttons/ButtonSize";
-import {InputVariant} from "./variants/inputs/InputVariant";
-import {ButtonVariant} from "./variants/buttons/ButtonVariant";
-import {InputSize} from "./variants/inputs/InputSize";
-import {CardVariants} from "./variants/cards/CardVariants";
-import {TextVariants} from "./variants/text/TextVariants";
+import { ButtonSize } from "./variants/buttons/ButtonSize";
+import { InputVariant } from "./variants/inputs/InputVariant";
+import { ButtonVariant } from "./variants/buttons/ButtonVariant";
+import { InputSize } from "./variants/inputs/InputSize";
+import { CardVariants } from "./variants/cards/CardVariants";
+import { TextVariants } from "./variants/text/TextVariants";
 
 export const Colors: IColors = {
   white: "#ffffff",
@@ -47,7 +47,7 @@ export const BoxShadow: string[] = [
   "rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 3px 1px -2px",
   "rgba(0, 0, 0, 0.2) 0px 1px 8px 0px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 3px 3px -2px",
   "0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12)",
-  '0 0 0 2px rgba(0, 132, 255, .5)'
+  "0 0 0 2px rgba(0, 132, 255, .5)"
 ];
 
 export const Border: string[] = [
@@ -59,16 +59,16 @@ export const Border: string[] = [
 const defaultThemeProps = {
   space: Space,
   boxShadow: BoxShadow,
-  colors: Colors
-  // border: Border
+  colors: Colors,
+  border: Border
 };
 
 const transition: string[] = [
-  'background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms'
+  "background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms"
 ];
 
 export const ThemeCreate = (props: ITheme = defaultThemeProps): ITheme => {
-  const {space, boxShadow, colors} = props;
+  const { space, boxShadow, colors } = props;
 
   const Theme: ITheme = {
     space: space || Space,
@@ -84,7 +84,7 @@ export const ThemeCreate = (props: ITheme = defaultThemeProps): ITheme => {
       inputSize: {},
       cardVariants: {},
       imageVariant: {},
-      textVariants: {},
+      textVariants: {}
     }
   };
   if (Theme.variant) {
@@ -99,7 +99,7 @@ export const ThemeCreate = (props: ITheme = defaultThemeProps): ITheme => {
   return Theme;
 };
 
-export const StyledThemeProvider: any = ({children, theme}: any) => (
+export const StyledThemeProvider: any = ({ children, theme }: any) => (
   <ThemeProvider theme={theme}>{children}</ThemeProvider>
 );
 
