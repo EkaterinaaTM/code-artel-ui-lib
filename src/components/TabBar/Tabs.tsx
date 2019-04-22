@@ -5,7 +5,6 @@ const TabsStyled = styled.div`
   border: 0;
   width: 100%;
   display: flex;
-
   flex-wrap: wrap;
 
   @media (min-width: 576px) {
@@ -24,7 +23,6 @@ const TabsStyled = styled.div`
 
 export interface ITabs {
   toggleTab(index: number): boolean;
-
   activeTab?: number;
   children?: any;
   TabsWrapper: any;
@@ -35,16 +33,16 @@ export class Tabs extends React.Component<ITabs> {
     TabsWrapper: TabsStyled,
     toggleTab: (index: number) => index > -1
   };
-
   /**
    * @returns
    * @memberof Tabs
    */
   render() {
-    const {children, activeTab, toggleTab, TabsWrapper} = this.props;
+    const { children, activeTab, toggleTab, TabsWrapper } = this.props;
     if (!children) {
       return null;
     }
+
     const childrenWithProps = React.Children.map(children, (child, index) =>
       React.cloneElement(child, {
         onClick: event => {
@@ -52,7 +50,7 @@ export class Tabs extends React.Component<ITabs> {
           toggleTab(index);
         },
         active: activeTab !== index,
-        className: activeTab === index ? 'active' : '',
+        className: activeTab === index ? "active" : ""
       })
     );
 

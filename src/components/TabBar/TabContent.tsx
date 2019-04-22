@@ -11,9 +11,9 @@ export interface ITabContent {
   children?: any;
   ClickContentCloseTab?: any;
 }
+
 export class TabContent extends React.Component<ITabContent> {
   static defaultProps = {};
-
   /**
    * @returns
    * @memberof Tabs

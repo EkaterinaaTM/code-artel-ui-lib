@@ -15,7 +15,7 @@ const Backdrop: any = styled.div`
       : "display:none;"}
 `;
 
-export interface ITabController {
+export interface IAccordionController {
   defaultActiveTab?: any;
   activeTab?: any;
   hideWhenReClicking?: any;
@@ -27,15 +27,14 @@ export interface ITabController {
 
 /**
  * The component tab controller
- * @example ./TabController.example.md
+ * @example ./AccordionController.example.md
  */
 
-class TabController extends React.Component<ITabController> {
+class AccordionController extends React.Component<IAccordionController> {
   static defaultProps = {
-    defaultActiveTab: 0,
+    defaultActiveTab: false,
     hideWhenReClicking: false,
-    backdrop: false,
-    ClickContentCloseTab: false
+    backdrop: false
   };
 
   state = this.initialState;
@@ -52,42 +51,29 @@ class TabController extends React.Component<ITabController> {
    */
   toggleTab = (index: any) => {
     this.setState((prevState: any) => {
-      if (prevState.activeTab !== index) {
-        return {
-          activeTab: index
-        };
-      } else if (
-        this.props.hideWhenReClicking &&
-        prevState.activeTab === index
-      ) {
-        /**
-         * @desc need for correct work
-         */
-        return {
-          activeTab: null
-        };
+      if (index % 2 === 0 || index === 0) {
+        return (prevState.activeTab = !this.state.activeTab);
       }
-      /**
-       * @desc need for correct work
-       */
-      return prevState.activeTab;
     });
   };
 
   render() {
-    const { children, backdrop, ClickContentCloseTab } = this.props;
+    const { children, backdrop } = this.props;
     const { activeTab } = this.state;
 
     if (!children) {
       return null;
     }
 
-    const childrenWithProps = React.Children.map(children, (child: any) =>
-      React.cloneElement(child, {
-        activeTab,
-        toggleTab: this.toggleTab,
-        ClickContentCloseTab
-      })
+    const childrenWithProps = React.Children.map(
+      children,
+      (child: any, index: any) => {
+        return React.cloneElement(child, {
+          activeTab,
+          toggleTab: () => this.toggleTab(index),
+          index
+        });
+      }
     );
 
     return (
@@ -103,4 +89,4 @@ class TabController extends React.Component<ITabController> {
   }
 }
 
-export default TabController;
+export default AccordionController;
