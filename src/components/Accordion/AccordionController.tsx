@@ -1,90 +1,78 @@
 import * as React from "react";
-import styled from "styled-components";
 
-const Backdrop: any = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 1;
-  background-color: transparent;
-  ${(props: any) =>
-    props.backdrop && props.isActive !== null
-      ? "display:block;"
-      : "display:none;"}
-`;
 
-export interface IAccordionController {
-  defaultActiveTab?: any;
-  activeTab?: any;
-  hideWhenReClicking?: any;
-  backdrop?: any;
-  isActive?: any;
-  ClickContentCloseTab?: any;
+export interface IAccordionControllerProps {
+  isActive: boolean,
+  index: number,
+
+  toggleAccordion(index: number): any,
+
   [propName: string]: any;
 }
+
+export interface IAccordionControllerState {
+  isActive: boolean,
+
+  [propName: string]: any;
+}
+
 
 /**
  * The component tab controller
  * @example ./AccordionController.example.md
  */
 
-class AccordionController extends React.Component<IAccordionController> {
+class AccordionController extends React.Component<IAccordionControllerProps, IAccordionControllerState> {
+
   static defaultProps = {
-    defaultActiveTab: false,
-    hideWhenReClicking: false,
-    backdrop: false
+    isActive: false,
+    toggleAccordion: null,
   };
 
-  state = this.initialState;
+  state: IAccordionControllerState = this.initialState;
 
   get initialState() {
     return {
-      activeTab: this.props.defaultActiveTab
+      isActive: this.props.isActive
     };
   }
+
   /**
    * @desc change tab by index
-   * @param {number} index
    * @memberof Controller
    */
-  toggleTab = (index: any) => {
-    this.setState((prevState: any) => {
-      if (index % 2 === 0 || index === 0) {
-        return (prevState.activeTab = !this.state.activeTab);
+  toggleAccordion = (index: number): void => {
+    const {toggleAccordion} = this.props;
+
+    if (toggleAccordion) {
+      toggleAccordion(index);
+    }
+    this.setState((prevState: IAccordionControllerState): IAccordionControllerState => {
+      return {
+        ...prevState,
+        isActive: !prevState.isActive
       }
     });
   };
 
   render() {
-    const { children, backdrop } = this.props;
-    const { activeTab } = this.state;
-
+    const {children, isActiveAccordion} = this.props;
+    const {isActive} = this.state;
+    console.log(this);
     if (!children) {
       return null;
     }
 
-    const childrenWithProps = React.Children.map(
+    return React.Children.map(
       children,
       (child: any, index: any) => {
         return React.cloneElement(child, {
-          activeTab,
-          toggleTab: () => this.toggleTab(index),
+          isActive: isActiveAccordion !== undefined ? isActiveAccordion : isActive,
+          key: index,
+          toggleAccordion: () => this.toggleAccordion(index),
           index
         });
       }
-    );
-
-    return (
-      <>
-        <Backdrop
-          backdrop={backdrop}
-          isActive={activeTab}
-          onClick={() => this.toggleTab(null)}
-        />
-        {childrenWithProps}
-      </>
     );
   }
 }

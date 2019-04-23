@@ -20,7 +20,7 @@ import Container from "./components/Container/Container";
 import Image from "./components/Image/Image";
 import Link from "./components/Link/Link";
 import Badge from "./components/Badge/Badge";
-import Accordion from "./components/Accordion/Accordion";
+import AccordionToggle from "./components/Accordion/AccordionToggle";
 // import PaginationPage from "./components/Pagination/Pagination";
 // import PaginationHOC from "./components/Pagination/PaginationHOC";
 
@@ -49,7 +49,7 @@ import {
 } from "./styles/interfaces";
 
 export {
-  Accordion,
+  AccordionToggle,
   Flex,
   Box,
   Input,

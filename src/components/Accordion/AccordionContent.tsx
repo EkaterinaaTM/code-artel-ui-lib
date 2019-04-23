@@ -5,28 +5,24 @@ import * as React from "react";
  * @example ./AccordionContent.example.md
  */
 
-export interface IAccordionContent {
-  toggleTab?: any;
-  activeTab?: any;
+export interface IAccordionContentProps {
+  toggleAccordion(): void;
+  isActive: boolean;
   children?: any;
-  ClickContentCloseTab?: any;
 }
 
-export class AccordionContent extends React.Component<IAccordionContent> {
+export class AccordionContent extends React.Component<IAccordionContentProps> {
   static defaultProps = {};
-  /**
-   * @returns
-   * @memberof Tabs
-   */
+
   render() {
-    const { children, activeTab } = this.props;
+    const { children, isActive } = this.props;
 
     if (!children) {
       return null;
     }
 
-    if (activeTab) {
-      return <div>{children}</div>;
+    if (isActive) {
+      return children;
     }
     return null;
   }

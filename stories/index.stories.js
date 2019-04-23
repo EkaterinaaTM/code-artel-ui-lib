@@ -1,8 +1,8 @@
 import React from "react";
-import { jsxDecorator } from "storybook-addon-jsx";
-import { withKnobs, select } from "@storybook/addon-knobs";
+import {jsxDecorator} from "storybook-addon-jsx";
+import {withKnobs, select} from "@storybook/addon-knobs";
 
-import { addDecorator, storiesOf } from "@storybook/react";
+import {addDecorator, storiesOf} from "@storybook/react";
 import StyledThemeProvider from "../src/styles/StyleThemeProvider";
 
 import {
@@ -25,15 +25,9 @@ import {
   TextArea,
   TooltipBase,
   Badge,
-  TabContent,
-  TabController,
-  Tabs,
   ButtonGroup
 } from "../src";
 
-import Accordion from "../src/components/Accordion/Accordion";
-import AccordionContent from "../src/components/Accordion/AccordionContent";
-import AccordionController from "../src/components/Accordion/AccordionController";
 
 addDecorator(jsxDecorator);
 addDecorator(withKnobs);
@@ -208,7 +202,7 @@ storiesOf("Components", module)
           boxShadow={4}
           borderRadius={5}
         >
-          <Image width={1} src="https://source.unsplash.com/random/1280x720" />
+          <Image width={1} src="https://source.unsplash.com/random/1280x720"/>
           <Box fontSize={5} fontWeight="bold" p={5}>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
             beatae eius ipsa nihil omnis pariatur perspiciatis quibusdam rem
@@ -437,7 +431,7 @@ storiesOf("Components", module)
       <Flex mb={5} flexWrap={"wrap"}>
         <Box mx={5}>
           <Button variant={"primary"} size={"medium"}>
-            <Badge position={"topEnd"} variant={"dot"} />
+            <Badge position={"topEnd"} variant={"dot"}/>
             Button
           </Button>
         </Box>
@@ -497,7 +491,7 @@ storiesOf("Components", module)
 
       <Flex mb={5}>
         <Box px={5} w={1 / 3}>
-          <Input placeholder={"Error small"} variant={"error"} size={"small"} />
+          <Input placeholder={"Error small"} variant={"error"} size={"small"}/>
         </Box>
         <Box px={5} w={1 / 3}>
           <Input
@@ -507,7 +501,7 @@ storiesOf("Components", module)
           />
         </Box>
         <Box px={5} w={1 / 3}>
-          <Input placeholder={"Error large"} variant={"error"} size={"large"} />
+          <Input placeholder={"Error large"} variant={"error"} size={"large"}/>
         </Box>
       </Flex>
 
@@ -554,7 +548,7 @@ storiesOf("Components", module)
             <Text width={1 / 4} variant={"body1"} mr={3}>
               Email
             </Text>
-            <Input placeholder={"Email"} variant={"primary"} size={"medium"} />
+            <Input placeholder={"Email"} variant={"primary"} size={"medium"}/>
           </Flex>
 
           <Flex alignItems={"center"}>
@@ -647,7 +641,7 @@ storiesOf("Components", module)
           Tooltip
         </Text>
         <Box mb={7}>
-          <TooltipBase variant={value} />
+          <TooltipBase variant={value}/>
           <Button
             data-tip="hover on me will keep the tooltip"
             data-for="ReactTooltipGlobal"
@@ -666,7 +660,7 @@ storiesOf("Components", module)
       <Text as={"h3"} variant={"h5"}>
         Checkbox
       </Text>
-      <Checkbox label={"checkbox"} />
+      <Checkbox label={"checkbox"}/>
       <Text as={"h3"} variant={"h5"}>
         Checkbox group
       </Text>
@@ -693,7 +687,7 @@ storiesOf("Components", module)
         RadioButton
       </Text>
 
-      <RadioButton label={"Check me!"} />
+      <RadioButton label={"Check me!"}/>
 
       <Text as={"h3"} variant={"h5"}>
         RadioButtonGroup
@@ -746,126 +740,10 @@ storiesOf("Components", module)
   .add("SmallPreloader", () => (
     <Box>
       <h3>SmallPreloader</h3>
-      <SmallPreloader />
+      <SmallPreloader/>
     </Box>
   ))
 
-  .add("Tab", () => (
-    <Box width={"500px"}>
-      <Box mb={5}>
-        <Text variant={"h2"}>Tab</Text>
-        <TabController>
-          <Tabs>
-            <Button variant={"default"} size={"medium"}>
-              Tab 1
-            </Button>
-            <Button variant={"default"} size={"medium"}>
-              Tab 2
-            </Button>
-          </Tabs>
-          <TabContent>
-            <Box>
-              <Text>Content 1</Text>
-              <Text>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Deserunt maxime molestiae possimus ratione recusandae? Ab alias
-                commodi dolores, ea eligendi esse, ex, facilis laudantium
-                molestias natus praesentium tenetur voluptate voluptates!
-              </Text>
-            </Box>
-            <Box>
-              <Text>Content 2</Text>
-              <Text mb={5}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Deserunt maxime molestiae possimus ratione recusandae? Ab alias
-                commodi dolores, ea eligendi esse, ex, facilis laudantium
-                molestias natus praesentium tenetur voluptate voluptates!
-              </Text>
-              <Text mb={5}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Deserunt maxime molestiae possimus ratione recusandae? Ab alias
-                commodi dolores, ea eligendi esse, ex, facilis laudantium
-                molestias natus praesentium tenetur voluptate voluptates!
-              </Text>
-            </Box>
-          </TabContent>
-        </TabController>
-      </Box>
 
-      <Box>
-        <TabController>
-          <Tabs TabsWrapper={ButtonGroup}>
-            <Button variant={"default"} size={"medium"}>
-              Tab 1
-            </Button>
 
-            <Button variant={"default"} size={"medium"}>
-              Tab 2
-            </Button>
-          </Tabs>
-          <TabContent>
-            <Box>
-              <Text>Content 1</Text>
-              <Text>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Deserunt maxime molestiae possimus ratione recusandae? Ab alias
-                commodi dolores, ea eligendi esse, ex, facilis laudantium
-                molestias natus praesentium tenetur voluptate voluptates!
-              </Text>
-            </Box>
 
-            <Box>
-              <Text>Content 2</Text>
-              <Text mb={5}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Deserunt maxime molestiae possimus ratione recusandae? Ab alias
-                commodi dolores, ea eligendi esse, ex, facilis laudantium
-                molestias natus praesentium tenetur voluptate voluptates!
-              </Text>
-              <Text mb={5}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Deserunt maxime molestiae possimus ratione recusandae? Ab alias
-                commodi dolores, ea eligendi esse, ex, facilis laudantium
-                molestias natus praesentium tenetur voluptate voluptates!
-              </Text>
-            </Box>
-          </TabContent>
-        </TabController>
-      </Box>
-    </Box>
-  ))
-
-  .add("Accordion", () => (
-    <Box p={5}>
-      <Box p={5}>
-        <AccordionController>
-          <Accordion AccordionWrapper={ButtonGroup}>
-            <Button variant={"default"} size={"small"}>
-              Accordion first
-            </Button>
-          </Accordion>
-
-          <AccordionContent>
-            <Box>
-              <Text>Content first</Text>
-            </Box>
-          </AccordionContent>
-        </AccordionController>
-      </Box>
-      <Box p={5}>
-        <AccordionController>
-          <Accordion AccordionWrapper={ButtonGroup}>
-            <Button variant={"default"} size={"medium"}>
-              Accordion second
-            </Button>
-          </Accordion>
-
-          <AccordionContent>
-            <Box>
-              <Text>Content second</Text>
-            </Box>
-          </AccordionContent>
-        </AccordionController>
-      </Box>
-    </Box>
-  ));

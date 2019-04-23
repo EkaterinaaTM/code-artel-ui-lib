@@ -2,7 +2,7 @@ import {IVariantList, ITheme} from "../../interfaces";
 import * as Color from 'color';
 
 let baseStyle: any = {
-  display: "inline-block",
+  display: "block",
   border: "none",
   background: "none",
   font: "inherit",
