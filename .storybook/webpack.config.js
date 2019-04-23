@@ -5,7 +5,6 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = ({config}) => {
 
-  // tsxLoader.use[0].options.configFileName = path.resolve(__dirname, "../tsconfig.sb.json");
   config.module.rules.push(tsxLoader);
 
   config.module.rules.push(graphqlLoader);
