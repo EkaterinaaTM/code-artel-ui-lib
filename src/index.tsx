@@ -21,8 +21,9 @@ import Image from "./components/Image/Image";
 import Link from "./components/Link/Link";
 import Badge from "./components/Badge/Badge";
 import AccordionToggle from "./components/Accordion/AccordionToggle";
-// import PaginationPage from "./components/Pagination/Pagination";
-// import PaginationHOC from "./components/Pagination/PaginationHOC";
+import AccordionContent from "./components/Accordion/AccordionContent";
+import AccordionController from "./components/Accordion/AccordionController";
+import AccordionGroupController from "./components/Accordion/AccordionGroupController";
 
 /** Style */
 import StyledThemeProvider, {
@@ -50,6 +51,9 @@ import {
 
 export {
   AccordionToggle,
+  AccordionContent,
+  AccordionController,
+  AccordionGroupController,
   Flex,
   Box,
   Input,
@@ -72,8 +76,7 @@ export {
   Container,
   Image,
   Link,
-  // PaginationPage,
-  // PaginationHOC,
+
 
   /** STYLE */
 
