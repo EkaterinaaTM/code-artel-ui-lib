@@ -2,7 +2,8 @@
 
 >
 
-[![NPM](https://img.shields.io/npm/v/code-artel-ui-lib.svg)](https://www.npmjs.com/package/code-artel-ui-lib) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/code-artel-ui-lib.svg)](https://www.npmjs.com/package/code-artel-ui-lib)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
@@ -26,11 +27,23 @@ class Example extends React.Component {
 
 ## Команды
 
-- build - сборка билда библиотеки
-- prepare
-- predeploy
-- deploy
-- storybook - запуск сторибук для разработки
-- build-storybook - собрать статику сторибука
+* build - сборка билда библиотеки
+* prepare
+* predeploy
+* deploy
+* storybook - запуск сторибук для разработки
+* build-storybook - собрать статику сторибука
+* test:snapshot - запуск тестирования 
+* test:snapshot:update - обновить снепшоты изображения компонентов
 
-  https://github.com/storybooks/storybook/issues/3968
+## Тестирование
+
+В проекте подключено автоматезированное тестирование скриншотами всех компонентов историй,
+для запуска теста запустите команду `yarn test:snapshot` для обновления скриншотов `yarn test:snapshot:update`.
+
+Если кодовая база была изменена необходимо пересобрать билд истории командой `yarn build-storybook` т.к. для тестирования используется не сами компоненты, 
+а статический билд storybook.
+
+Скриншоты хранятся в дирректории `src/__image_snapshots__`.
+
+Файл теста лежит в дирректории `src/imageSnapshots.test.js`.
