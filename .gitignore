@@ -24,4 +24,5 @@ yarn-error.log*
 *.exe
 .awcache
 .idea
-storybook-static
+
+.cache/
