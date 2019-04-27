@@ -31,22 +31,22 @@ import StyledThemeProvider, {
   Space,
   BoxShadow,
   Border,
-  ThemeCreate,
+  ThemeCreate
 } from "./styles/StyleThemeProvider";
 import GlobalStyle from "./styles/GlobalStyle";
 
-import {ButtonSize} from "./styles/variants/buttons/ButtonSize";
-import {ButtonVariant} from "./styles/variants/buttons/ButtonVariant";
+import { ButtonSize } from "./styles/variants/buttons/ButtonSize";
+import { ButtonVariant } from "./styles/variants/buttons/ButtonVariant";
 
-import {InputVariant} from "./styles/variants/inputs/InputVariant";
-import {InputSize} from "./styles/variants/inputs/InputSize";
+import { InputVariant } from "./styles/variants/inputs/InputVariant";
+import { InputSize } from "./styles/variants/inputs/InputSize";
 import {
   IVariantSize,
   IVariantItem,
   IVariantList,
   IVariant,
   IColors,
-  ITheme,
+  ITheme
 } from "./styles/interfaces";
 
 export {
@@ -76,8 +76,6 @@ export {
   Container,
   Image,
   Link,
-
-
   /** STYLE */
 
   StyledThemeProvider,
@@ -96,5 +94,5 @@ export {
   IVariantList,
   IVariant,
   IColors,
-  ITheme,
+  ITheme
 };
