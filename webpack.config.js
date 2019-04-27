@@ -22,7 +22,7 @@ module.exports = {
     filename: "index.js",
     publicPath: "/",
 
-    library: pkg.name,
+    // library: pkg.name,
     libraryTarget: "commonjs"
   },
   externals: [nodeExternals()],
