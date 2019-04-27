@@ -1,4 +1,4 @@
-import {IVariantList, ITheme} from "../../interfaces";
+import { IVariantList, ITheme } from "../../interfaces";
 
 let baseStyle: any = {
   font: "inherit",
@@ -11,16 +11,14 @@ let baseStyle: any = {
 };
 
 export const InputVariant = (theme: ITheme): IVariantList => {
-
   baseStyle = {
     ...baseStyle,
-    borderRadius: '4px',
+    borderRadius: "4px",
     borderStyle: "solid",
     borderWidth: "1px",
     outline: "none",
     fontWeight: 400,
-    transition: theme.transition && theme.transition[0],
-
+    transition: theme.transition && theme.transition[0]
   };
 
   return {
@@ -138,3 +136,5 @@ export const InputVariant = (theme: ITheme): IVariantList => {
     }
   };
 };
+
+export default InputVariant;
