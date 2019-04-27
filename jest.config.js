@@ -1,20 +1,17 @@
-
-process.env.NODE_ENV = 'test';
+process.env.NODE_ENV = "test";
 
 module.exports = {
-  preset: 'ts-jest',
+  preset: "ts-jest",
   // testEnvironment: 'node',
-  cacheDirectory: '.cache/jest',
+  cacheDirectory: ".cache/jest",
   clearMocks: true,
   moduleNameMapper: {
-    '\\.(css|scss)$': '<rootDir>/styleMock.js',
+    "\\.(css|scss)$": "<rootDir>/styleMock.js"
   },
-  roots: [
-    '<rootDir>/src',
-  ],
+  roots: ["<rootDir>/src"],
   transform: {
-    '^.+\\.jsx?$': 'babel-jest',
+    "^.+\\.jsx?$": "babel-jest"
   },
-  testEnvironment: 'jsdom',
-  moduleFileExtensions: ['js', 'tsx', 'jsx', 'json'],
+  testEnvironment: "jsdom",
+  moduleFileExtensions: ["js", "tsx", "jsx", "json"]
 };
